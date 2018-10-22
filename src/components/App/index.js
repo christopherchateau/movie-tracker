@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import Header from '../Header'
+import LoginControls from '../LoginControls'
 import './App.css';
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <LoginControls />
       </div>
     );
   }
