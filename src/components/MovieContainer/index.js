@@ -1,5 +1,6 @@
 import React from "react";
 import Movie from "../Movie";
+import PropTypes from "prop-types";
 import "./MovieContainer.css";
 
 const MovieContainer = () => {
