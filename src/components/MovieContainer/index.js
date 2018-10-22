@@ -1,16 +1,24 @@
-import React from 'react';
-import Movie from '../Movie'
+import React from "react";
+import Movie from "../Movie";
 import "./MovieContainer.css";
 
 const MovieContainer = () => {
   return (
-    <div>Movie Container
+    <div className="Movie-Container">
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
       <Movie />
       <Movie />
       <Movie />
       <Movie />
     </div>
-  )
-}
+  );
+};
 
-export default MovieContainer
+export default MovieContainer;

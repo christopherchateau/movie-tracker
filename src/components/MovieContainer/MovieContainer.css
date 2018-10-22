@@ -1,0 +1,11 @@
+.Movie-Container {
+    background-color: darkgray;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    overflow: scroll;
+    padding: 10px;
+    width: 90%;
+}
