@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import LoginControls from "../LoginControls";
+import NavBar from "../NavBar"
 import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
 import { fetchData } from "../../utilities/fetch";
@@ -16,9 +17,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <LoginControls />
-        <MovieContainer />
+        <Route exact path='/' render{ () => 
+          <Header />
+          <NavBar />
+          <MovieContainer />
+        } />
+        <Route exact path='/login' render{ () => 
+          <Header />
+          <LoginControls />
+          <MovieContainer />
+        } />
       </div>
     );
   }
