@@ -1,5 +1,4 @@
-export const loadMovies = (text, id) => ({
+export const loadMovies = (movies) => ({
   type: 'LOAD_MOVIES',
-  text,
-  id
+  movies
 })

@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { Route } from "react-router-dom";
-import Header from '../Header'
-import LoginControls from '../LoginControls'
-import MovieContainer from '../MovieContainer'
-import { fetchData } from '../../utilities/fetch'
-import './App.css';
+import React, { Component } from "react";
+import Header from "../Header";
+import LoginControls from "../LoginControls";
+import MovieContainer from "../MovieContainer";
+import { loadMovies } from "../../actions";
+import { fetchData } from "../../utilities/fetch";
+import { connect } from "react-redux";
+import "./App.css";
 
 class App extends Component {
-
   componentDidMount = async () => {
     const data = await fetchData();
-    console.log(data)
-  }
+    this.props.handleFetch(data);
+  };
 
   render() {
     return (
@@ -24,4 +24,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  handleFetch: movies => dispatch(loadMovies(movies))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

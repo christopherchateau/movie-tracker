@@ -2,24 +2,23 @@ import React from "react";
 import Movie from "../Movie";
 import PropTypes from "prop-types";
 import "./MovieContainer.css";
+import { connect } from 'react-redux'
 
 const MovieContainer = () => {
+
   return (
     <div className="Movie-Container">
       <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
+
     </div>
   );
 };
 
-export default MovieContainer;
+const mapStateToProps = (state) => {
+  console.log(state.movies)
+  return {movies: state.movies}
+}
+
+
+export default connect(mapStateToProps)(MovieContainer)
+
