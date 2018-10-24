@@ -6,6 +6,7 @@ import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
 import { fetchData } from "../../utilities/fetch";
 import { connect } from "react-redux";
+import { Route, Switch } from 'react-router-dom';
 import "./App.css";
 
 class App extends Component {
@@ -17,16 +18,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/' render{ () => 
-          <Header />
-          <NavBar />
-          <MovieContainer />
-        } />
-        <Route exact path='/login' render{ () => 
-          <Header />
-          <LoginControls />
-          <MovieContainer />
-        } />
+        <Header />    
+        <Switch>
+          <Route exact path='/' component={NavBar} />
+          <Route exact path='/login' component={LoginControls} />
+        </Switch>
+        <MovieContainer />
       </div>
     );
   }
