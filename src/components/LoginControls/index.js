@@ -13,8 +13,20 @@ class LoginControls extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
+    try{
+    const response = await fetch('http://localhost:3000/api/users', {
+      method: 'POST',
+      credentials: "same-origin",
+      body: JSON.stringify({email: this.state.username, password: this.state.password}),
+      headers: {'Content-Type': 'application/json'}
+    })
+    const data = await response.json()
+    console.log(data)
+    } catch (error) { console.log('error!')}
+
+
     this.setState = { username: "", password: "" };
   };
 
