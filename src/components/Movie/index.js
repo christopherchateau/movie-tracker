@@ -16,8 +16,14 @@ class Movie extends Component {
   };
 
   render() {
-    const { title, overview, date, poster } = this.props;
     let cardContents;
+    let { title, overview, date, poster } = this.props;
+
+    let year = "/" + date.split("-")[0];
+    date = date
+      .split("-")
+      .slice(1)
+      .join("/");
 
     if (!this.state.isClicked) {
       cardContents = (
@@ -28,7 +34,10 @@ class Movie extends Component {
         <div className="movie-details">
           <article className="text-wrapper">
             <h1 className="movie-title">{title}</h1>
-            <p className="movie-date">{date}</p>
+            <p className="movie-date">
+              {date}
+              {year}
+            </p>
             <p className="movie-overview">{overview}</p>
           </article>
         </div>

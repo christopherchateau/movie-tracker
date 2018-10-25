@@ -16,7 +16,7 @@
 }
 
 .movie-details {
-  background: #e8e8e8;
+  background-image: linear-gradient(silver, white);
   height: 390px;
   text-align: center;
 }
