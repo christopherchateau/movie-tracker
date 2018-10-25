@@ -9,13 +9,13 @@ const NavBar = (props) => {
   return(
     <div className="navBar">
       <NavLink 
-        className='sign-in-button'
+        className='sign-in-button buttons'
         to='/login'
         >
           Sign In
       </NavLink>
       <NavLink 
-        className='sign-up-button'
+        className='sign-up-button buttons'
         to='/signup'
         >
           Sign Up

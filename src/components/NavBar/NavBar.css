@@ -1,3 +1,27 @@
 .navBar {
   background-color: silver;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  background: lightgrey;
+  border: 4px solid black;
+  border-radius: 30px;
+  bottom: 10px;
+  color: black;
+  font-size: 24px;
+  font-weight: bolder;
+  margin: 10px 70px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+}
+
+.buttons:hover {
+  background: grey;
+  color: lightgrey;
+  transition: all 0.4s ease-in-out;
 }
