@@ -9,7 +9,9 @@ class LoginControls extends Component {
       username: "",
       password: "",
       name: "",
-      pathname: this.props.location.pathname
+      pathname: this.props.location.pathname,
+      error: false,
+      errorMessage: ""
     };
   }
 
@@ -39,30 +41,27 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-      console.log("login", data);
     } catch (error) {
-      console.log("error!");
+      this.setState({ errorMessage: "Invalid e-mail/password" });
     }
   }
 
   async signupUser() {
-    try {
-      const response = await fetch("http://localhost:3000/api/users/new", {
-        method: "POST",
-        body: JSON.stringify({
-          name: this.state.name,
-          email: this.state.username,
-          password: this.state.password
-        }),
-        headers: { "Content-Type": "application/json" }
-      });
-      const data = await response.json();
-      console.log("sign up", data);
-    } catch (error) {
-      console.log(error);
+    let data;
+    const response = await fetch("http://localhost:3000/api/users/new", {
+      method: "POST",
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.username,
+        password: this.state.password
+      }),
+      headers: { "Content-Type": "application/json" }
+    });
+    data = await response.json();
+    if (data.error.includes("already exists")) {
+      this.setState({ errorMessage: "User account already exists!" });
     }
-
-    this.setState = { username: "", password: "" };
+    this.setState = { username: "", password: "", name: "" };
   }
 
   render() {
@@ -98,6 +97,7 @@ class LoginControls extends Component {
           >
             submit
           </button>
+          <p className="error-msg">{this.state.errorMessage}</p>
         </form>
       </div>
     );
