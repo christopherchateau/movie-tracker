@@ -6,11 +6,14 @@ class LoginControls extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
-      name: ''
-    }
-  };
+      name: "",
+      pathname: this.props.location.pathname,
+      error: false,
+      errorMessage: ""
+    };
+  }
 
   handleInputChange = e => {
     const { name, value } = e.target;
@@ -19,59 +22,80 @@ class LoginControls extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    console.log(this.props)
-    //check user
-    if (this.props.location.pathname === '/login') {
-      this.loginUser()
+    if (this.state.pathname === "/login") {
+      this.loginUser();
     } else {
-      this.signupUser()
+      this.signupUser();
     }
-  }
+  };
+
+  validateEmail = () => {
+    return !this.state.email.includes("@");
+  };
 
   async loginUser() {
+    if (this.validateEmail()) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
         credentials: "same-origin",
         body: JSON.stringify({
-          email: this.state.username,
+          email: this.state.email,
           password: this.state.password
         }),
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-      console.log('login', data);
     } catch (error) {
-      console.log("error!");
+      this.setState({ errorMessage: "Invalid e-mail/password" });
     }
   }
 
   async signupUser() {
-    try{
-      const response = await fetch('http://localhost:3000/api/users/new', {
-        method: 'POST',
-        body: JSON.stringify({name: this.state.name, email: this.state.username, password: this.state.password}),
-        headers: {'Content-Type': 'application/json'}
-      })
-      const data = await response.json()
-      console.log('sign up', data)
-    } catch (error) { console.log(error)}
-
-    this.setState = { username: "", password: "" };
-  };
-
+    if (this.validateEmail()) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
+    let data;
+    const response = await fetch("http://localhost:3000/api/users/new", {
+      method: "POST",
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      }),
+      headers: { "Content-Type": "application/json" }
+    });
+    data = await response.json();
+    if (data.error.includes("already exists")) {
+      this.setState({ errorMessage: "User account already exists!" });
+    }
+    //this.setState = { email: "", password: "", name: "" };
+  }
 
   render() {
     return (
       <div className="LoginControls">
         <form className="login-form" onSubmit={this.handleSubmit}>
           <input
-            name="username"
-            placeholder="username"
-            className="user-name"
-            value={this.state.username}
+            name="email"
+            placeholder="email"
+            className="email"
+            value={this.state.email}
             onChange={this.handleInputChange}
           />
+          {this.state.pathname === "/signup" && (
+            <input
+              name="name"
+              placeholder="name"
+              className="name"
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
+          )}
           <input
             name="password"
             placeholder="password"
@@ -81,10 +105,11 @@ class LoginControls extends Component {
           />
           <button
             className="submit-btn"
-            disabled={!this.state.username || !this.state.password}
+            disabled={!this.state.email || !this.state.password}
           >
             submit
           </button>
+          <p className="error-msg">{this.state.errorMessage}</p>
         </form>
       </div>
     );

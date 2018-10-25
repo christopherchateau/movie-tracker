@@ -31,6 +31,11 @@ ShallowWrapper {
           exact={true}
           path="/login"
         />,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/signup"
+        />,
         <Connect(MovieContainer) />,
       ],
       "className": "App",
@@ -76,6 +81,19 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/signup",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
         "props": Object {},
         "ref": null,
         "rendered": null,
@@ -101,6 +119,11 @@ ShallowWrapper {
             component={[Function]}
             exact={true}
             path="/login"
+          />,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/signup"
           />,
           <Connect(MovieContainer) />,
         ],
@@ -138,6 +161,19 @@ ShallowWrapper {
             "component": [Function],
             "exact": true,
             "path": "/login",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/signup",
           },
           "ref": null,
           "rendered": null,
