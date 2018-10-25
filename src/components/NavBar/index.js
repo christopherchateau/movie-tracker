@@ -7,7 +7,7 @@ import "./NavBar.css";
 const NavBar = (props) => {
     if (!props.loggedIn) {
   return(
-    <div>
+    <div className="navBar">
       <NavLink 
         className='sign-in-button'
         to='/login'
@@ -24,7 +24,7 @@ const NavBar = (props) => {
   )
  } else {
   return (
-    <div>
+    <div className="navBar">
       <h1>Hello</h1>
       <button>Sign Out</button> 
     </div> 

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Header from "../Header";
 import LoginControls from "../LoginControls";
-import NavBar from "../NavBar"
+import NavBar from "../NavBar";
 import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
 import { fetchData } from "../../utilities/fetch";
 import { connect } from "react-redux";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
@@ -18,11 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />    
-        <Switch>
-          <Route exact path='/' component={NavBar} />
-          <Route exact path='/login' component={LoginControls} />
-        </Switch>
+        <Header />
+        <Route exact path="/" component={NavBar} />
+        <Route exact path="/login" component={LoginControls} />
         <MovieContainer />
       </div>
     );
@@ -33,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
   handleFetch: movies => dispatch(loadMovies(movies))
 });
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(App);
+)(App));

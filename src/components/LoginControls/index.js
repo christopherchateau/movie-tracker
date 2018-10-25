@@ -24,6 +24,8 @@ class LoginControls extends Component {
         headers: {'Content-Type': 'application/json'}
       })
       const data = await response.json()
+      console.log(data)
+      
     } catch (error) { console.log('error!')}
 
 //new user

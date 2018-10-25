@@ -1,4 +1,15 @@
 .Header {
-  background-color: grey;
-  height: 200px
+  background-color: silver;
+  height: 200px;
+}
+
+.coen-collection {
+  color: white;
+  background: url("../../images/wood.jpg");
+  font-size: 160px;
+  font-weight: bold;
+  text-align: right;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
