@@ -8,9 +8,10 @@ class LoginControls extends Component {
     this.state = {
       username: "",
       password: "",
-      name: ''
-    }
-  };
+      name: "",
+      pathname: this.props.location.pathname
+    };
+  }
 
   handleInputChange = e => {
     const { name, value } = e.target;
@@ -19,14 +20,12 @@ class LoginControls extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    console.log(this.props)
-    //check user
-    if (this.props.location.pathname === '/login') {
-      this.loginUser()
+    if (this.state.pathname === "/login") {
+      this.loginUser();
     } else {
-      this.signupUser()
+      this.signupUser();
     }
-  }
+  };
 
   async loginUser() {
     try {
@@ -40,26 +39,31 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-      console.log('login', data);
+      console.log("login", data);
     } catch (error) {
       console.log("error!");
     }
   }
 
   async signupUser() {
-    try{
-      const response = await fetch('http://localhost:3000/api/users/new', {
-        method: 'POST',
-        body: JSON.stringify({name: this.state.name, email: this.state.username, password: this.state.password}),
-        headers: {'Content-Type': 'application/json'}
-      })
-      const data = await response.json()
-      console.log('sign up', data)
-    } catch (error) { console.log(error)}
+    try {
+      const response = await fetch("http://localhost:3000/api/users/new", {
+        method: "POST",
+        body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.username,
+          password: this.state.password
+        }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await response.json();
+      console.log("sign up", data);
+    } catch (error) {
+      console.log(error);
+    }
 
     this.setState = { username: "", password: "" };
-  };
-
+  }
 
   render() {
     return (
@@ -72,6 +76,15 @@ class LoginControls extends Component {
             value={this.state.username}
             onChange={this.handleInputChange}
           />
+          {this.state.pathname === "/signup" && (
+            <input
+              name="name"
+              placeholder="name"
+              className="name"
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
+          )}
           <input
             name="password"
             placeholder="password"
