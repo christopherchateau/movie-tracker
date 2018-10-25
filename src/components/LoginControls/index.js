@@ -29,12 +29,12 @@ class LoginControls extends Component {
     }
   };
 
-  validateEmail = email => {
-    return !email.includes("@");
+  validateEmail = () => {
+    return !this.state.email.includes("@");
   };
 
   async loginUser() {
-    if (this.validateEmail) {
+    if (this.validateEmail()) {
       this.setState({ errorMessage: "Please enter a valid e-mail address" });
       return;
     }
@@ -55,7 +55,7 @@ class LoginControls extends Component {
   }
 
   async signupUser() {
-    if (this.validateEmail) {
+    if (this.validateEmail()) {
       this.setState({ errorMessage: "Please enter a valid e-mail address" });
       return;
     }
@@ -73,7 +73,7 @@ class LoginControls extends Component {
     if (data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
-    this.setState = { email: "", password: "", name: "" };
+    //this.setState = { email: "", password: "", name: "" };
   }
 
   render() {
