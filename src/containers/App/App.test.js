@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-
+import { loadMovies } from '../../actions'
 import { App, mapDispatchToProps } from '../App';
 
 describe('App', () => {
@@ -20,6 +20,17 @@ describe('App', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+})
+
+describe('mapDispatchToProps', () => {
+  it('should call dispatch with load movies action when handleFetch is called', () => {
+    const mockDispatch = jest.fn()
+    const actionToDispatch = loadMovies([{title: 'Raising Arizona'}])
+
+    const mappedProps = mapDispatchToProps(mockDispatch)
+    mappedProps.handleFetch([{title: 'Raising Arizona'}])
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+  })
 })
 
 
