@@ -18,9 +18,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Route exact path="/" component={NavBar} />
-        <Route exact path="/login" component={LoginControls} />
+        <header class="header-controls">
+          <Header />
+          <Route exact path="/" component={NavBar} />
+          <Route exact path="/login" component={LoginControls} />
+        </header>
         <MovieContainer />
       </div>
     );
@@ -31,7 +33,9 @@ const mapDispatchToProps = dispatch => ({
   handleFetch: movies => dispatch(loadMovies(movies))
 });
 
-export default withRouter(connect(
-  null,
-  mapDispatchToProps
-)(App));
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(App)
+);
