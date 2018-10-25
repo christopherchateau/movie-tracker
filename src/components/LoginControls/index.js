@@ -45,7 +45,7 @@ class LoginControls extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="login-controls" onSubmit={this.handleSubmit}>
         <input
           name="username"
           placeholder="username"
@@ -60,7 +60,7 @@ class LoginControls extends Component {
           value={this.state.password}
           onChange={this.handleInputChange}
         />
-        <button disabled={!this.state.username || !this.state.password}>
+        <button className="submit-btn" disabled={!this.state.username || !this.state.password}>
           submit
         </button>
       </form>
