@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = props => {
+export const NavBar = props => {
   if (!props.loggedIn) {
     return (
       <div className="navBar">
@@ -26,7 +26,7 @@ const NavBar = props => {
   }
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });
 
