@@ -1,12 +1,18 @@
 .Movie-Container {
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    overflow: scroll;
-    padding: 10px;
-    position: absolute;
-    top: 176px;
-    width: 100%;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  overflow: scroll;
+  padding: 10px;
+  position: absolute;
+  top: 176px;
+  width: 100%;
+}
+
+.spinner {
+  height: 200px;
+  margin-top: 22%;
 }
