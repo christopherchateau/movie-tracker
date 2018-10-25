@@ -4,14 +4,14 @@ import LoginControls from "../LoginControls";
 import NavBar from "../NavBar";
 import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
-import { fetchData } from "../../utilities/fetch";
+import { movieCleaner } from "../../utilities/helper";
 import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
   componentDidMount = async () => {
-    const data = await fetchData();
+    const data = await movieCleaner();
     this.props.handleFetch(data);
   };
 
