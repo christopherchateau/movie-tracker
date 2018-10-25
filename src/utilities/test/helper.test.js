@@ -1,6 +1,6 @@
 import React from 'react';
-import { fetchData } from './fetch';
-import { movieCleaner } from './helper';
+import { fetchData } from '../fetch';
+import { movieCleaner } from '../helper';
 
 describe('movieCleaner', () => {
   it('should call fetchData', () => {})

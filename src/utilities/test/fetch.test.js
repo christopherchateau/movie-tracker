@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React from 'react';
-import { fetchData } from './fetch';
+import { fetchData } from '../fetch';
 
 describe('fetchData', () => {
   it('should call fetchData with the correct params', async () => {
