@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import spinner from "../../images/circle-loader.gif";
 import "./MovieContainer.css";
 
-const MovieContainer = props => {
+export const MovieContainer = props => {
   const cards = props.movies.map(movie => {
     return <Movie {...movie} key={movie.title} />;
   });
@@ -17,7 +17,7 @@ const MovieContainer = props => {
   );
 };
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return { movies: state.movies };
 };
 
