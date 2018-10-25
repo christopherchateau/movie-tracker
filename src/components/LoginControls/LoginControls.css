@@ -1,8 +1,15 @@
-.login-controls {
-  background-color: silver;
+.LoginControls {
+  background-color: #e8e8e8;
+  width: 100%
+}
+
+
+.login-form {
   display: flex;
   height: 76px;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 60%
 }
 
 input {
@@ -11,7 +18,7 @@ input {
   bottom: 10px;
   font-size: 22px;
   height: 50px;
-  margin: 10px;
+  margin: 10px 0 ;
   padding-left: 15px;
   position: relative;
 }
@@ -24,7 +31,7 @@ input {
   color: black;
   font-size: 24px;
   font-weight: bolder;
-  margin: 10px 70px;
+  margin: 10px 0px;
   padding: 10px;
   position: relative;
   text-align: center;

@@ -45,7 +45,8 @@ class LoginControls extends Component {
 
   render() {
     return (
-      <form className="login-controls" onSubmit={this.handleSubmit}>
+      <div className="LoginControls">
+      <form className="login-form" onSubmit={this.handleSubmit}>
         <input
           name="username"
           placeholder="username"
@@ -64,6 +65,7 @@ class LoginControls extends Component {
           submit
         </button>
       </form>
+      </div>
     );
   }
 }
