@@ -10,11 +10,10 @@ class Movie extends Component {
     };
   }
 
-
   handleCardClick = () => {
     const isClicked = !this.state.isClicked;
-    this.setState({ isClicked })
-  }
+    this.setState({ isClicked });
+  };
 
   render() {
     const { title, overview, date, poster } = this.props;
@@ -27,13 +26,19 @@ class Movie extends Component {
     } else {
       cardContents = (
         <div className="movie-details">
-          <h1 className="movie-title">{title}</h1>
-          <p className="movie-date">{date}</p>
-          <p className="movie-overview">{overview}</p>
+          <article className="text-wrapper">
+            <h1 className="movie-title">{title}</h1>
+            <p className="movie-date">{date}</p>
+            <p className="movie-overview">{overview}</p>
+          </article>
         </div>
       );
     }
-    return <div onClick={this.handleCardClick} className="Movie">{cardContents}</div>;
+    return (
+      <div onClick={this.handleCardClick} className="Movie">
+        {cardContents}
+      </div>
+    );
   }
 }
 

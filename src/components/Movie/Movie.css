@@ -33,9 +33,16 @@
 }
 
 .movie-details:hover {
-  opacity: .9;
+  opacity: 0.9;
+  overflow: scroll;
 }
 
+.movie-date {
+  margin: 10px;
+}
 
-.movie-title {
+.text-wrapper {
+  margin: auto;
+  padding: 20px 0;
+  width: 230px;
 }
