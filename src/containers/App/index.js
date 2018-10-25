@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "../Header";
-import LoginControls from "../LoginControls";
+import Header from "../../components/Header";
+import LoginControls from "../../components/LoginControls";
 import NavBar from "../NavBar";
 import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
