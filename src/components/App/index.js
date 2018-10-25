@@ -18,11 +18,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header class="header-controls">
-          <Header />
-          <Route exact path="/" component={NavBar} />
-          <Route exact path="/login" component={LoginControls} />
-        </header>
+        <Header />
+        <Route exact path="/" component={NavBar} />
+        <Route exact path="/login" component={LoginControls} />
         <MovieContainer />
       </div>
     );

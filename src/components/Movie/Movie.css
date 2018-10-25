@@ -6,21 +6,36 @@
   width: 260px;
 }
 
+.movie-details,
 .movie-poster {
   border-radius: 30px;
   cursor: pointer;
   height: 390;
-  opacity: .9;
+  opacity: 0.9;
   width: 260px;
 }
 
+.movie-details {
+  background: #e8e8e8;
+  height: 390px;
+  text-align: center;
+}
+
+.movie-details:hover,
 .movie-poster:hover {
   bottom: 10px;
   display: block;
-  height: auto;
+  height: 400px;
   opacity: 1;
   position: relative;
   right: 10px;
-  transition: all 0.6s ease-in-out;
   width: 280px;
+}
+
+.movie-details:hover {
+  opacity: .9;
+}
+
+
+.movie-title {
 }
