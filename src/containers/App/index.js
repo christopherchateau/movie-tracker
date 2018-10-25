@@ -21,6 +21,7 @@ export class App extends Component {
         <Header />
         <Route exact path="/" component={NavBar} />
         <Route exact path="/login" component={LoginControls} />
+        <Route exact path="/signup" component={LoginControls} />
         <MovieContainer />
       </div>
     );

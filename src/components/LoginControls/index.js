@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 import "./LoginControls.css";
 
 class LoginControls extends Component {
-  state = {
-    username: "",
-    password: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      name: ''
+    }
   };
 
   handleInputChange = e => {
@@ -15,7 +19,16 @@ class LoginControls extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
+    console.log(this.props)
     //check user
+    if (this.props.location.pathname === '/login') {
+      this.loginUser()
+    } else {
+      this.signupUser()
+    }
+  }
+
+  async loginUser() {
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
@@ -27,24 +40,26 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-      console.log(data);
+      console.log('login', data);
     } catch (error) {
       console.log("error!");
     }
+  }
 
-    //new user
-    // try{
-    //   const response = await fetch('http://localhost:3000/api/users/new', {
-    //     method: 'POST',
-    //     body: JSON.stringify({name: 'Jon', email: this.state.username, password: this.state.password}),
-    //     headers: {'Content-Type': 'application/json'}
-    //   })
-    //   const data = await response.json()
-    //   console.log(data)
-    // } catch (error) { console.log(error)}
+  async signupUser() {
+    try{
+      const response = await fetch('http://localhost:3000/api/users/new', {
+        method: 'POST',
+        body: JSON.stringify({name: this.state.name, email: this.state.username, password: this.state.password}),
+        headers: {'Content-Type': 'application/json'}
+      })
+      const data = await response.json()
+      console.log('sign up', data)
+    } catch (error) { console.log(error)}
 
     this.setState = { username: "", password: "" };
   };
+
 
   render() {
     return (
