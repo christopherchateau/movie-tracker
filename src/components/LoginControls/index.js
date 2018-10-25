@@ -6,7 +6,7 @@ class LoginControls extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
       name: "",
       pathname: this.props.location.pathname,
@@ -29,13 +29,21 @@ class LoginControls extends Component {
     }
   };
 
+  validateEmail = email => {
+    return !email.includes("@");
+  };
+
   async loginUser() {
+    if (this.validateEmail) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
         credentials: "same-origin",
         body: JSON.stringify({
-          email: this.state.username,
+          email: this.state.email,
           password: this.state.password
         }),
         headers: { "Content-Type": "application/json" }
@@ -47,12 +55,16 @@ class LoginControls extends Component {
   }
 
   async signupUser() {
+    if (this.validateEmail) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
     let data;
     const response = await fetch("http://localhost:3000/api/users/new", {
       method: "POST",
       body: JSON.stringify({
         name: this.state.name,
-        email: this.state.username,
+        email: this.state.email,
         password: this.state.password
       }),
       headers: { "Content-Type": "application/json" }
@@ -61,7 +73,7 @@ class LoginControls extends Component {
     if (data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
-    this.setState = { username: "", password: "", name: "" };
+    this.setState = { email: "", password: "", name: "" };
   }
 
   render() {
@@ -69,10 +81,10 @@ class LoginControls extends Component {
       <div className="LoginControls">
         <form className="login-form" onSubmit={this.handleSubmit}>
           <input
-            name="username"
-            placeholder="username"
-            className="user-name"
-            value={this.state.username}
+            name="email"
+            placeholder="email"
+            className="email"
+            value={this.state.email}
             onChange={this.handleInputChange}
           />
           {this.state.pathname === "/signup" && (
@@ -93,7 +105,7 @@ class LoginControls extends Component {
           />
           <button
             className="submit-btn"
-            disabled={!this.state.username || !this.state.password}
+            disabled={!this.state.email || !this.state.password}
           >
             submit
           </button>
