@@ -1,24 +1,26 @@
 .Movie {
   background-color: black;
   border-radius: 40px;
-  height: 480px;
-  margin: 20px;
-  width: 320px;
+  height: 390px;
+  margin: 16px;
+  width: 260px;
 }
 
 .movie-poster {
   border-radius: 40px;
   cursor: pointer;
-  height: 480px;
-  width: 320px;
+  height: 390;
+  opacity: .9;
+  width: 260px;
 }
 
 .movie-poster:hover {
   bottom: 10px;
   display: block;
   height: auto;
+  opacity: 1;
   position: relative;
   right: 10px;
   transition: all 0.6s ease-in-out;
-  width: 340px;
+  width: 280px;
 }

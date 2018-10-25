@@ -6,7 +6,7 @@
 
 .login-form {
   display: flex;
-  height: 76px;
+  height: 56px;
   justify-content: space-evenly;
   margin: auto;
   width: 60%
@@ -17,7 +17,7 @@ input {
   border-radius: 30px;
   bottom: 10px;
   font-size: 22px;
-  height: 50px;
+  height: 28px;
   margin: 10px 0 ;
   padding-left: 15px;
   position: relative;
@@ -29,10 +29,10 @@ input {
   border-radius: 30px;
   bottom: 10px;
   color: black;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: bolder;
   margin: 10px 0px;
-  padding: 10px;
+  padding: 4px;
   position: relative;
   text-align: center;
   text-decoration: none;
