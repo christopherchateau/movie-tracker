@@ -1,29 +1,24 @@
 import React from "react";
 import Movie from "../Movie";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import spinner from "../../images/circle-loader.gif";
 import "./MovieContainer.css";
-import { connect } from 'react-redux'
 
-const MovieContainer = (props) => {
-
-
-  const cards = props.movies.map( movie => {
-    return <Movie {...movie} key={movie.title} />
-  })
-
+const MovieContainer = props => {
+  const cards = props.movies.map(movie => {
+    return <Movie {...movie} key={movie.title} />;
+  });
 
   return (
     <div className="Movie-Container">
-      {cards}
+      {cards.length ? cards : <img className="spinner" src={spinner} />}
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log(state.movies)
-  return {movies: state.movies}
-}
+const mapStateToProps = state => {
+  return { movies: state.movies };
+};
 
-
-export default connect(mapStateToProps)(MovieContainer)
-
+export default connect(mapStateToProps)(MovieContainer);

@@ -1,6 +1,49 @@
 .Movie {
-  background-color: lightgrey;
-  height: 300px;
-  margin: 20px;
-  width: 200px;
+  background-color: black;
+  border-radius: 40px;
+  height: 390px;
+  margin: 16px;
+  width: 260px;
+}
+
+.movie-details,
+.movie-poster {
+  border-radius: 30px;
+  cursor: pointer;
+  height: 390;
+  opacity: 0.9;
+  width: 260px;
+}
+
+.movie-details {
+  background-image: linear-gradient(silver, white);
+  height: 390px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.movie-details:hover,
+.movie-poster:hover {
+  bottom: 10px;
+  display: block;
+  height: 400px;
+  opacity: 1;
+  position: relative;
+  right: 10px;
+  width: 280px;
+}
+
+.movie-details:hover {
+  opacity: 0.9;
+  overflow: scroll;
+}
+
+.movie-date {
+  margin: 10px;
+}
+
+.text-wrapper {
+  margin: auto;
+  padding: 20px 0;
+  width: 230px;
 }

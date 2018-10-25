@@ -13,20 +13,26 @@ class LoginControls extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async (e) => {
+  handleSubmit = async e => {
     e.preventDefault();
     //check user
-    try{
-      const response = await fetch('http://localhost:3000/api/users', {
-        method: 'POST',
+    try {
+      const response = await fetch("http://localhost:3000/api/users", {
+        method: "POST",
         credentials: "same-origin",
-        body: JSON.stringify({email: this.state.username, password: this.state.password}),
-        headers: {'Content-Type': 'application/json'}
-      })
-      const data = await response.json()
-    } catch (error) { console.log('error!')}
+        body: JSON.stringify({
+          email: this.state.username,
+          password: this.state.password
+        }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("error!");
+    }
 
-//new user
+    //new user
     // try{
     //   const response = await fetch('http://localhost:3000/api/users/new', {
     //     method: 'POST',
@@ -37,31 +43,35 @@ class LoginControls extends Component {
     //   console.log(data)
     // } catch (error) { console.log(error)}
 
-
     this.setState = { username: "", password: "" };
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          name="username"
-          placeholder="username"
-          className="user-name"
-          value={this.state.username}
-          onChange={this.handleInputChange}
-        />
-        <input
-          name="password"
-          placeholder="password"
-          className="password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-        />
-        <button disabled={!this.state.username || !this.state.password}>
-          submit
-        </button>
-      </form>
+      <div className="LoginControls">
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <input
+            name="username"
+            placeholder="username"
+            className="user-name"
+            value={this.state.username}
+            onChange={this.handleInputChange}
+          />
+          <input
+            name="password"
+            placeholder="password"
+            className="password"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+          />
+          <button
+            className="submit-btn"
+            disabled={!this.state.username || !this.state.password}
+          >
+            submit
+          </button>
+        </form>
+      </div>
     );
   }
 }

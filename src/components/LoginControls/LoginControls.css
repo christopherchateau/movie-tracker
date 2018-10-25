@@ -1,0 +1,45 @@
+.LoginControls {
+  background-color: #e8e8e8;
+  width: 100%;
+}
+
+.login-form {
+  display: flex;
+  height: 56px;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 60%;
+}
+
+input {
+  border: 4px solid black;
+  border-radius: 30px;
+  bottom: 10px;
+  font-size: 22px;
+  height: 28px;
+  margin: 10px 0;
+  padding-left: 15px;
+  position: relative;
+}
+
+.submit-btn {
+  background: lightgrey;
+  border: 4px solid black;
+  border-radius: 30px;
+  bottom: 10px;
+  color: black;
+  font-size: 19px;
+  font-weight: bolder;
+  margin: 10px 0px;
+  padding: 4px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 250px;
+}
+
+.submit-btn:hover {
+  background: grey;
+  color: lightgrey;
+  transition: all 0.4s ease-in-out;
+}

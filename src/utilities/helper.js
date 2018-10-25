@@ -3,7 +3,8 @@ export const movieCleaner = movies => {
     return {
       title: movie.title,
       date: movie.release_date,
-      poster: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movie.poster_path,
+      poster:
+        "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path,
       overview: movie.overview
     };
   });
