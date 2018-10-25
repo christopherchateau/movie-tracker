@@ -8,5 +8,5 @@ export const fetchData = async () => {
   const directedMovies = movieData.crew.filter(
     movie => movie.job === "Director"
   );
-  return movieCleaner(directedMovies)
+  return movieCleaner(directedMovies);
 };

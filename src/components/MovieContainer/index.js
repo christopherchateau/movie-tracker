@@ -18,7 +18,6 @@ const MovieContainer = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.movies);
   return { movies: state.movies };
 };
 

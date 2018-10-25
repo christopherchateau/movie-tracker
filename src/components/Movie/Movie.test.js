@@ -6,7 +6,7 @@ import Movie from "./index";
 
 describe("Card", () => {
   it("Renders like snapshot", () => {
-    const wrapper = shallow(<Movie />)
+    const wrapper = shallow(<Movie />);
     expect(wrapper).toMatchSnapshot();
   });
 });

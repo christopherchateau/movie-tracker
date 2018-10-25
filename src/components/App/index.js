@@ -6,7 +6,7 @@ import MovieContainer from "../MovieContainer";
 import { loadMovies } from "../../actions";
 import { fetchData } from "../../utilities/fetch";
 import { connect } from "react-redux";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {

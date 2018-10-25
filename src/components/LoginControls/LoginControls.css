@@ -1,15 +1,14 @@
 .LoginControls {
   background-color: #e8e8e8;
-  width: 100%
+  width: 100%;
 }
-
 
 .login-form {
   display: flex;
   height: 56px;
   justify-content: space-evenly;
   margin: auto;
-  width: 60%
+  width: 60%;
 }
 
 input {
@@ -18,7 +17,7 @@ input {
   bottom: 10px;
   font-size: 22px;
   height: 28px;
-  margin: 10px 0 ;
+  margin: 10px 0;
   padding-left: 15px;
   position: relative;
 }
