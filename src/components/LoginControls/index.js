@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./LoginControls.css";
 import { logIn } from "../../actions";
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
 
 
@@ -33,15 +34,15 @@ class LoginControls extends Component {
     }
   };
 
-  // validateEmail = () => {
-  //   return !this.state.email.includes("@");
-  // };
+  validateEmail = () => {
+    return !this.state.email.includes("@");
+  };
 
   async loginUser() {
-    // if (this.validateEmail()) {
-    //   this.setState({ errorMessage: "Please enter a valid e-mail address" });
-    //   return;
-    // }
+    if (this.validateEmail()) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
@@ -54,6 +55,8 @@ class LoginControls extends Component {
       });
       const data = await response.json();
 
+      console.log(data.data.name)
+
       this.props.handleLogin(true)
 
     } catch (error) {
@@ -62,10 +65,10 @@ class LoginControls extends Component {
   }
 
   async signupUser() {
-    // if (this.validateEmail()) {
-    //   this.setState({ errorMessage: "Please enter a valid e-mail address" });
-    //   return;
-    // }
+    if (this.validateEmail()) {
+      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+      return;
+    }
     let data;
     const response = await fetch("http://localhost:3000/api/users/new", {
       method: "POST",
@@ -80,7 +83,6 @@ class LoginControls extends Component {
 
     this.props.handleLogin(true)
 
-
     if (data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
@@ -89,46 +91,58 @@ class LoginControls extends Component {
 
   render() {
     return (
-      <div className="LoginControls">
-        <form className="login-form" onSubmit={this.handleSubmit}>
-          <input
-            name="email"
-            placeholder="email"
-            className="email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-          />
-          {this.state.pathname === "/signup" && (
-            <input
-              name="name"
-              placeholder="name"
-              className="name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          )}
-          <input
-            name="password"
-            placeholder="password"
-            className="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <button
-            className="submit-btn"
-            disabled={!this.state.email || !this.state.password}
-          >
-            submit
-          </button>
-          <p className="error-msg">{this.state.errorMessage}</p>
-        </form>
-      </div>
+        <div className="LoginControls">
+          {!this.props.loggedIn &&
+            <form className="login-form" onSubmit={this.handleSubmit}>
+              <input
+                name="email"
+                placeholder="email"
+                className="email"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+              {this.state.pathname === "/signup" && (
+                <input
+                  name="name"
+                  placeholder="name"
+                  className="name"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
+              )}
+              <input
+                name="password"
+                placeholder="password"
+                className="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+              <button
+                className="submit-btn"
+                disabled={!this.state.email || !this.state.password}
+              >submit
+              </button>
+              <p className="error-msg">{this.state.errorMessage}</p>
+            </form>
+          }
+
+          { this.props.loggedIn && 
+            <div className="loggedIn">
+              <Redirect to='/' />
+            </div>
+          }
+
+        </div>
     );
   }
 }
 
-const mapDispatchToState = (dispatch) => {
-  return { handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) }
-}
+const mapStateToProps = (state) => ({
+  loggedIn: state.loggedIn
+})
 
-export default connect(null, mapDispatchToState)(LoginControls);
+const mapDispatchToState = (dispatch) => ({
+  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) 
+})
+
+export default connect(mapStateToProps, mapDispatchToState)(LoginControls);
