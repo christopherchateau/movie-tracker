@@ -17,6 +17,7 @@
 
 .movie-details {
   background-image: linear-gradient(silver, white);
+  border: 7px solid silver;
   height: 390px;
   line-height: 1.2;
   text-align: center;
