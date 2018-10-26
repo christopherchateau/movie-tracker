@@ -5,7 +5,7 @@ export const loadMovies = movies => ({
 
 export const logIn = (loggedIn) => ({
   type: "TOGGLE_LOGIN",
-  loggedIn: loggedIn
+  loggedIn,
 });
 
 export const saveName = (name) => ({

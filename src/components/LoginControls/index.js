@@ -27,6 +27,7 @@ class LoginControls extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
+    this.setState({ errorMessage: "" });
     this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
   };
 
@@ -50,10 +51,8 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-
       this.props.saveName(data.data.name)
       this.props.handleLogin(true)
-
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
@@ -64,7 +63,6 @@ class LoginControls extends Component {
       this.setState({ errorMessage: "Please enter a valid e-mail address" });
       return;
     }
-    let data;
     const response = await fetch("http://localhost:3000/api/users/new", {
       method: "POST",
       body: JSON.stringify({
@@ -74,6 +72,7 @@ class LoginControls extends Component {
       }),
       headers: { "Content-Type": "application/json" }
     });
+<<<<<<< HEAD
     data = await response.json();
 
     console.log(data)
@@ -81,6 +80,9 @@ class LoginControls extends Component {
     this.props.handleLogin(true)
     // this.getUserName()
 
+=======
+    const data = await response.json();
+>>>>>>> Reset error msg on each submit click in LoginControls, add logic to signup user to avoid bug when error doesn't exist
     if (data.error && data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
