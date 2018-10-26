@@ -1,5 +1,6 @@
 .LoginControls {
   background-color: #e8e8e8;
+  height: 56px;
   width: 100%;
 }
 
@@ -45,6 +46,9 @@ input {
 }
 
 .error-msg {
-  font-size: 66;
+  bottom: 20px;
   color: red;
+  font-size: 66;
+  position: relative;
+  text-align: center;
 }

@@ -27,11 +27,7 @@ class LoginControls extends Component {
 
   handleSubmit = async e => {
     e.preventDefault();
-    if (this.state.pathname === "/login") {
-      this.loginUser();
-    } else {
-      this.signupUser();
-    }
+    this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
   };
 
   validateEmail = () => {
@@ -128,13 +124,11 @@ class LoginControls extends Component {
               <p className="error-msg">{this.state.errorMessage}</p>
             </form>
           }
-
           { this.props.loggedIn && 
             <div className="loggedIn">
               <Redirect to='/' />
             </div>
           }
-
         </div>
     );
   }
