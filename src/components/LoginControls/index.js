@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
+import { logIn } from "../../actions";
+import { connect } from "react-redux";
+
+
 
 class LoginControls extends Component {
   constructor(props) {
@@ -29,15 +33,15 @@ class LoginControls extends Component {
     }
   };
 
-  validateEmail = () => {
-    return !this.state.email.includes("@");
-  };
+  // validateEmail = () => {
+  //   return !this.state.email.includes("@");
+  // };
 
   async loginUser() {
-    if (this.validateEmail()) {
-      this.setState({ errorMessage: "Please enter a valid e-mail address" });
-      return;
-    }
+    // if (this.validateEmail()) {
+    //   this.setState({ errorMessage: "Please enter a valid e-mail address" });
+    //   return;
+    // }
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
@@ -49,16 +53,19 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
+
+      this.props.handleLogin(true)
+
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
   }
 
   async signupUser() {
-    if (this.validateEmail()) {
-      this.setState({ errorMessage: "Please enter a valid e-mail address" });
-      return;
-    }
+    // if (this.validateEmail()) {
+    //   this.setState({ errorMessage: "Please enter a valid e-mail address" });
+    //   return;
+    // }
     let data;
     const response = await fetch("http://localhost:3000/api/users/new", {
       method: "POST",
@@ -70,6 +77,10 @@ class LoginControls extends Component {
       headers: { "Content-Type": "application/json" }
     });
     data = await response.json();
+
+    this.props.handleLogin(true)
+
+
     if (data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
@@ -116,4 +127,8 @@ class LoginControls extends Component {
   }
 }
 
-export default LoginControls;
+const mapDispatchToState = (dispatch) => {
+  return { handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) }
+}
+
+export default connect(null, mapDispatchToState)(LoginControls);

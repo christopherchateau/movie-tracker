@@ -3,7 +3,7 @@ export const loadMovies = movies => ({
   movies
 });
 
-export const logIn = loggedIn => ({
+export const logIn = (loggedIn) => ({
   type: "TOGGLE_LOGIN",
-  loggedIn: false
+  loggedIn: loggedIn
 });
