@@ -26,28 +26,30 @@ class LoginControls extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.setState({ errorMessage: "" });
-    if (this.validatePassword()) {
+    if (this.validateEmail() && this.validateInputLength("password")) {
       this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
-    } else {
-      this.setState({ errorMessage: "Password must be at least 5 characters" });
     }
   };
 
   validateEmail = () => {
-    return !this.state.email.includes("@");
+    if (this.state.email.includes("@")) {
+      return true;
+    }
+    this.setState({ errorMessage: "Please enter a valid e-mail address" });
+    return false;
   };
 
-  validatePassword = () => {
-    return this.state.password.length > 5;
+  validateInputLength = inputType => {
+    if (this.state[inputType].length > 5) {
+      return true;
+    } else {
+      this.setState({
+        errorMessage: `${inputType} must be at least 5 characters`
+      });
+    }
   };
-
-  validateUsername = () => {};
 
   async loginUser() {
-    if (this.validateEmail()) {
-      this.setState({ errorMessage: "Please enter a valid e-mail address" });
-      return;
-    }
     try {
       const response = await fetch("http://localhost:3000/api/users", {
         method: "POST",
@@ -67,8 +69,7 @@ class LoginControls extends Component {
   }
 
   async signupUser() {
-    if (this.validateEmail()) {
-      this.setState({ errorMessage: "Please enter a valid e-mail address" });
+    if (!this.validateInputLength("username")) {
       return;
     }
     const response = await fetch("http://localhost:3000/api/users/new", {
@@ -80,8 +81,8 @@ class LoginControls extends Component {
       }),
       headers: { "Content-Type": "application/json" }
     });
-    data = await response.json();
-    this.props.saveName(this.state.name);
+    const data = await response.json();
+    this.props.saveName(this.state.username);
     this.props.handleLogin(true);
 
     if (data.error && data.error.includes("already exists")) {
@@ -103,10 +104,10 @@ class LoginControls extends Component {
             />
             {this.state.pathname === "/signup" && (
               <input
-                name="name"
-                placeholder="name"
-                className="name"
-                value={this.state.name}
+                name="username"
+                placeholder="username"
+                className="username"
+                value={this.state.username}
                 onChange={this.handleInputChange}
               />
             )}
@@ -123,7 +124,6 @@ class LoginControls extends Component {
             >
               submit
             </button>
-            <p className="error-msg">{this.state.errorMessage}</p>
           </form>
         )}
         {this.props.loggedIn && (
@@ -131,6 +131,9 @@ class LoginControls extends Component {
             <Redirect to="/" />
           </div>
         )}
+        <section>
+          <p className="error-msg">{this.state.errorMessage}</p>
+        </section>
       </div>
     );
   }
@@ -142,7 +145,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToState = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
-  saveName: name => dispatch(saveName(name))
+  saveName: username => dispatch(saveName(username))
 });
 
 export default connect(
