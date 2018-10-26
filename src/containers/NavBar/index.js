@@ -22,7 +22,10 @@ export const NavBar = props => {
     return (
       <div className="navBar">
         <h1>Hello {props.currentUser}</h1>
-        <button onClick={() => props.handleLogin(false)} >Sign Out</button>
+        <button 
+          className='sign-out-button buttons' 
+          onClick={() => props.handleLogin(false)} 
+          >Sign Out</button>
       </div>
     );
   }

@@ -80,7 +80,6 @@ class LoginControls extends Component {
     });
     data = await response.json();
 
-    //Does not return that data with this fetch, so data.name doesn't work
     // this.props.saveName(data.data.name)
     this.props.handleLogin(true)
 
