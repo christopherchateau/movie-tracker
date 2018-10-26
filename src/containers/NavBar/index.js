@@ -21,7 +21,7 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1>Hello</h1>
+        <h1>Hello {props.currentUser}</h1>
         <button onClick={() => props.handleLogin(false)} >Sign Out</button>
       </div>
     );
@@ -29,7 +29,8 @@ export const NavBar = props => {
 };
 
 export const mapStateToProps = state => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.loggedIn,
+  currentUser: state.currentUser,
 });
 
 export const mapDispatchToState = (dispatch) => ({

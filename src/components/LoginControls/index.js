@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
-import { logIn } from "../../actions";
+import { logIn, saveName } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 
@@ -55,8 +55,7 @@ class LoginControls extends Component {
       });
       const data = await response.json();
 
-      console.log(data.data.name)
-
+      this.props.saveName(data.data.name)
       this.props.handleLogin(true)
 
     } catch (error) {
@@ -81,6 +80,7 @@ class LoginControls extends Component {
     });
     data = await response.json();
 
+    this.props.saveName(data.data.name)
     this.props.handleLogin(true)
 
     if (data.error.includes("already exists")) {
@@ -142,7 +142,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToState = (dispatch) => ({
-  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) 
+  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)),
+  saveName: (name) => dispatch(saveName(name)) 
 })
 
 export default connect(mapStateToProps, mapDispatchToState)(LoginControls);
