@@ -28,12 +28,22 @@ class LoginControls extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.setState({ errorMessage: "" });
-    this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
+    if (this.validatePassword()) {
+      this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
+    } else {
+      this.setState({ errorMessage: "Password must be at least 5 characters" });
+    }
   };
 
   validateEmail = () => {
     return !this.state.email.includes("@");
   };
+
+  validatePassword = () => {
+    return this.state.password.length > 5;
+  };
+
+  
 
   async loginUser() {
     if (this.validateEmail()) {
