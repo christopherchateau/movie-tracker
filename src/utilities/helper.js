@@ -10,8 +10,8 @@ export const movieCleaner = async () => {
       poster:
         "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path,
       overview: movie.overview
-    }))
-  };
+  }))
+};
 
   //need to handle an error
 

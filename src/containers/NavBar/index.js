@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { logIn } from "../../actions";
+
 import "./NavBar.css";
 
 export const NavBar = props => {
@@ -19,15 +21,23 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1>Hello</h1>
-        <button>Sign Out</button>
+        <h1>Hello {props.currentUser}</h1>
+        <button 
+          className='sign-out-button buttons' 
+          onClick={() => props.handleLogin(false)} 
+          >Sign Out</button>
       </div>
     );
   }
 };
 
 export const mapStateToProps = state => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.loggedIn,
+  currentUser: state.currentUser,
 });
 
-export default connect(mapStateToProps)(NavBar);
+export const mapDispatchToState = (dispatch) => ({
+  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) 
+})
+
+export default connect(mapStateToProps, mapDispatchToState)(NavBar);

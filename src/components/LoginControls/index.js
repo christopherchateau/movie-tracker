@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
+import { logIn, saveName } from "../../actions";
+import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+
+
 
 class LoginControls extends Component {
   constructor(props) {
@@ -49,6 +54,10 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
+
+      this.props.saveName(data.data.name)
+      this.props.handleLogin(true)
+
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
@@ -70,50 +79,74 @@ class LoginControls extends Component {
       headers: { "Content-Type": "application/json" }
     });
     data = await response.json();
-    if (data.error.includes("already exists")) {
+
+    console.log(data)
+    this.props.saveName(this.state.name)
+    this.props.handleLogin(true)
+    // this.getUserName()
+
+    if (data.error && data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
     //this.setState = { email: "", password: "", name: "" };
   }
 
+
   render() {
     return (
-      <div className="LoginControls">
-        <form className="login-form" onSubmit={this.handleSubmit}>
-          <input
-            name="email"
-            placeholder="email"
-            className="email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-          />
-          {this.state.pathname === "/signup" && (
-            <input
-              name="name"
-              placeholder="name"
-              className="name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          )}
-          <input
-            name="password"
-            placeholder="password"
-            className="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <button
-            className="submit-btn"
-            disabled={!this.state.email || !this.state.password}
-          >
-            submit
-          </button>
-          <p className="error-msg">{this.state.errorMessage}</p>
-        </form>
-      </div>
+        <div className="LoginControls">
+          {!this.props.loggedIn &&
+            <form className="login-form" onSubmit={this.handleSubmit}>
+              <input
+                name="email"
+                placeholder="email"
+                className="email"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+              />
+              {this.state.pathname === "/signup" && (
+                <input
+                  name="name"
+                  placeholder="name"
+                  className="name"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
+              )}
+              <input
+                name="password"
+                placeholder="password"
+                className="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+              <button
+                className="submit-btn"
+                disabled={!this.state.email || !this.state.password}
+              >submit
+              </button>
+              <p className="error-msg">{this.state.errorMessage}</p>
+            </form>
+          }
+
+          { this.props.loggedIn && 
+            <div className="loggedIn">
+              <Redirect to='/' />
+            </div>
+          }
+
+        </div>
     );
   }
 }
 
-export default LoginControls;
+const mapStateToProps = (state) => ({
+  loggedIn: state.loggedIn
+})
+
+const mapDispatchToState = (dispatch) => ({
+  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)),
+  saveName: (name) => dispatch(saveName(name)) 
+})
+
+export default connect(mapStateToProps, mapDispatchToState)(LoginControls);
