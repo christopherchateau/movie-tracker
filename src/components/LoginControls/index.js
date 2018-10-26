@@ -81,12 +81,34 @@ class LoginControls extends Component {
     data = await response.json();
 
     // this.props.saveName(data.data.name)
-    this.props.handleLogin(true)
+    // this.props.handleLogin(true)
+    this.getUserName()
 
-    if (data.error.includes("already exists")) {
-      this.setState({ errorMessage: "User account already exists!" });
-    }
+    // if (data.error.includes("already exists")) {
+    //   this.setState({ errorMessage: "User account already exists!" });
+    // }
     //this.setState = { email: "", password: "", name: "" };
+  }
+
+  async getUserName() {
+    try {
+      const response = await fetch("http://localhost:3000/api/users", {
+        method: "POST",
+        credentials: "same-origin",
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        }),
+        headers: { "Content-Type": "application/json" }
+      });
+      const data = await response.json();
+console.log(data)
+      this.props.saveName(data.data.name)
+      this.props.handleLogin(true)
+
+    } catch (error) {
+      this.setState({ errorMessage: "Invalid e-mail/password" });
+    }
   }
 
   render() {
