@@ -13,7 +13,9 @@ describe('moviesReducer', () => {
 		}
 
 		const expected = {
-			movies: [{ title: 'Millers Crossing' }]
+			movies: { 
+				title: 'Millers Crossing' 
+			}
 		}
 
 		const action = {
