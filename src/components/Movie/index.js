@@ -44,7 +44,9 @@ class Movie extends Component {
       );
     }
     return (
-      <div onClick={this.handleCardClick} className="Movie">
+      <div onMouseEnter={this.handleCardClick} 
+      onMouseLeave={this.handleCardClick}
+      className="Movie">
         {cardContents}
       </div>
     );
