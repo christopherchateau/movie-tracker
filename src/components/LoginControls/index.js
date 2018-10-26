@@ -5,15 +5,13 @@ import { logIn, saveName } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 
-
-
 class LoginControls extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
-      name: "",
+      username: "",
       pathname: this.props.location.pathname,
       error: false,
       errorMessage: ""
@@ -43,7 +41,7 @@ class LoginControls extends Component {
     return this.state.password.length > 5;
   };
 
-  
+  validateUsername = () => {};
 
   async loginUser() {
     if (this.validateEmail()) {
@@ -61,8 +59,8 @@ class LoginControls extends Component {
         headers: { "Content-Type": "application/json" }
       });
       const data = await response.json();
-      this.props.saveName(data.data.name)
-      this.props.handleLogin(true)
+      this.props.saveName(data.data.name);
+      this.props.handleLogin(true);
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
@@ -76,83 +74,78 @@ class LoginControls extends Component {
     const response = await fetch("http://localhost:3000/api/users/new", {
       method: "POST",
       body: JSON.stringify({
-        name: this.state.name,
+        name: this.state.username,
         email: this.state.email,
         password: this.state.password
       }),
       headers: { "Content-Type": "application/json" }
     });
-<<<<<<< HEAD
     data = await response.json();
+    this.props.saveName(this.state.name);
+    this.props.handleLogin(true);
 
-    console.log(data)
-    this.props.saveName(this.state.name)
-    this.props.handleLogin(true)
-    // this.getUserName()
-
-=======
-    const data = await response.json();
->>>>>>> Reset error msg on each submit click in LoginControls, add logic to signup user to avoid bug when error doesn't exist
     if (data.error && data.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
-    //this.setState = { email: "", password: "", name: "" };
   }
-
 
   render() {
     return (
-        <div className="LoginControls">
-          {!this.props.loggedIn &&
-            <form className="login-form" onSubmit={this.handleSubmit}>
+      <div className="LoginControls">
+        {!this.props.loggedIn && (
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <input
+              name="email"
+              placeholder="email"
+              className="email"
+              value={this.state.email}
+              onChange={this.handleInputChange}
+            />
+            {this.state.pathname === "/signup" && (
               <input
-                name="email"
-                placeholder="email"
-                className="email"
-                value={this.state.email}
+                name="name"
+                placeholder="name"
+                className="name"
+                value={this.state.name}
                 onChange={this.handleInputChange}
               />
-              {this.state.pathname === "/signup" && (
-                <input
-                  name="name"
-                  placeholder="name"
-                  className="name"
-                  value={this.state.name}
-                  onChange={this.handleInputChange}
-                />
-              )}
-              <input
-                name="password"
-                placeholder="password"
-                className="password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-              />
-              <button
-                className="submit-btn"
-                disabled={!this.state.email || !this.state.password}
-              >submit
-              </button>
-              <p className="error-msg">{this.state.errorMessage}</p>
-            </form>
-          }
-          { this.props.loggedIn && 
-            <div className="loggedIn">
-              <Redirect to='/' />
-            </div>
-          }
-        </div>
+            )}
+            <input
+              name="password"
+              placeholder="password"
+              className="password"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+            />
+            <button
+              className="submit-btn"
+              disabled={!this.state.email || !this.state.password}
+            >
+              submit
+            </button>
+            <p className="error-msg">{this.state.errorMessage}</p>
+          </form>
+        )}
+        {this.props.loggedIn && (
+          <div className="loggedIn">
+            <Redirect to="/" />
+          </div>
+        )}
+      </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   loggedIn: state.loggedIn
-})
+});
 
-const mapDispatchToState = (dispatch) => ({
-  handleLogin: (loggedIn) => dispatch(logIn(loggedIn)),
-  saveName: (name) => dispatch(saveName(name)) 
-})
+const mapDispatchToState = dispatch => ({
+  handleLogin: loggedIn => dispatch(logIn(loggedIn)),
+  saveName: name => dispatch(saveName(name))
+});
 
-export default connect(mapStateToProps, mapDispatchToState)(LoginControls);
+export default connect(
+  mapStateToProps,
+  mapDispatchToState
+)(LoginControls);
