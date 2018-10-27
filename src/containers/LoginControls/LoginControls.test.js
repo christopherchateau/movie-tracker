@@ -5,7 +5,12 @@ import { shallow } from "enzyme";
 import LoginControls from "./index";
 
 describe("Card", () => {
-  it("Renders like snapshot", () => {
+  it('should exist', () => {
+    const wrapper = shallow(<LoginControls />)
+    expect(wrapper).toBeDefined();
+  })
+
+  it("should render like snapshot", () => {
     const wrapper = shallow(<LoginControls />)
     expect(wrapper).toMatchSnapshot();
   });

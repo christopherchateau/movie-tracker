@@ -3,6 +3,11 @@ import { mapStateToProps, NavBar } from './index';
 import { shallow } from 'enzyme'
 
 describe('NavBar', () => {
+  it('should exist', () => {
+    const wrapper = shallow(<NavBar loggedIn={true}/>);
+    expect(wrapper).toBeDefined();
+  });
+  
 	it("Renders like snapshot", () => {
     const wrapper = shallow(<NavBar loggedIn={true}/>);
     expect(wrapper).toMatchSnapshot();
