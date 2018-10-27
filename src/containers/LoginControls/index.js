@@ -4,8 +4,9 @@ import "./LoginControls.css";
 import { logIn, saveName } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
+import * as fetch from '../../utilities/fetch.js';
 
-class LoginControls extends Component {
+export class LoginControls extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,43 +50,31 @@ class LoginControls extends Component {
     }
   };
 
-  async loginUser() {
+  loginUser = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/users", {
-        method: "POST",
-        credentials: "same-origin",
-        body: JSON.stringify({
-          email: this.state.email,
-          password: this.state.password
-        }),
-        headers: { "Content-Type": "application/json" }
-      });
-      const data = await response.json();
-      this.props.saveName(data.data.name);
+      const {email, password} = this.state 
+      const fetchUser = await fetch.fetchLoginUser(email, password)
+      console.log(fetchUser)
+
+      this.props.saveName(fetchUser.data.name);
       this.props.handleLogin(true);
+
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
   }
 
-  async signupUser() {
+  signupUser = async () => {
     if (!this.validateInputLength("username")) {
       return;
     }
-    const response = await fetch("http://localhost:3000/api/users/new", {
-      method: "POST",
-      body: JSON.stringify({
-        name: this.state.username,
-        email: this.state.email,
-        password: this.state.password
-      }),
-      headers: { "Content-Type": "application/json" }
-    });
-    const data = await response.json();
-    this.props.saveName(this.state.username);
+    const {username, email, password} = this.state 
+    const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
+
+    this.props.saveName(username);
     this.props.handleLogin(true);
 
-    if (data.error && data.error.includes("already exists")) {
+    if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
   }
@@ -139,11 +128,11 @@ class LoginControls extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });
 
-const mapDispatchToState = dispatch => ({
+export const mapDispatchToState = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   saveName: username => dispatch(saveName(username))
 });

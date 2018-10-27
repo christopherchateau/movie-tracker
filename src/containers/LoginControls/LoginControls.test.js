@@ -2,16 +2,41 @@
 
 import React from "react";
 import { shallow } from "enzyme";
-import LoginControls from "./index";
+import {LoginControls, mapStateToProps, mapDispatchToProps} from "./index";
 
-describe("Card", () => {
+describe("LoginControls", () => {
+  let wrapper;
+  // let defaultState;
+
+  beforeEach(() => {
+    wrapper = shallow(<LoginControls 
+      loggedIn={true}
+      handleLogin={jest.fn()}
+      saveName={jest.fn()}
+      location={{pathname: ''}} 
+      />)
+
+    // defaultState = {
+    //   email: "",
+    //   password: "",
+    //   username: "",
+    //   pathname: this.props.location.pathname,
+    //   error: false,
+    //   errorMessage: ""
+    // };
+  })
+
   it('should exist', () => {
-    const wrapper = shallow(<LoginControls />)
     expect(wrapper).toBeDefined();
   })
 
   it("should render like snapshot", () => {
-    const wrapper = shallow(<LoginControls />)
     expect(wrapper).toMatchSnapshot();
   });
+
+  // it('should have default state', () => {
+  //   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
+  // });
+
+  
 });

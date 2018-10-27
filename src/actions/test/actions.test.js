@@ -22,4 +22,15 @@ describe('actions', () => {
 		const result = actions.logIn(loggedIn)
 		expect(result).toEqual(expectedAction)
 	})
+
+	it('should have a type of SAVE_NAME', () => {
+		const name = 'Taylor'
+		const expectedAction = {
+			type: 'SAVE_NAME',
+			currentUser: name
+		}
+
+		const result = actions.saveName(name)
+		expect(result).toEqual(expectedAction)
+	})
 })

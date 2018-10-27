@@ -6,3 +6,33 @@ export const fetchData = async () => {
   const movieData = await response.json();
   return movieData
 };
+
+export const fetchLoginUser = async (email, password) => {
+  const response = await fetch("http://localhost:3000/api/users", {
+    method: "POST",
+    credentials: "same-origin",
+    body: JSON.stringify({
+      email: email,
+      password: password
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
+  const data = await response.json();
+
+  return data
+}
+
+export const fetchSignupUser = async (username, email, password) => {
+  const response = await fetch("http://localhost:3000/api/users/new", {
+    method: "POST",
+    body: JSON.stringify({
+      name: username,
+      email: email,
+      password: password
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
+  const data = await response.json();
+
+  return data
+}

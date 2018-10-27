@@ -13,7 +13,7 @@ export class App extends Component {
   
   componentDidMount = async () => {
     const data = await movieCleaner();
-    this.props.loadMovies(data);
+    this.props.handleFetch(data);
   };
 
   render() {
@@ -30,7 +30,7 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  loadMovies: movies => dispatch(loadMovies(movies))
+  handleFetch: movies => dispatch(loadMovies(movies))
 });
 
 export default withRouter(
