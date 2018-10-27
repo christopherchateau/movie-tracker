@@ -9,20 +9,18 @@ describe('moviesReducer', () => {
 
 	it('should load movies in state', () => {
 		const mockState = {
-			movies: {}
+			movies: []
 		}
 
-		const expected = {
-			movies: { 
+		const expected = [{ 
 				title: 'Millers Crossing' 
-			}
-		}
+			}]
 
 		const action = {
 			type: 'LOAD_MOVIES',
-			movies: {
+			movies: [{
 				title: 'Millers Crossing'
-			}
+			}]
 		}
 
 		const result = moviesReducer(mockState, action)

@@ -24,6 +24,8 @@ describe('App', () => {
 
 describe('mapDispatchToProps', () => {
   it('should call dispatch with load movies action when handleFetch is called', () => {
+    const wrapper = shallow(<App handleFetch={jest.fn()}/>);
+    
     const mockDispatch = jest.fn()
     const actionToDispatch = loadMovies([{title: 'Raising Arizona'}])
 

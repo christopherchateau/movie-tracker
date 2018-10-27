@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavBar Renders like snapshot 1`] = `
+exports[`NavBar render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
+    currentUser="Taylor"
+    handleLogin={[MockFunction]}
     loggedIn={true}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -21,9 +23,13 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          Hello
+          Hello 
+          Taylor
         </h1>,
-        <button>
+        <button
+          className="sign-out-button buttons"
+          onClick={[Function]}
+        >
           Sign Out
         </button>,
       ],
@@ -36,10 +42,16 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Hello",
+          "children": Array [
+            "Hello ",
+            "Taylor",
+          ],
         },
         "ref": null,
-        "rendered": "Hello",
+        "rendered": Array [
+          "Hello ",
+          "Taylor",
+        ],
         "type": "h1",
       },
       Object {
@@ -48,6 +60,8 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Sign Out",
+          "className": "sign-out-button buttons",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Sign Out",
@@ -64,9 +78,13 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            Hello
+            Hello 
+            Taylor
           </h1>,
-          <button>
+          <button
+            className="sign-out-button buttons"
+            onClick={[Function]}
+          >
             Sign Out
           </button>,
         ],
@@ -79,10 +97,16 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Hello",
+            "children": Array [
+              "Hello ",
+              "Taylor",
+            ],
           },
           "ref": null,
-          "rendered": "Hello",
+          "rendered": Array [
+            "Hello ",
+            "Taylor",
+          ],
           "type": "h1",
         },
         Object {
@@ -91,6 +115,8 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Sign Out",
+            "className": "sign-out-button buttons",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Sign Out",

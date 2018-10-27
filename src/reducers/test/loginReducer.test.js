@@ -12,9 +12,7 @@ describe('loginReducer', () => {
 			loggedIn: false
 		}
 
-		const expected = {
-			loggedIn: true
-		}
+		const expected = true
 
 		const action = {
 			type: 'TOGGLE_LOGIN',

@@ -3,11 +3,31 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { mapStateToProps, MovieContainer } from "./index";
+import Movie from '../../components/Movie'
 
-describe("Card", () => {
-  it("Renders like snapshot", () => {
-    const wrapper = shallow(<MovieContainer movies={[]}/>);
+describe("MovieContainer", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    const mockMovies = [{title: 'Raising Arizona'}]
+    wrapper = shallow(<MovieContainer movies={mockMovies} />);
+  })
+
+  it('should exist', () => {
+    expect(wrapper).toBeDefined();
+  })
+
+  it("should render like snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render cards if there are movies in the movies array', () => {
+    expect(wrapper.find(Movie).length).toEqual(1);
+  });
+
+  it('should render the spinner image if there are no movies in the movies array', () => {
+    wrapper = shallow(<MovieContainer movies={[]} />);
+    expect(wrapper.find('.spinner')).toBeDefined();
   });
 });
 
