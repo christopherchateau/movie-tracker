@@ -5,12 +5,13 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <LoginControls
     handleLogin={[MockFunction]}
+    handleSubmit={[MockFunction]}
     location={
       Object {
         "pathname": "",
       }
     }
-    loggedIn={true}
+    loggedIn={false}
     saveName={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -27,15 +28,32 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        false,
-        <div
-          className="loggedIn"
+        <form
+          className="login-form"
+          onSubmit={[Function]}
         >
-          <Redirect
-            push={false}
-            to="/"
+          <input
+            className="email"
+            name="email"
+            onChange={[Function]}
+            placeholder="email"
+            value=""
           />
-        </div>,
+          <input
+            className="password"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            value=""
+          />
+          <button
+            className="submit-btn"
+            disabled={true}
+          >
+            submit
+          </button>
+        </form>,
+        false,
         <section>
           <p
             className="error-msg"
@@ -48,33 +66,87 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
-      false,
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <Redirect
-            push={false}
-            to="/"
-          />,
-          "className": "loggedIn",
+          "children": Array [
+            <input
+              className="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="email"
+              value=""
+            />,
+            false,
+            <input
+              className="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="password"
+              value=""
+            />,
+            <button
+              className="submit-btn"
+              disabled={true}
+            >
+              submit
+            </button>,
+          ],
+          "className": "login-form",
+          "onSubmit": [Function],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "push": false,
-            "to": "/",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "email",
+              "name": "email",
+              "onChange": [Function],
+              "placeholder": "email",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        "type": "div",
+          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "password",
+              "name": "password",
+              "onChange": [Function],
+              "placeholder": "password",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "submit",
+              "className": "submit-btn",
+              "disabled": true,
+            },
+            "ref": null,
+            "rendered": "submit",
+            "type": "button",
+          },
+        ],
+        "type": "form",
       },
+      false,
       Object {
         "instance": null,
         "key": undefined,
@@ -111,15 +183,32 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          false,
-          <div
-            className="loggedIn"
+          <form
+            className="login-form"
+            onSubmit={[Function]}
           >
-            <Redirect
-              push={false}
-              to="/"
+            <input
+              className="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="email"
+              value=""
             />
-          </div>,
+            <input
+              className="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="password"
+              value=""
+            />
+            <button
+              className="submit-btn"
+              disabled={true}
+            >
+              submit
+            </button>
+          </form>,
+          false,
           <section>
             <p
               className="error-msg"
@@ -132,33 +221,87 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
-        false,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <Redirect
-              push={false}
-              to="/"
-            />,
-            "className": "loggedIn",
+            "children": Array [
+              <input
+                className="email"
+                name="email"
+                onChange={[Function]}
+                placeholder="email"
+                value=""
+              />,
+              false,
+              <input
+                className="password"
+                name="password"
+                onChange={[Function]}
+                placeholder="password"
+                value=""
+              />,
+              <button
+                className="submit-btn"
+                disabled={true}
+              >
+                submit
+              </button>,
+            ],
+            "className": "login-form",
+            "onSubmit": [Function],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "push": false,
-              "to": "/",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "email",
+                "name": "email",
+                "onChange": [Function],
+                "placeholder": "email",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
             },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "div",
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "password",
+                "name": "password",
+                "onChange": [Function],
+                "placeholder": "password",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "submit",
+                "className": "submit-btn",
+                "disabled": true,
+              },
+              "ref": null,
+              "rendered": "submit",
+              "type": "button",
+            },
+          ],
+          "type": "form",
         },
+        false,
         Object {
           "instance": null,
           "key": undefined,
