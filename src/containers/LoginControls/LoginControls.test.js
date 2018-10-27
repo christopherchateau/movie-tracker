@@ -37,6 +37,37 @@ describe("LoginControls", () => {
   // it('should have default state', () => {
   //   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
   // });
+  it('should update name in state when handleInputChange is called', () => {
+    let mockName = 'John'
+    let mockEvent = {
+      target: { name: 'username', value: mockName }
+    }
 
+    wrapper.instance().handleInputChange(mockEvent);
+
+    expect(wrapper.state('username')).toBe(mockName)
+  })
+
+  it('should update password in state when handleInputChange is called', () => {
+    let mockPassword = 'password'
+    let mockEvent = {
+      target: { name: 'password', value: mockPassword }
+    }
+
+    wrapper.instance().handleInputChange(mockEvent);
+
+    expect(wrapper.state('password')).toBe(mockPassword)
+  })
+
+  it('should update email in state when handleInputChange is called', () => {
+    let mockEmail = 'john@gmail.com'
+    let mockEvent = {
+      target: { name: 'email', value: mockEmail }
+    }
+
+    wrapper.instance().handleInputChange(mockEvent);
+
+    expect(wrapper.state('email')).toBe(mockEmail)
+  })
   
 });
