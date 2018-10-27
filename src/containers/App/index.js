@@ -10,6 +10,7 @@ import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 
 export class App extends Component {
+  
   componentDidMount = async () => {
     const data = await movieCleaner();
     this.props.loadMovies(data);
