@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavBar Renders like snapshot 1`] = `
+exports[`NavBar render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
+    currentUser="Taylor"
+    handleLogin={[MockFunction]}
     loggedIn={true}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -22,6 +24,7 @@ ShallowWrapper {
       "children": Array [
         <h1>
           Hello 
+          Taylor
         </h1>,
         <button
           className="sign-out-button buttons"
@@ -41,13 +44,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             "Hello ",
-            undefined,
+            "Taylor",
           ],
         },
         "ref": null,
         "rendered": Array [
           "Hello ",
-          undefined,
+          "Taylor",
         ],
         "type": "h1",
       },
@@ -76,6 +79,7 @@ ShallowWrapper {
         "children": Array [
           <h1>
             Hello 
+            Taylor
           </h1>,
           <button
             className="sign-out-button buttons"
@@ -95,13 +99,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               "Hello ",
-              undefined,
+              "Taylor",
             ],
           },
           "ref": null,
           "rendered": Array [
             "Hello ",
-            undefined,
+            "Taylor",
           ],
           "type": "h1",
         },

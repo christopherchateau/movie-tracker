@@ -36,8 +36,8 @@ export const mapStateToProps = state => ({
   currentUser: state.currentUser,
 });
 
-export const mapDispatchToState = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   handleLogin: (loggedIn) => dispatch(logIn(loggedIn)) 
 })
 
-export default connect(mapStateToProps, mapDispatchToState)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
