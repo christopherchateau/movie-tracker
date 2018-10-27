@@ -41,7 +41,7 @@ export class LoginControls extends Component {
   };
 
   validateInputLength = inputType => {
-    if (this.state[inputType].length > 5) {
+    if (this.state[inputType].length > 2) {
       return true;
     } else {
       this.setState({

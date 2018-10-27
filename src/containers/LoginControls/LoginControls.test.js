@@ -1,19 +1,22 @@
 /* eslint-disable */
 
 import React from "react";
-import { shallow } from "enzyme";
-import {LoginControls, mapStateToProps, mapDispatchToProps} from "./index";
+import { shallow, mount } from "enzyme";
+import { LoginControls, mapStateToProps, mapDispatchToProps } from "./index";
 
 describe("LoginControls", () => {
   let wrapper;
+  let mockHandleSubmit;
   // let defaultState;
 
   beforeEach(() => {
+    mockHandleSubmit = jest.fn()
     wrapper = shallow(<LoginControls 
-      loggedIn={true}
+      loggedIn={false}
       handleLogin={jest.fn()}
       saveName={jest.fn()}
       location={{pathname: ''}} 
+      handleSubmit={mockHandleSubmit}
       />)
 
     // defaultState = {
@@ -70,4 +73,47 @@ describe("LoginControls", () => {
     expect(wrapper.state('email')).toBe(mockEmail)
   })
   
+  // it('should call handleSubmit when button is clicked', () => {
+  //   wrapper = mount(<LoginControls 
+  //     loggedIn={false}
+  //     handleLogin={jest.fn()}
+  //     saveName={jest.fn()}
+  //     location={{pathname: ''}} 
+  //     handleSubmit={mockHandleSubmit}
+  //     />)
+  //   const mockEvent = {
+  //     preventDefault: jest.fn()
+  //   }
+  //   const spy = spyOn(wrapper.instance(), 'handleSubmit')
+  //   wrapper.find('form').simulate('submit', mockEvent)
+  //   expect(spy).toHaveBeenCalled()
+    // wrapper.instance().handleSubmit = jest.fn()
+    // mockHandleSubmit = wrapper.instance().handleSubmit
+    // wrapper.find('.login-form').simulate('submit', mockEvent)
+    // expect(mockHandleSubmit).toHaveBeenCalled()
+  // })
+
+  it('should accept valid email', () => {
+    wrapper.setState({email: 'john@gmail.com'})
+    expect(wrapper.instance().validateEmail()).toEqual(true)
+  })
+
+  it('should update error message in state with invalid email address', () => {
+    wrapper.setState({email: 'johngmail.com'})
+    const expected = "Please enter a valid e-mail address" 
+    wrapper.instance().validateEmail()
+    expect(wrapper.state('errorMessage')).toEqual(expected)
+  })
+
+  it('should accept a username of at least 3 letters', () => {
+    wrapper.setState({username: 'john'})
+    expect(wrapper.instance().validateInputLength('username')).toEqual(true)
+  })
+
+  it('should update error message in state with too few letters', () => {
+    wrapper.setState({username: 'jo'})
+    const expected = 'username must be at least 5 characters' 
+    wrapper.instance().validateInputLength('username')
+    expect(wrapper.state('errorMessage')).toEqual(expected)
+  })
 });
