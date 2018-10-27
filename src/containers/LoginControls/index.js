@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
-import { logIn, saveName } from "../../actions";
+import { logIn, saveUserData } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import * as fetch from '../../utilities/fetch.js';
@@ -45,7 +45,7 @@ export class LoginControls extends Component {
       return true;
     } else {
       this.setState({
-        errorMessage: `${inputType} must be at least 5 characters`
+        errorMessage: `${inputType} must be at least 3 characters`
       });
     }
   };
@@ -56,7 +56,7 @@ export class LoginControls extends Component {
       const fetchUser = await fetch.fetchLoginUser(email, password)
       console.log(fetchUser)
 
-      this.props.saveName(fetchUser.data.name);
+      this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
 
     } catch (error) {
@@ -71,7 +71,7 @@ export class LoginControls extends Component {
     const {username, email, password} = this.state 
     const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
 
-    this.props.saveName(username);
+    this.props.saveUserData(username, fetchSignup.id);
     this.props.handleLogin(true);
 
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
@@ -134,7 +134,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToState = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
-  saveName: username => dispatch(saveName(username))
+  saveUserData: (username, id) => dispatch(saveUserData(username, id))
 });
 
 export default connect(

@@ -8,8 +8,9 @@ export const logIn = (loggedIn) => ({
   loggedIn,
 });
 
-export const saveName = (name) => ({
-  type: "SAVE_NAME",
-  currentUser: name
+export const saveUserData = (name, id) => ({
+  type: "SAVE_USERDATA",
+  currentUser: name,
+  id
 });
 

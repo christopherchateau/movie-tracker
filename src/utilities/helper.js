@@ -9,7 +9,9 @@ export const movieCleaner = async () => {
       date: movie.release_date,
       poster:
         "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path,
-      overview: movie.overview
+      overview: movie.overview,
+      voteAverage: movie.vote_average,
+      id: movie.id,
   }))
 };
 

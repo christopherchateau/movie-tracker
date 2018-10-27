@@ -21,7 +21,7 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1>Hello {props.currentUser}</h1>
+        <h1>Hello {props.currentUser.name}</h1>
         <button 
           className='sign-out-button buttons' 
           onClick={() => props.handleLogin(false)} 

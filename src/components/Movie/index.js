@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
-
+import { connect } from "react-redux";
+import * as fetch from '../../utilities/fetch.js';
 class Movie extends Component {
   constructor(props) {
     super(props);
@@ -10,9 +11,13 @@ class Movie extends Component {
     };
   }
 
-  handleCardClick = () => {
-    const isClicked = !this.state.isClicked;
-    this.setState({ isClicked });
+  handleCardClick = async () => {
+   try {
+   const addFavorite = await fetch.fetchAddFavorite(this.props)
+   console.log(addFavorite)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   render() {
@@ -27,12 +32,20 @@ class Movie extends Component {
 
     if (!this.state.isClicked) {
       cardContents = (
-        <img className="movie-poster" src={poster} alt="Movie Poster" />
+        <div>
+         <img className="movie-poster" src={poster} alt="Movie Poster" />
+         <i className="far fa-star" 
+            onClick={this.handleCardClick}>
+         </i>
+        </div>
       );
     } else {
       cardContents = (
         <div className="movie-details">
           <article className="text-wrapper">
+           <i className="far fa-star" 
+              onClick={this.handleCardClick}>
+          </i>
             <h1 className="movie-title">{title}</h1>
             <p className="movie-date">
               {date}
@@ -44,8 +57,7 @@ class Movie extends Component {
       );
     }
     return (
-      <div onMouseEnter={this.handleCardClick} 
-      onMouseLeave={this.handleCardClick}
+      <div 
       className="Movie">
         {cardContents}
       </div>
@@ -53,4 +65,8 @@ class Movie extends Component {
   }
 }
 
-export default Movie;
+export const mapStateToProps = state => ({
+  currentUser: state.currentUser
+})
+
+export default connect(mapStateToProps)(Movie);

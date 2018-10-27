@@ -48,3 +48,8 @@
   padding: 20px 0;
   width: 230px;
 }
+
+.fa-star {
+  z-index: 10;
+  color: white;
+}
