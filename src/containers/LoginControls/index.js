@@ -45,7 +45,7 @@ export class LoginControls extends Component {
       return true;
     } else {
       this.setState({
-        errorMessage: `${inputType} must be at least 5 characters`
+        errorMessage: `${inputType} must be at least 3 characters`
       });
     }
   };

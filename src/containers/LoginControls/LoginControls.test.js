@@ -112,7 +112,7 @@ describe("LoginControls", () => {
 
   it('should update error message in state with too few letters', () => {
     wrapper.setState({username: 'jo'})
-    const expected = 'username must be at least 5 characters' 
+    const expected = 'username must be at least 3 characters' 
     wrapper.instance().validateInputLength('username')
     expect(wrapper.state('errorMessage')).toEqual(expected)
   })
