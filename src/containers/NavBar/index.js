@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logIn, setErrorMessage } from "../../actions";
+import { logIn, setErrorMessage, resetFavorites } from "../../actions";
 
 import "./NavBar.css";
 
@@ -29,7 +29,10 @@ export const NavBar = props => {
         <h1>Hello {props.currentUser.name}</h1>
         <button
           className="sign-out-button buttons"
-          onClick={() => props.handleLogin(false)}
+          onClick={() => {
+            props.handleLogin(false);
+            props.handleResetFavorites();
+          }}
         >
           Sign Out
         </button>
@@ -46,7 +49,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
-  handleErrorMessage: message => dispatch(setErrorMessage(message))
+  handleErrorMessage: message => dispatch(setErrorMessage(message)),
+  handleResetFavorites: () => dispatch(resetFavorites())
 });
 
 export default connect(
