@@ -58,12 +58,13 @@
 }
 
 .fa-star:hover {
-  background-color: white;
-  color: black;
+  background-color: #e8e8e8;
+  border: 2px solid red;
+  color: red;
   transition: all 0.4s ease-in-out;
 }
 
 .favorited {
-  background-color: white;
+  background-color: #e8e8e8;
   color: black;
 }

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
 import { connect } from "react-redux";
+import { toggleFavorite } from "../../actions";
 import * as fetch from "../../utilities/fetch.js";
+
 class Movie extends Component {
   constructor(props) {
     super(props);
@@ -12,11 +14,15 @@ class Movie extends Component {
   }
 
   handleCardClick = async () => {
-    if (!this.props.favorited) {
+    const { favorited, id, handleFavoriteToggle } = this.props;
+    console.log(id);
+    handleFavoriteToggle(id);
+    //console.log(this.props)
+    if (!favorited) {
       try {
         const addFavorite = await fetch.fetchAddFavorite(this.props);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     } else {
       console.log("already favorited");
@@ -25,7 +31,7 @@ class Movie extends Component {
 
   render() {
     let cardContents;
-    let { title, overview, date, poster } = this.props;
+    let { title, overview, date, poster, favorited } = this.props;
 
     let year = "/" + date.split("-")[0];
     date = date
@@ -36,7 +42,10 @@ class Movie extends Component {
     if (!this.state.isClicked) {
       cardContents = (
         <div>
-          <i className="far fa-star" onClick={this.handleCardClick} />
+          <i
+            className={"far fa-star" + (favorited ? " favorited" : "")}
+            onClick={this.handleCardClick}
+          />
           <img className="movie-poster" src={poster} alt="Movie Poster" />
         </div>
       );
@@ -63,4 +72,8 @@ export const mapStateToProps = state => ({
   currentUser: state.currentUser
 });
 
-export default connect(mapStateToProps)(Movie);
+export const mapDispatchToProps = dispatch => ({
+  handleFavoriteToggle: (id) => dispatch(toggleFavorite(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
