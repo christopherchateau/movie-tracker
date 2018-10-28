@@ -19,7 +19,7 @@ export const toggleFavorite = (id) => ({
   id
 });
 
-export const setErrorMessage = (message) => ({
+export const setErrorMessage = (errorMessage) => ({
   type: "SET_ERROR_MESSAGE",
-  message
+  errorMessage
 });
