@@ -171,7 +171,11 @@ describe("LoginControls", () => {
 
 describe('mapStateToProps', () => {
   it('should return an object with a loggedIn status', () => {
+    const mockState = { loggedIn: true };
+    const expected = { loggedIn: true };
 
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
   })
 })
 describe('mapDispatchToProps', () => {
