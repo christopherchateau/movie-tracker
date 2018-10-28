@@ -2,12 +2,14 @@ import apiKey from "../apiKey";
 
 export const fetchData = async () => {
   try {
-    const url = `https://api.themoviedb.org/3/person/1223/movie_credits?api_key=${apiKey.theMoveDBApiKey}`
+    const url = `https://api.themoviedb.org/3/person/1223/movie_credits?api_key=${
+      apiKey.theMoveDBApiKey
+    }`;
     const response = await fetch(url);
     const movieData = await response.json();
-    return movieData
-  } catch(error){
-    return error
+    return movieData;
+  } catch (error) {
+    return error;
   }
 };
 
@@ -62,7 +64,29 @@ export const fetchAddFavorite = async movie => {
 };
 
 export const retrieveUserFavorites = async userId => {
-  const response = await fetch(`http://localhost:3000/api/users/${userId}/favorites`);
+  const response = await fetch(
+    `http://localhost:3000/api/users/${userId}/favorites`
+  );
   const favorites = await response.json();
   return favorites.data;
+};
+
+export const removeFavorite = async (userId, movieId) => {
+  try {
+    return fetch(
+      `http://localhost:3000/api/users/${userId}/favorites/${movieId}`,
+      {
+        method: "DELETE",
+        body: JSON.stringify({
+          user_id: user.id,
+          movie_id: movie.id
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error.message);
+  }
 };
