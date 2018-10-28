@@ -5,14 +5,13 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <LoginControls
     handleLogin={[MockFunction]}
-    handleSubmit={[MockFunction]}
     location={
       Object {
         "pathname": "",
       }
     }
     loggedIn={false}
-    saveName={[MockFunction]}
+    saveUserData={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

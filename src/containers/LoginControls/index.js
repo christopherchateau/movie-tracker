@@ -24,7 +24,7 @@ export class LoginControls extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({ errorMessage: "" });
     if (this.validateEmail() && this.validateInputLength("password")) {
@@ -68,6 +68,7 @@ export class LoginControls extends Component {
     if (!this.validateInputLength("username")) {
       return;
     }
+
     const {username, email, password} = this.state 
     const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
 
@@ -132,12 +133,12 @@ export const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });
 
-export const mapDispatchToState = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   saveUserData: (username, id) => dispatch(saveUserData(username, id))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToState
+  mapDispatchToProps
 )(LoginControls);
