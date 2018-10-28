@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
-import { logIn, saveUserData } from "../../actions";
+import { logIn, saveUserData, toggleFavorite } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import * as fetch from "../../utilities/fetch.js";
@@ -63,10 +63,9 @@ export class LoginControls extends Component {
     }
   };
 
-  getUserFavorites = async id => {
-    const fetchFavorites = await fetch.retrieveUserFavorites(id);
-    //const filteredFavorites = fetchFavorites.filter(user => user.id === id)
-    console.log(fetchFavorites);
+  getUserFavorites = async userId => {
+    const fetchFavorites = await fetch.retrieveUserFavorites(userId);
+    fetchFavorites.forEach(fav => this.props.handleFavoriteToggle(fav.movie_id))
   };
 
   signupUser = async () => {
@@ -140,7 +139,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
-  saveUserData: (username, id) => dispatch(saveUserData(username, id))
+  saveUserData: (username, id) => dispatch(saveUserData(username, id)),
+  handleFavoriteToggle: (id) => dispatch(toggleFavorite(id))
 });
 
 export default connect(
