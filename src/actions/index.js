@@ -14,3 +14,8 @@ export const saveUserData = (name, id) => ({
   id
 });
 
+export const toggleFavorite = (id) => ({
+  type: "TOGGLE_FAVORITES",
+  id
+});
+

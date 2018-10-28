@@ -5,7 +5,7 @@ export const moviesReducer = (state = [], action) => {
     case "TOGGLE_FAVORITES":
       return state.map(movie => {
         return movie.id === action.id
-          ? { ...movie, completed: !movie.completed }
+          ? { ...movie, favorited: !movie.favorited }
           : movie;
       });
     default:
