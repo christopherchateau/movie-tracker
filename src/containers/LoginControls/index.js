@@ -24,7 +24,7 @@ export class LoginControls extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({ errorMessage: "" });
     if (this.validateEmail() && this.validateInputLength("password")) {
@@ -68,6 +68,7 @@ export class LoginControls extends Component {
     if (!this.validateInputLength("username")) {
       return;
     }
+    try{
     const {username, email, password} = this.state 
     const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
 
@@ -76,6 +77,9 @@ export class LoginControls extends Component {
 
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
+    }
+    } catch(error){
+      console.log(error)
     }
   }
 

@@ -14,9 +14,9 @@ describe("LoginControls", () => {
     wrapper = shallow(<LoginControls 
       loggedIn={false}
       handleLogin={jest.fn()}
-      saveName={jest.fn()}
+      saveUserData={jest.fn()}
       location={{pathname: ''}} 
-      handleSubmit={mockHandleSubmit}
+      // handleSubmit={mockHandleSubmit}
       />)
 
     // defaultState = {
@@ -77,7 +77,20 @@ describe("LoginControls", () => {
   })
   
   describe('handleSubmit', () => {
-    it('should call handleSubmit when button is clicked', () => {}
+    const mockEvent = { preventDefault: jest.fn() }
+
+    it('should call handleSubmit when button is clicked', () => {
+      // wrapper = mount(<IdeaForm addIdea={addIdeaMock} />)
+    const spy = spyOn(wrapper.instance(), 'handleSubmit');
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.instance().forceUpdate();
+
+    // Execution
+    wrapper.find('form').simulate('submit', mockEvent)
+
+    // Expectation
+    expect(spy).toHaveBeenCalled()
+    })
     //   wrapper = mount(<LoginControls 
     //     loggedIn={false}
     //     handleLogin={jest.fn()}
@@ -97,19 +110,52 @@ describe("LoginControls", () => {
       // expect(mockHandleSubmit).toHaveBeenCalled()
     // })
     it('should clear the errorMessage in state', () => {
+      wrapper.setState({ 
+          pathname: '/login',
+          email: 'bob@gmail.com',
+          password: 'password' 
+        })
 
+      wrapper.instance().loginUser = jest.fn()
+      wrapper.instance().signupUser = jest.fn()
+
+      wrapper.instance().handleSubmit(mockEvent)
+
+      expect(wrapper.state('errorMessage')).toEqual('')
     })
     it('should call loginUser given the right conditions', () => {
+      wrapper.setState({ 
+          pathname: '/login',
+          email: 'bob@gmail.com',
+          password: 'password' 
+        })
 
+      wrapper.instance().loginUser = jest.fn()
+      wrapper.instance().signupUser = jest.fn()
+      
+      wrapper.instance().handleSubmit(mockEvent)
+
+      expect(wrapper.instance().loginUser).toHaveBeenCalled();
     })
     it('should call signupUser given the right conditions', () => {
+      wrapper.setState({ 
+          pathname: '/signup',
+          email: 'bob@gmail.com',
+          password: 'password' 
+        })
+      
+      wrapper.instance().loginUser = jest.fn()
+      wrapper.instance().signupUser = jest.fn()
+      
+      wrapper.instance().handleSubmit(mockEvent)
 
+      expect(wrapper.instance().signupUser).toHaveBeenCalled();
     })
   })
 
   describe('validateEmail', () => {
     it('should accept valid email', () => {
-      wrapper.setState({email: 'john@gmail.com'})
+      wrapper.setState({ email: 'john@gmail.com' })
       expect(wrapper.instance().validateEmail()).toEqual(true)
     })
 

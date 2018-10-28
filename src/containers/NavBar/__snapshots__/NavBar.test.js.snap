@@ -24,7 +24,6 @@ ShallowWrapper {
       "children": Array [
         <h1>
           Hello 
-          Taylor
         </h1>,
         <button
           className="sign-out-button buttons"
@@ -44,13 +43,13 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             "Hello ",
-            "Taylor",
+            undefined,
           ],
         },
         "ref": null,
         "rendered": Array [
           "Hello ",
-          "Taylor",
+          undefined,
         ],
         "type": "h1",
       },
@@ -79,7 +78,6 @@ ShallowWrapper {
         "children": Array [
           <h1>
             Hello 
-            Taylor
           </h1>,
           <button
             className="sign-out-button buttons"
@@ -99,13 +97,13 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               "Hello ",
-              "Taylor",
+              undefined,
             ],
           },
           "ref": null,
           "rendered": Array [
             "Hello ",
-            "Taylor",
+            undefined,
           ],
           "type": "h1",
         },
