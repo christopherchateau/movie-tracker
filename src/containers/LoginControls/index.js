@@ -123,7 +123,7 @@ export class LoginControls extends Component {
             />
             <button
               className="submit-btn"
-              disabled={!this.state.email || !this.state.password}
+              // disabled={!this.state.email || !this.state.password}
             >
               submit
             </button>
