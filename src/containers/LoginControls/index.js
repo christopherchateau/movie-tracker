@@ -4,7 +4,7 @@ import "./LoginControls.css";
 import { logIn, saveUserData } from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import * as fetch from '../../utilities/fetch.js';
+import * as fetch from "../../utilities/fetch.js";
 
 export class LoginControls extends Component {
   constructor(props) {
@@ -52,24 +52,29 @@ export class LoginControls extends Component {
 
   loginUser = async () => {
     try {
-      const {email, password} = this.state 
-      const fetchUser = await fetch.fetchLoginUser(email, password)
-      console.log(fetchUser)
+      const { email, password } = this.state;
+      const fetchUser = await fetch.fetchLoginUser(email, password);
 
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
-
+      this.getUserFavorites(fetchUser.data.id)
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
+  };
+  
+  getUserFavorites = async (id) => {
+    const fetchFavorites = await fetch.retrieveUserFavorites(id)
+    //const filteredFavorites = fetchFavorites.filter(user => user.id === id)
+    //console.log(fetchFavorites)
   }
 
   signupUser = async () => {
     if (!this.validateInputLength("username")) {
       return;
     }
-    const {username, email, password} = this.state 
-    const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
+    const { username, email, password } = this.state;
+    const fetchSignup = await fetch.fetchSignupUser(username, email, password);
 
     this.props.saveUserData(username, fetchSignup.id);
     this.props.handleLogin(true);
@@ -77,7 +82,7 @@ export class LoginControls extends Component {
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.setState({ errorMessage: "User account already exists!" });
     }
-  }
+  };
 
   render() {
     return (
@@ -129,7 +134,8 @@ export class LoginControls extends Component {
 }
 
 export const mapStateToProps = state => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.loggedIn,
+  userId: state.currentUser.id
 });
 
 export const mapDispatchToState = dispatch => ({

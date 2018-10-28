@@ -12,6 +12,7 @@ export const movieCleaner = async () => {
       overview: movie.overview,
       voteAverage: movie.vote_average,
       id: movie.id,
+      favorited: false
   }))
 };
 

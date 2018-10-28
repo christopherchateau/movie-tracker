@@ -14,7 +14,7 @@ class Movie extends Component {
   handleCardClick = async () => {
    try {
    const addFavorite = await fetch.fetchAddFavorite(this.props)
-   console.log(addFavorite)
+   //console.log(addFavorite)
     } catch (error) {
       console.log(error)
     }
