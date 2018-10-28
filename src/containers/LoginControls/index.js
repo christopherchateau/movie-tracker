@@ -85,13 +85,13 @@ export class LoginControls extends Component {
     this.props.handleLogin(true);
 
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
-      this.props.handleErrorMessage("User account already exists!" );
+      this.props.handleErrorMessage("User account already exists!");
     }
   };
 
   clearErrorMessage = () => {
     this.props.handleErrorMessage("");
-  }
+  };
 
   render() {
     return (
@@ -121,12 +121,7 @@ export class LoginControls extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
-            <button
-              className="submit-btn"
-              // disabled={!this.state.email || !this.state.password}
-            >
-              submit
-            </button>
+            <button className="submit-btn">submit</button>
           </form>
         )}
         {this.props.loggedIn && (
@@ -149,10 +144,10 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   saveUserData: (username, id) => dispatch(saveUserData(username, id)),
-  handleFavoriteToggle: id => dispatch(toggleFavorite(id)),
-  handleErrorMessage: message => dispatch(setErrorMessage(message))
+  handleLogin: loggedIn => dispatch(logIn(loggedIn)),
+  handleErrorMessage: message => dispatch(setErrorMessage(message)),
+  handleFavoriteToggle: id => dispatch(toggleFavorite(id))
 });
 
 export default connect(

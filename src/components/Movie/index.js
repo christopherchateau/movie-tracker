@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
 import { connect } from "react-redux";
-import { toggleFavorite } from "../../actions";
+import { toggleFavorite, setErrorMessage } from "../../actions";
 import * as fetch from "../../utilities/fetch.js";
 
 class Movie extends Component {
@@ -14,8 +14,11 @@ class Movie extends Component {
   }
 
   handleCardClick = async () => {
-    const { favorited, id, handleFavoriteToggle } = this.props;
-    if (!this.verifyUserIsLoggedIn()) return;
+    const { favorited, id, handleFavoriteToggle, handleErrorMessage } = this.props;
+    if (!this.verifyUserIsLoggedIn()) {
+      handleErrorMessage("Please log in or sign up to select favorites")
+      return
+    };
     
     handleFavoriteToggle(id);
     if (!favorited) {
@@ -76,7 +79,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleFavoriteToggle: id => dispatch(toggleFavorite(id))
+  handleFavoriteToggle: id => dispatch(toggleFavorite(id)),
+  handleErrorMessage: message => dispatch(setErrorMessage(message)),
 });
 
 export default connect(
