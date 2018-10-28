@@ -54,7 +54,7 @@ export class LoginControls extends Component {
     try {
       const {email, password} = this.state 
       const fetchUser = await fetch.fetchLoginUser(email, password)
-      // console.log(fetchUser)
+      console.log(fetchUser)
 
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);

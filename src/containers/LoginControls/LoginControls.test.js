@@ -3,11 +3,12 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { LoginControls, mapStateToProps, mapDispatchToProps } from "./index";
+import * as fetch from '../../utilities/fetch.js';
+import { logIn, saveUserData } from "../../actions";
 
 describe("LoginControls", () => {
   let wrapper;
   let mockHandleSubmit;
-  // let defaultState;
 
   beforeEach(() => {
     mockHandleSubmit = jest.fn()
@@ -16,17 +17,8 @@ describe("LoginControls", () => {
       handleLogin={jest.fn()}
       saveUserData={jest.fn()}
       location={{pathname: ''}} 
-      // handleSubmit={mockHandleSubmit}
       />)
 
-    defaultState = {
-      email: "",
-      password: "",
-      username: "",
-      pathname: this.props.location.pathname,
-      error: false,
-      errorMessage: ""
-    };
   })
 
   it('should exist', () => {
@@ -35,10 +27,6 @@ describe("LoginControls", () => {
 
   it("should render like snapshot", () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should have default state', () => {
-    expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
   });
 
   describe('handleInputChange', () => {
@@ -193,7 +181,7 @@ describe("LoginControls", () => {
     })
   })
   describe('loginUser', () => {
-    it('should call fetchSignupUser with the correct params', () => {
+    it('should call fetchSignupUser with the correct params', async () => {
 
     })
     it('should call saveUserData with the correct params', () => {
@@ -209,10 +197,12 @@ describe("LoginControls", () => {
   })
 
   describe('signupUser', () => {
-    it('should call fetchSignupUser with the correct params', () => {
+    it('should return if the username does not have the required length', async () => {
+      wrapper.setState({ username: 'Jo'});
 
-    })
-    it('should return the username does not have the required length', () => {
+      expect(await wrapper.instance().signupUser()).toEqual(undefined);
+    });
+    it('should call fetchSignupUser with the correct params', () => {
 
     })
     it('should call saveUserData with the correct params', () => {
@@ -237,10 +227,22 @@ describe('mapStateToProps', () => {
   })
 })
 describe('mapDispatchToProps', () => {
-  it('should call dispatch with logIn action when handleLogin is called', () => {
+  const mockDispatch = jest.fn();
 
+  it('should call dispatch with logIn action when handleLogin is called', () => {
+    const actionToDispatch = logIn(true);
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.handleLogin(true);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   })
   it('should call dispatch with saveUserData action when saveUserData is called', () => {
+    const actionToDispatch = saveUserData('username', 3);
 
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.saveUserData('username', 3);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   })
 })
