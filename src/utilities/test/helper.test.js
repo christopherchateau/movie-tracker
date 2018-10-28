@@ -9,19 +9,31 @@ describe('movieCleaner', async () => {
 	beforeEach(() => {
 		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
 			status: 200,
-			json: () => Promise.resolve({
-				results: Mocks.mockResults
-			})
+			json: () => Promise.resolve(
+				Mocks.mockResults
+			)
 		}))
 	})
 
-	it('should call fetchData with the correct params', async () => {
-  		const expected = "https://api.themoviedb.org/3/person/1223/movie_credits?api_key=9954e71d12ad27a2cefac26f2e808e76";
-		await Fetch.fetchData(Mocks.mockMovies)
-		expect(window.fetch).toHaveBeenCalledWith(expected)
+	it('should call fetchData', async () => {
+		await movieCleaner()
+		
+		expect(window.fetch).toHaveBeenCalled()
 	})
 
-  	it('should remove unwanted movie data', () => {
-  		
+  	it('should remove unwanted movie data', async () => {
+  		const expected = Mocks.mockMovies
+
+  		const result = await movieCleaner()
+
+  		expect(result).toEqual(expected)
   	})
 	})
+
+      // const expected = Mocks.cleanPerson
+
+      // // Execution
+      // const result = await Cleaners.addHomeworldInfo(Mocks.mockPerson)
+
+      // // Expectation
+      // expect(result).toEqual(expected)
