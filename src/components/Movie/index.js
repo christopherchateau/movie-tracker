@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
 import { connect } from "react-redux";
-import * as fetch from '../../utilities/fetch.js';
+import * as fetch from "../../utilities/fetch.js";
 class Movie extends Component {
   constructor(props) {
     super(props);
@@ -12,15 +12,15 @@ class Movie extends Component {
   }
 
   handleCardClick = async () => {
-  if (!this.props.favorited) {
-   try {
-   const addFavorite = await fetch.fetchAddFavorite(this.props)
-    } catch (error) {
-      console.log(error)
+    if (!this.props.favorited) {
+      try {
+        const addFavorite = await fetch.fetchAddFavorite(this.props);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.log("already favorited");
     }
-  } else  {
-    console.log('already favorited');
-  }
   };
 
   render() {
@@ -36,19 +36,15 @@ class Movie extends Component {
     if (!this.state.isClicked) {
       cardContents = (
         <div>
-         <img className="movie-poster" src={poster} alt="Movie Poster" />
-         <i className="far fa-star" 
-            onClick={this.handleCardClick}>
-         </i>
+          <i className="far fa-star" onClick={this.handleCardClick} />
+          <img className="movie-poster" src={poster} alt="Movie Poster" />
         </div>
       );
     } else {
       cardContents = (
         <div className="movie-details">
           <article className="text-wrapper">
-           <i className="far fa-star" 
-              onClick={this.handleCardClick}>
-          </i>
+            <i className="far fa-star" onClick={this.handleCardClick} />
             <h1 className="movie-title">{title}</h1>
             <p className="movie-date">
               {date}
@@ -59,17 +55,12 @@ class Movie extends Component {
         </div>
       );
     }
-    return (
-      <div 
-      className="Movie">
-        {cardContents}
-      </div>
-    );
+    return <div className="Movie">{cardContents}</div>;
   }
 }
 
 export const mapStateToProps = state => ({
   currentUser: state.currentUser
-})
+});
 
 export default connect(mapStateToProps)(Movie);
