@@ -15,20 +15,25 @@ class Movie extends Component {
 
   handleCardClick = async () => {
     const { favorited, id, handleFavoriteToggle } = this.props;
+
+    if (!this.verifyLoggedIn()) return;
     handleFavoriteToggle(id);
     if (!favorited) {
       try {
         const addFavorite = await fetch.fetchAddFavorite(this.props);
-      } catch (error) {
-      }
+      } catch (error) {}
     } else {
       console.log("already favorited");
     }
   };
 
+  verifyLoggedIn = () => {
+    return this.props.loggedIn;
+  };
+
   render() {
-    let cardContents;
     let { title, overview, date, poster, favorited } = this.props;
+    let cardContents;
 
     let year = "/" + date.split("-")[0];
     date = date
@@ -66,11 +71,15 @@ class Movie extends Component {
 }
 
 export const mapStateToProps = state => ({
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  loggedIn: state.loggedIn
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleFavoriteToggle: (id) => dispatch(toggleFavorite(id))
+  handleFavoriteToggle: id => dispatch(toggleFavorite(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movie);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Movie);
