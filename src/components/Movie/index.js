@@ -12,12 +12,15 @@ class Movie extends Component {
   }
 
   handleCardClick = async () => {
+  if (!this.props.favorited) {
    try {
    const addFavorite = await fetch.fetchAddFavorite(this.props)
-   //console.log(addFavorite)
     } catch (error) {
       console.log(error)
     }
+  } else  {
+    console.log('already favorited');
+  }
   };
 
   render() {
