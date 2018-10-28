@@ -181,18 +181,18 @@ describe("LoginControls", () => {
     })
   })
   describe('loginUser', () => {
-    it('should call fetchSignupUser with the correct params', async () => {
+    // it('should call fetchSignupUser with the correct params', async () => {
 
-    })
-    it('should call saveUserData with the correct params', () => {
+    // })
+    // it('should call saveUserData with the correct params', () => {
 
-    })
-    it('should call handleLogin with the correct params', () => {
+    // })
+    // it('should call handleLogin with the correct params', () => {
 
-    })
-    it('should update errorMessage if there is an error', () => {
+    // })
+    // it('should update errorMessage if there is an error', () => {
 
-    })
+    // })
 
   })
 
@@ -202,18 +202,18 @@ describe("LoginControls", () => {
 
       expect(await wrapper.instance().signupUser()).toEqual(undefined);
     });
-    it('should call fetchSignupUser with the correct params', () => {
+    // it('should call fetchSignupUser with the correct params', () => {
 
-    })
-    it('should call saveUserData with the correct params', () => {
+    // })
+    // it('should call saveUserData with the correct params', () => {
 
-    })
-    it('should call handleLogin with the correct param', () => {
+    // })
+    // it('should call handleLogin with the correct param', () => {
 
-    })
-    it('should update errorMessage if there is an error', () => {
+    // })
+    // it('should update errorMessage if there is an error', () => {
 
-    })
+    // })
   })
 });
 
@@ -228,11 +228,11 @@ describe('mapStateToProps', () => {
 })
 describe('mapDispatchToProps', () => {
   const mockDispatch = jest.fn();
+  const mappedProps = mapDispatchToProps(mockDispatch);
 
   it('should call dispatch with logIn action when handleLogin is called', () => {
     const actionToDispatch = logIn(true);
 
-    const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.handleLogin(true);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
@@ -240,7 +240,6 @@ describe('mapDispatchToProps', () => {
   it('should call dispatch with saveUserData action when saveUserData is called', () => {
     const actionToDispatch = saveUserData('username', 3);
 
-    const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.saveUserData('username', 3);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
