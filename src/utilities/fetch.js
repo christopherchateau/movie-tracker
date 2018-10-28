@@ -60,8 +60,7 @@ export const fetchAddFavorite = async movie => {
 };
 
 export const retrieveUserFavorites = async userId => {
-  const response = await fetch("http://localhost:3000/api/users/2/favorites");
-  //const favData = await response.json();
-  console.log(response)
-  //return favData.data;
+  const response = await fetch(`http://localhost:3000/api/users/${userId}/favorites`);
+  const favorites = await response.json();
+  return favorites.data;
 };
