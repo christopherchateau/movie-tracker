@@ -9,7 +9,11 @@ export const moviesReducer = (state = [], action) => {
           : movie;
       });
     case "RESET_FAVORITES":
-      return state.map(movie => (movie.favorited = false));
+      return state.map(movie => {
+        return movie.favorited
+          ? { ...movie, favorited: false}
+          : movie;
+        });
     default:
       return state;
   }
