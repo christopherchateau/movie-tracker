@@ -3,7 +3,6 @@ import * as Fetch from '../fetch';
 import { movieCleaner } from '../helper';
 import * as Mocks from './mocks'
 
-
 describe('movieCleaner', async () => {
 
 	beforeEach(() => {
@@ -17,7 +16,7 @@ describe('movieCleaner', async () => {
 
 	it('should call fetchData', async () => {
 		await movieCleaner()
-		
+
 		expect(window.fetch).toHaveBeenCalled()
 	})
 
@@ -30,10 +29,3 @@ describe('movieCleaner', async () => {
   	})
 	})
 
-      // const expected = Mocks.cleanPerson
-
-      // // Execution
-      // const result = await Cleaners.addHomeworldInfo(Mocks.mockPerson)
-
-      // // Expectation
-      // expect(result).toEqual(expected)
