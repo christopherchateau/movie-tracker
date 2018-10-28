@@ -66,7 +66,7 @@ export class LoginControls extends Component {
   getUserFavorites = async (id) => {
     const fetchFavorites = await fetch.retrieveUserFavorites(id)
     //const filteredFavorites = fetchFavorites.filter(user => user.id === id)
-    //console.log(fetchFavorites)
+    console.log(fetchFavorites)
   }
 
   signupUser = async () => {
