@@ -30,6 +30,7 @@ export class LoginControls extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.clearErrorMessage();
     if (this.validateEmail() && this.validateInputLength("password")) {
       this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
     }
@@ -87,6 +88,10 @@ export class LoginControls extends Component {
       this.props.handleErrorMessage("User account already exists!" );
     }
   };
+
+  clearErrorMessage = () => {
+    this.props.handleErrorMessage("");
+  }
 
   render() {
     return (
