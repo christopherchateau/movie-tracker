@@ -15,14 +15,11 @@ class Movie extends Component {
 
   handleCardClick = async () => {
     const { favorited, id, handleFavoriteToggle } = this.props;
-    console.log(id);
     handleFavoriteToggle(id);
-    //console.log(this.props)
     if (!favorited) {
       try {
         const addFavorite = await fetch.fetchAddFavorite(this.props);
       } catch (error) {
-        //console.log(error);
       }
     } else {
       console.log("already favorited");
