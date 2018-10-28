@@ -15,8 +15,8 @@ class Movie extends Component {
 
   handleCardClick = async () => {
     const { favorited, id, handleFavoriteToggle } = this.props;
-
-    if (!this.verifyLoggedIn()) return;
+    if (!this.verifyUserIsLoggedIn()) return;
+    
     handleFavoriteToggle(id);
     if (!favorited) {
       try {
@@ -27,7 +27,7 @@ class Movie extends Component {
     }
   };
 
-  verifyLoggedIn = () => {
+  verifyUserIsLoggedIn = () => {
     return this.props.loggedIn;
   };
 
