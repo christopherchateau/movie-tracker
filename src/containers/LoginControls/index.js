@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./LoginControls.css";
-import { logIn, saveUserData } from "../../actions";
+import {
+  logIn,
+  saveUserData,
+  toggleFavorite,
+  setErrorMessage
+} from "../../actions";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import * as fetch from '../../utilities/fetch.js';
+import * as fetch from "../../utilities/fetch.js";
 
 export class LoginControls extends Component {
   constructor(props) {
@@ -14,8 +19,7 @@ export class LoginControls extends Component {
       password: "",
       username: "",
       pathname: this.props.location.pathname,
-      error: false,
-      errorMessage: ""
+      error: false
     };
   }
 
@@ -26,7 +30,7 @@ export class LoginControls extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ errorMessage: "" });
+    this.clearErrorMessage();
     if (this.validateEmail() && this.validateInputLength("password")) {
       this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
     }
@@ -36,7 +40,7 @@ export class LoginControls extends Component {
     if (this.state.email.includes("@")) {
       return true;
     }
-    this.setState({ errorMessage: "Please enter a valid e-mail address" });
+    this.props.handleErrorMessage("Please enter a valid e-mail address");
     return false;
   };
 
@@ -44,41 +48,50 @@ export class LoginControls extends Component {
     if (this.state[inputType].length > 2) {
       return true;
     } else {
-      this.setState({
-        errorMessage: `${inputType} must be at least 3 characters`
-      });
+      this.props.handleErrorMessage(
+        `${inputType} must be at least 3 characters`
+      );
     }
   };
 
   loginUser = async () => {
     try {
-      const {email, password} = this.state 
-      const fetchUser = await fetch.fetchLoginUser(email, password)
-      console.log(fetchUser)
+      const { email, password } = this.state;
+      const fetchUser = await fetch.fetchLoginUser(email, password);
 
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
-
+      this.getUserFavorites(fetchUser.data.id);
     } catch (error) {
-      this.setState({ errorMessage: "Invalid e-mail/password" });
+      this.props.handleErrorMessage("Invalid e-mail/password");
     }
-  }
+  };
+
+  getUserFavorites = async userId => {
+    const fetchFavorites = await fetch.retrieveUserFavorites(userId);
+    fetchFavorites.forEach(fav =>
+      this.props.handleFavoriteToggle(fav.movie_id)
+    );
+  };
 
   signupUser = async () => {
     if (!this.validateInputLength("username")) {
       return;
     }
-
-    const {username, email, password} = this.state 
-    const fetchSignup = await fetch.fetchSignupUser(username, email, password) 
+    const { username, email, password } = this.state;
+    const fetchSignup = await fetch.fetchSignupUser(username, email, password);
 
     this.props.saveUserData(username, fetchSignup.id);
     this.props.handleLogin(true);
 
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
-      this.setState({ errorMessage: "User account already exists!" });
+      this.props.handleErrorMessage("User account already exists!");
     }
-  }
+  };
+
+  clearErrorMessage = () => {
+    this.props.handleErrorMessage("");
+  };
 
   render() {
     return (
@@ -108,12 +121,7 @@ export class LoginControls extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
-            <button
-              className="submit-btn"
-              disabled={!this.state.email || !this.state.password}
-            >
-              submit
-            </button>
+            <button className="submit-btn">submit</button>
           </form>
         )}
         {this.props.loggedIn && (
@@ -122,7 +130,7 @@ export class LoginControls extends Component {
           </div>
         )}
         <section>
-          <p className="error-msg">{this.state.errorMessage}</p>
+          <p className="error-msg">{this.props.errorMessage}</p>
         </section>
       </div>
     );
@@ -130,12 +138,16 @@ export class LoginControls extends Component {
 }
 
 export const mapStateToProps = state => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.loggedIn,
+  userId: state.currentUser.id,
+  errorMessage: state.errorMessage
 });
 
 export const mapDispatchToProps = dispatch => ({
+  saveUserData: (username, id) => dispatch(saveUserData(username, id)),
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
-  saveUserData: (username, id) => dispatch(saveUserData(username, id))
+  handleErrorMessage: message => dispatch(setErrorMessage(message)),
+  handleFavoriteToggle: id => dispatch(toggleFavorite(id))
 });
 
 export default connect(

@@ -14,3 +14,16 @@ export const saveUserData = (name, id) => ({
   id
 });
 
+export const toggleFavorite = (id) => ({
+  type: "TOGGLE_FAVORITE",
+  id
+});
+
+export const resetFavorites = () => ({
+  type: "RESET_FAVORITES"
+});
+
+export const setErrorMessage = (errorMessage) => ({
+  type: "SET_ERROR_MESSAGE",
+  errorMessage
+});

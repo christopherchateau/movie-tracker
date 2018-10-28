@@ -13,9 +13,9 @@ export class App extends Component {
   
   componentDidMount = async () => {
     const data = await movieCleaner();
-    this.props.handleFetch(data);
+    this.props.handleFetch(data);    
   };
-
+  
   render() {
     return (
       <div className="App">

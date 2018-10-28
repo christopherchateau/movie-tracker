@@ -1,7 +1,6 @@
 .LoginControls {
   background-color: #e8e8e8;
   height: 56px;
-  width: 100%;
 }
 
 .login-form {
@@ -29,6 +28,7 @@ input {
   border-radius: 30px;
   bottom: 10px;
   color: black;
+  cursor: pointer;
   font-size: 19px;
   font-weight: bolder;
   margin: 10px 0px;
