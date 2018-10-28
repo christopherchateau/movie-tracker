@@ -19,14 +19,14 @@ describe("LoginControls", () => {
       // handleSubmit={mockHandleSubmit}
       />)
 
-    // defaultState = {
-    //   email: "",
-    //   password: "",
-    //   username: "",
-    //   pathname: this.props.location.pathname,
-    //   error: false,
-    //   errorMessage: ""
-    // };
+    defaultState = {
+      email: "",
+      password: "",
+      username: "",
+      pathname: this.props.location.pathname,
+      error: false,
+      errorMessage: ""
+    };
   })
 
   it('should exist', () => {
@@ -37,78 +37,90 @@ describe("LoginControls", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // it('should have default state', () => {
-  //   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
-  // });
+  it('should have default state', () => {
+    expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
+  });
 
   describe('handleInputChange', () => {
-    it('should update name in state when handleInputChange is called', () => {
-      let mockName = 'John'
+    it('calls handleInputChange when username is changed', () => {
+      wrapper.setState({ pathname: '/signup' });
+      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+      wrapper.instance().forceUpdate();
+      const mockEvent = {target: {value: 'users name'}};
+
+      wrapper.find('.username').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it('should update username in state when handleInputChange is called', () => {
+      let mockName = 'John';
       let mockEvent = {
         target: { name: 'username', value: mockName }
-      }
+      };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('username')).toBe(mockName)
-    })
+      expect(wrapper.state('username')).toBe(mockName);
+    });
+
+    it('calls handleInputChange when password is changed', () => {
+      wrapper.setState({ pathname: '/signup' });
+      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+      wrapper.instance().forceUpdate();
+      const mockEvent = {target: {value: 'users password'}};
+
+      wrapper.find('.password').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
 
     it('should update password in state when handleInputChange is called', () => {
-      let mockPassword = 'password'
+      let mockPassword = 'password';
       let mockEvent = {
         target: { name: 'password', value: mockPassword }
-      }
+      };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('password')).toBe(mockPassword)
-    })
+      expect(wrapper.state('password')).toBe(mockPassword);
+    });
+
+    it('calls handleInputChange when email is changed', () => {
+      wrapper.setState({ pathname: '/signup' });
+      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+      wrapper.instance().forceUpdate();
+      const mockEvent = {target: {value: 'users email'}};
+
+      wrapper.find('.email').simulate('change', mockEvent);
+
+      expect(spy).toHaveBeenCalled();
+    });
 
     it('should update email in state when handleInputChange is called', () => {
       let mockEmail = 'john@gmail.com'
       let mockEvent = {
         target: { name: 'email', value: mockEmail }
-      }
+      };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('email')).toBe(mockEmail)
-    })
+      expect(wrapper.state('email')).toBe(mockEmail);
+    });
   })
   
   describe('handleSubmit', () => {
     const mockEvent = { preventDefault: jest.fn() }
 
     it('should call handleSubmit when button is clicked', () => {
-      // wrapper = mount(<IdeaForm addIdea={addIdeaMock} />)
-    const spy = spyOn(wrapper.instance(), 'handleSubmit');
-    const mockEvent = { preventDefault: jest.fn() }
-    wrapper.instance().forceUpdate();
+      const spy = spyOn(wrapper.instance(), 'handleSubmit');
+      const mockEvent = { preventDefault: jest.fn() }
+      wrapper.instance().forceUpdate();
 
-    // Execution
-    wrapper.find('form').simulate('submit', mockEvent)
+      wrapper.find('form').simulate('submit', mockEvent)
 
-    // Expectation
-    expect(spy).toHaveBeenCalled()
+      expect(spy).toHaveBeenCalled()
     })
-    //   wrapper = mount(<LoginControls 
-    //     loggedIn={false}
-    //     handleLogin={jest.fn()}
-    //     saveName={jest.fn()}
-    //     location={{pathname: ''}} 
-    //     handleSubmit={mockHandleSubmit}
-    //     />)
-    //   const mockEvent = {
-    //     preventDefault: jest.fn()
-    //   }
-    //   const spy = spyOn(wrapper.instance(), 'handleSubmit')
-    //   wrapper.find('form').simulate('submit', mockEvent)
-    //   expect(spy).toHaveBeenCalled()
-      // wrapper.instance().handleSubmit = jest.fn()
-      // mockHandleSubmit = wrapper.instance().handleSubmit
-      // wrapper.find('.login-form').simulate('submit', mockEvent)
-      // expect(mockHandleSubmit).toHaveBeenCalled()
-    // })
     it('should clear the errorMessage in state', () => {
       wrapper.setState({ 
           pathname: '/login',
