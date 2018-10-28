@@ -54,7 +54,7 @@ export class LoginControls extends Component {
     try {
       const {email, password} = this.state 
       const fetchUser = await fetch.fetchLoginUser(email, password)
-      console.log(fetchUser)
+      // console.log(fetchUser)
 
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
@@ -132,12 +132,12 @@ export const mapStateToProps = state => ({
   loggedIn: state.loggedIn
 });
 
-export const mapDispatchToState = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   saveUserData: (username, id) => dispatch(saveUserData(username, id))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToState
+  mapDispatchToProps
 )(LoginControls);
