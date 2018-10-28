@@ -24,7 +24,7 @@ export class LoginControls extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({ errorMessage: "" });
     if (this.validateEmail() && this.validateInputLength("password")) {
@@ -57,17 +57,17 @@ export class LoginControls extends Component {
 
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
-      this.getUserFavorites(fetchUser.data.id)
+      this.getUserFavorites(fetchUser.data.id);
     } catch (error) {
       this.setState({ errorMessage: "Invalid e-mail/password" });
     }
   };
-  
-  getUserFavorites = async (id) => {
-    const fetchFavorites = await fetch.retrieveUserFavorites(id)
+
+  getUserFavorites = async id => {
+    const fetchFavorites = await fetch.retrieveUserFavorites(id);
     //const filteredFavorites = fetchFavorites.filter(user => user.id === id)
-    console.log(fetchFavorites)
-  }
+    console.log(fetchFavorites);
+  };
 
   signupUser = async () => {
     if (!this.validateInputLength("username")) {
@@ -138,12 +138,12 @@ export const mapStateToProps = state => ({
   userId: state.currentUser.id
 });
 
-export const mapDispatchToState = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   saveUserData: (username, id) => dispatch(saveUserData(username, id))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToState
+  mapDispatchToProps
 )(LoginControls);

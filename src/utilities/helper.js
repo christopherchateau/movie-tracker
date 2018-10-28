@@ -16,5 +16,4 @@ export const movieCleaner = async () => {
   }))
 };
 
-  //need to handle an error
 
