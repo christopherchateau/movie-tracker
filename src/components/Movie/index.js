@@ -13,17 +13,17 @@ export class Movie extends Component {
     };
   }
 
-  handleCardClick = async () => {
-    const { favorited, id, handleFavoriteToggle, handleErrorMessage } = this.props;
+  handleCardClick = () => {
+    const { favorited, id, handleToggleFavorite, handleErrorMessage } = this.props;
     if (!this.verifyUserIsLoggedIn()) {
       handleErrorMessage("Please log in or sign up to select favorites")
       return
     };
     
-    handleFavoriteToggle(id);
+    handleToggleFavorite(id);
     if (!favorited) {
       try {
-        const addFavorite = await fetch.fetchAddFavorite(this.props);
+        const addFavorite = fetch.fetchAddFavorite(this.props);
       } catch (error) {}
     } else {
       console.log("already favorited");
@@ -79,7 +79,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleFavoriteToggle: id => dispatch(toggleFavorite(id)),
+  handleToggleFavorite: id => dispatch(toggleFavorite(id)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
 });
 

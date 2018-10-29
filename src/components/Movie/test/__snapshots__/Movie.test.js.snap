@@ -4,7 +4,16 @@ exports[`Movie should render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Movie
+    currentUser={
+      Object {
+        "id": 3,
+        "name": "john",
+      }
+    }
     date="10-20-2018"
+    handleErrorMessage={[MockFunction]}
+    handleToggleFavorite={[MockFunction]}
+    loggedIn={false}
     overview="overview"
     poster="url"
     title="title"
