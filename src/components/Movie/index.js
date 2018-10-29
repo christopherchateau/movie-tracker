@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { toggleFavorite, setErrorMessage } from "../../actions";
 import * as fetch from "../../utilities/fetch.js";
 
-class Movie extends Component {
+export class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,14 +13,14 @@ class Movie extends Component {
     };
   }
 
-  handleCardClick = async () => {
-    const { favorited, id, handleFavoriteToggle, handleErrorMessage } = this.props;
+  handleCardClick = () => {
+    const { favorited, id, handleToggleFavorite, handleErrorMessage } = this.props;
     if (!this.verifyUserIsLoggedIn()) {
       handleErrorMessage("Please log in or sign up to select favorites")
       return
     };
     
-    handleFavoriteToggle(id);
+    handleToggleFavorite(id);
     if (!favorited) {
       try {
         const addFavorite = fetch.fetchAddFavorite(this.props);
@@ -79,7 +79,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleFavoriteToggle: id => dispatch(toggleFavorite(id)),
+  handleToggleFavorite: id => dispatch(toggleFavorite(id)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
 });
 
