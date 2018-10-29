@@ -26,4 +26,31 @@ describe('moviesReducer', () => {
 		const result = moviesReducer(mockState, action)
 		expect(result).toEqual(expected)
 	})
+
+	it('should toggle favorites in state', () => {
+		const mockState = {
+			movies: [{
+				title: 'Millers Crossing',
+				favorited: false
+			 }]
+			}
+
+		const expected = {
+			movies: [{
+				title: 'Millers Crossing',
+				favorited: true
+			 }]
+			}
+
+		const action = {
+			type: 'TOGGLE_FAVORITE',
+			movies: [{
+				title: 'Millers Crossing',
+				favorited: true
+			 }]
+		    }
+
+		const result = moviesReducer(mockState, action)
+		expect(result).toEqual(expected)
+	})
 })
