@@ -23,7 +23,7 @@ export class Movie extends Component {
     handleToggleFavorite(id);
     if (!favorited) {
       try {
-        const addFavorite = fetch.fetchAddFavorite(this.props);
+      fetch.fetchAddFavorite(this.props);
       } catch (error) {}
     } else {
       fetch.removeFavorite(this.props.currentUser.id, id);
