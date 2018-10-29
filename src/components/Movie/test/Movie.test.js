@@ -2,7 +2,7 @@
 
 import React from "react";
 import { shallow } from "enzyme";
-import Movie from "./index";
+import Movie from "../index";
 
 describe("Movie", () => {
   let wrapper;

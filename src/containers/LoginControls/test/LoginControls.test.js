@@ -2,9 +2,9 @@
 
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { LoginControls, mapStateToProps, mapDispatchToProps } from "./index";
-import * as fetch from '../../utilities/fetch.js';
-import { logIn, saveUserData } from "../../actions";
+import { LoginControls, mapStateToProps, mapDispatchToProps } from "../index";
+import * as fetch from '../../../utilities/fetch.js';
+import { logIn, saveUserData, setErrorMessage, toggleFavorite } from "../../../actions";
 
 describe("LoginControls", () => {
   let wrapper;
@@ -17,6 +17,8 @@ describe("LoginControls", () => {
       handleLogin={jest.fn()}
       saveUserData={jest.fn()}
       location={{pathname: ''}} 
+      handleErrorMessage={jest.fn()}
+      handleFavoriteToggle={jest.fn()}
       />)
 
   })
@@ -181,9 +183,21 @@ describe("LoginControls", () => {
     })
   })
   describe('loginUser', () => {
-    // it('should call fetchSignupUser with the correct params', async () => {
+    it('should call fetchSignupUser with the correct params', async () => { 
 
-    // })
+      wrapper.setState({email: 'john@gmail.com', password: 'password'})
+
+      window.fetch = jest.fn().mockImplementation(() => 
+          Promise.resolve({json: () => Promise.resolve({})})
+        );
+
+      wrapper.instance().fetch.fetchLoginUser = window.fetch
+      wrapper.instance().getUserFavorites = jest.fn()
+
+      wrapper.instance().loginUser()
+
+      expect(wrapper.instance().fetch.fetchLoginUser).toHaveBeenCalled()
+    })
     // it('should call saveUserData with the correct params', () => {
 
     // })
@@ -194,6 +208,10 @@ describe("LoginControls", () => {
 
     // })
 
+  })
+
+  describe('getUserFavorites', () => {
+    
   })
 
   describe('signupUser', () => {
@@ -225,7 +243,14 @@ describe('mapStateToProps', () => {
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
   })
+
+  it('should return an object with current user id', () => {
+  })
+
+  it('should return an object with an error message', () => {
+  })
 })
+
 describe('mapDispatchToProps', () => {
   const mockDispatch = jest.fn();
   const mappedProps = mapDispatchToProps(mockDispatch);
@@ -244,4 +269,37 @@ describe('mapDispatchToProps', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   })
+
+  it('should call dispatch with setErrorMessage action when handleErrorMessage is called', () => {
+    const actionToDispatch = setErrorMessage('');
+
+    mappedProps.handleErrorMessage('');
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  })
+  
+  it('should call dispatch with toggleFavorite action when handleFavoriteToggle is called', () => {
+    const actionToDispatch = toggleFavorite(3);
+
+    mappedProps.handleFavoriteToggle(3);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
