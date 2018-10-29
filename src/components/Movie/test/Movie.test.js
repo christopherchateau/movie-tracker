@@ -4,6 +4,9 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import { Movie, mapStateToProps, mapDispatchToProps, handleToggleFavorite, handleErrorMessage } from "../index";
 import { toggleFavorite, setErrorMessage } from '../../../actions'
+import * as fetch from "../../../utilities/fetch.js";
+
+jest.mock('../../../utilities/fetch.js')
 
 describe("Movie", () => {
   let wrapper;
@@ -19,6 +22,8 @@ describe("Movie", () => {
                 loggedIn={false}
                 handleToggleFavorite={jest.fn()}
                 handleErrorMessage={jest.fn()}
+                favorited={true}
+                id={115}
               />);
 
     // defaultState = {
@@ -35,14 +40,63 @@ describe("Movie", () => {
   });
 
   it('should call handleErrorMessage if user is not logged in', () => {
-    const handleErrorMessage = jest.fn()
-
     wrapper.instance().handleCardClick()
     expect(wrapper.props().handleErrorMessage).toHaveBeenCalled()
   })
 
-  it('should call hand')
+  it('should call handleToggleFavorite on card click', () => {
+    wrapper = mount(<Movie
+                      title={'title'}
+                      overview={'overview'}
+                      date={'10-20-2018'}
+                      poster={'url'} 
+                      currentUser={{name: 'john', id: 3}}
+                      loggedIn={true}
+                      handleToggleFavorite={jest.fn()}
+                      handleErrorMessage={jest.fn()}
+                      favorited={true}
+                      id={115}
+                    />)
 
+    wrapper.instance().handleCardClick()
+    expect(wrapper.props().handleToggleFavorite).toHaveBeenCalled()
+  })
+
+  it('should call removeFavorite if favorited is false', () => {
+    wrapper = mount(<Movie 
+                title={'title'}
+                overview={'overview'}
+                date={'10-20-2018'}
+                poster={'url'} 
+                currentUser={{name: 'john', id: 3}}
+                loggedIn={true}
+                handleToggleFavorite={jest.fn()}
+                handleErrorMessage={jest.fn()}
+                favorited={true}
+                id={115}
+              />)
+
+    wrapper.instance().handleCardClick()
+    expect(fetch.removeFavorite).toHaveBeenCalled()
+  })
+
+   it('should call fetchAddFavorite if favorited is false', () => {
+    wrapper = mount(<Movie 
+                title={'title'}
+                overview={'overview'}
+                date={'10-20-2018'}
+                poster={'url'} 
+                currentUser={{name: 'john', id: 3}}
+                loggedIn={true}
+                handleToggleFavorite={jest.fn()}
+                handleErrorMessage={jest.fn()}
+                favorited={false}
+                id={115}
+              />)
+
+    wrapper.instance().handleCardClick()
+    expect(fetch.fetchAddFavorite).toHaveBeenCalled()
+  })
   // it('should have default state', () => {
   //   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
   // });
