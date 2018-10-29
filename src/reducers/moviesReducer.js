@@ -14,6 +14,8 @@ export const moviesReducer = (state = [], action) => {
           ? { ...movie, favorited: false}
           : movie;
         });
+    case "DISPLAY_FAVORITES":
+      return state.filter(movie => movie.favorited);
     default:
       return state;
   }

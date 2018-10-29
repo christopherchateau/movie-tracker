@@ -4,7 +4,7 @@ export const loadMovies = movies => ({
 });
 
 export const displayFavorites = bool => ({
-  type: "LOAD_MOVIES",
+  type: "DISPLAY_FAVORITES",
   displayFavorites: bool
 });
 
