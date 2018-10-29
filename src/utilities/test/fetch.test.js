@@ -86,9 +86,23 @@ describe('fetch', () => {
   })
 
   it('calls fetch with the correct params when retrieving favorites', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(Mocks.mockRetrieveFavoritesResponse)
+    }));
+
+    const expected = "http://localhost:3000/api/users/3/favorites"
+
+    Fetch.retrieveUserFavorites(3)
+    expect(window.fetch).toHaveBeenCalledWith(expected)
+
   })
 
-  it('calls fetch with the correct params when user removes a favorite', () => {
-  })
+  // it('calls fetch with the correct params when user removes a favorite', () => {
+  //   window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+  //     json: () => Promise.resolve(Mocks.mockRemoveFavoritesResponse)
+  //   }));
+
+
+  // })
 
 })
