@@ -90,19 +90,33 @@ describe('fetch', () => {
       json: () => Promise.resolve(Mocks.mockRetrieveFavoritesResponse)
     }));
 
-    const expected = "http://localhost:3000/api/users/3/favorites"
+    const mockUserId = 3
+
+    const expected = `http://localhost:3000/api/users/${mockUserId}/favorites`
 
     Fetch.retrieveUserFavorites(3)
     expect(window.fetch).toHaveBeenCalledWith(expected)
 
   })
 
-  // it('calls fetch with the correct params when user removes a favorite', () => {
-  //   window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-  //     json: () => Promise.resolve(Mocks.mockRemoveFavoritesResponse)
-  //   }));
+  it('calls fetch with the correct params when user removes a favorite', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(Mocks.mockRemoveFavoritesResponse)
+    }));
 
+    const mockUserId = 3
+    const mockMovieId = 4
 
-  // })
+    const expectedFetchBody = {
+      method: "DELETE",
+      body: JSON.stringify({
+        user_id: mockUserId, 
+        movie_id: mockMovieId,
+      }),
+      headers: { "Content-Type": "application/json" }
+    }
 
+    Fetch.removeFavorite(mockUserId, mockMovieId)
+    expect(window.fetch).toHaveBeenCalledWith('http://localhost:3000/api/users/3/favorites/4', expectedFetchBody)
+  })
 })
