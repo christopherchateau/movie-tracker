@@ -119,4 +119,6 @@ describe('fetch', () => {
     Fetch.removeFavorite(mockUserId, mockMovieId)
     expect(window.fetch).toHaveBeenCalledWith('http://localhost:3000/api/users/3/favorites/4', expectedFetchBody)
   })
+
+  // it('should test the catch', () => {})
 })
