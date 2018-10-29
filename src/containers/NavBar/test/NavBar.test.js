@@ -1,8 +1,8 @@
 import React from 'react';
-import { mapStateToProps, mapDispatchToProps, NavBar } from './index';
+import { mapStateToProps, mapDispatchToProps, NavBar } from '../index';
 import { shallow } from 'enzyme';
 import { NavLink } from "react-router-dom";
-import { logIn } from "../../actions";
+import { logIn } from "../../../actions";
 
 describe('NavBar', () => {
   let wrapper;
