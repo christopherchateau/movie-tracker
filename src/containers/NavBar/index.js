@@ -26,7 +26,7 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1>Hello {props.currentUser.name}</h1>
+        <h1 className="user-name">Hello {props.currentUser.name}</h1>
         <button
           className="sign-out-button buttons"
           onClick={() => {
@@ -36,6 +36,9 @@ export const NavBar = props => {
         >
           Sign Out
         </button>
+        <NavLink className="favorites-button buttons" to="/favorites">
+            My Favorites
+          </NavLink>
       </div>
     );
   }
