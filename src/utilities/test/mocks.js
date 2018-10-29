@@ -33,6 +33,17 @@ export const mockAddMovieResponse = {
   id: 9
 }
 
+export const mockRetrieveFavoritesResponse = {
+  status: 'success',
+  data: {},
+  message: 'Retrieved All favorites'
+}
+
+export const mockRemoveFavoritesResponse = {
+  status: 'success', 
+  message: 'one row was deleted.'
+}
+
 export const mockMovie =   {
   title: 'The Big Lebowski',
   date: "1998-03-06",
