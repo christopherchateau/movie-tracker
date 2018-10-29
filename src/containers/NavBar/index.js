@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logIn, setErrorMessage, resetFavorites } from "../../actions";
-
 import "./NavBar.css";
 
 export const NavBar = props => {
@@ -37,8 +36,8 @@ export const NavBar = props => {
           Sign Out
         </button>
         <NavLink className="favorites-button buttons" to="/favorites">
-            My Favorites
-          </NavLink>
+          My Favorites
+        </NavLink>
       </div>
     );
   }
