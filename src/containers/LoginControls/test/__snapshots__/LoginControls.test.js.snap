@@ -47,7 +47,6 @@ ShallowWrapper {
           />
           <button
             className="submit-btn"
-            disabled={true}
           >
             submit
           </button>
@@ -56,9 +55,7 @@ ShallowWrapper {
         <section>
           <p
             className="error-msg"
-          >
-            
-          </p>
+          />
         </section>,
       ],
       "className": "LoginControls",
@@ -88,7 +85,6 @@ ShallowWrapper {
             />,
             <button
               className="submit-btn"
-              disabled={true}
             >
               submit
             </button>,
@@ -136,7 +132,6 @@ ShallowWrapper {
             "props": Object {
               "children": "submit",
               "className": "submit-btn",
-              "disabled": true,
             },
             "ref": null,
             "rendered": "submit",
@@ -153,9 +148,7 @@ ShallowWrapper {
         "props": Object {
           "children": <p
             className="error-msg"
-          >
-            
-          </p>,
+          />,
         },
         "ref": null,
         "rendered": Object {
@@ -163,11 +156,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "",
+            "children": undefined,
             "className": "error-msg",
           },
           "ref": null,
-          "rendered": "",
+          "rendered": null,
           "type": "p",
         },
         "type": "section",
@@ -202,7 +195,6 @@ ShallowWrapper {
             />
             <button
               className="submit-btn"
-              disabled={true}
             >
               submit
             </button>
@@ -211,9 +203,7 @@ ShallowWrapper {
           <section>
             <p
               className="error-msg"
-            >
-              
-            </p>
+            />
           </section>,
         ],
         "className": "LoginControls",
@@ -243,7 +233,6 @@ ShallowWrapper {
               />,
               <button
                 className="submit-btn"
-                disabled={true}
               >
                 submit
               </button>,
@@ -291,7 +280,6 @@ ShallowWrapper {
               "props": Object {
                 "children": "submit",
                 "className": "submit-btn",
-                "disabled": true,
               },
               "ref": null,
               "rendered": "submit",
@@ -308,9 +296,7 @@ ShallowWrapper {
           "props": Object {
             "children": <p
               className="error-msg"
-            >
-              
-            </p>,
+            />,
           },
           "ref": null,
           "rendered": Object {
@@ -318,11 +304,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "",
+              "children": undefined,
               "className": "error-msg",
             },
             "ref": null,
-            "rendered": "",
+            "rendered": null,
             "type": "p",
           },
           "type": "section",

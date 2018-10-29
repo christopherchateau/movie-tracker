@@ -2,9 +2,9 @@
 
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { LoginControls, mapStateToProps, mapDispatchToProps } from "./index";
-import * as fetch from '../../utilities/fetch.js';
-import { logIn, saveUserData } from "../../actions";
+import { LoginControls, mapStateToProps, mapDispatchToProps } from "../index";
+import * as fetch from '../../../utilities/fetch.js';
+import { logIn, saveUserData } from "../../../actions";
 
 describe("LoginControls", () => {
   let wrapper;
