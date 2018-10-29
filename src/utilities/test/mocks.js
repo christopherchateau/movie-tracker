@@ -10,9 +10,37 @@ export const mockUserLoginResponse = {
     name: "Taylor",
     password: "password",
   },
-  // __proto__: Object
   message: "Retrieved ONE User",
   status: "success",
+}
+
+export const mockUserSignup = {
+  email: 'bigLebow@yahoo.com',
+  password: 'password',
+  username: 'Taylor'
+}
+
+export const mockUserSignUpResponse = { 
+  status: 'success', 
+  data: {}, 
+  message: "New user created", 
+  id: 9
+}
+
+export const mockAddMovieResponse = { 
+  status: 'success', 
+  message: "Movie was added to favorites",
+  id: 9
+}
+
+export const mockMovie =   {
+  title: 'The Big Lebowski',
+  date: "1998-03-06",
+  poster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aHaVjVoXeNanfwUwQ92SG7tosFM.jpg",
+  overview: "Jeffrey \"The Dude\" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.",
+  voteAverage: 7.9,
+  id: 115,
+  currentUser: {id: 3}
 }
 
 export const mockMovies = [

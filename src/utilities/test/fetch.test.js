@@ -5,9 +5,8 @@ import * as Fetch from '../fetch';
 import * as Mocks from './mocks'
 
 
-describe('fetchData', () => {
+describe('fetch', () => {
   it('should call fetch with the correct params', async () => {
-    // let mockData = {crew: [{name: 'Joel', job: 'Director'}]}
     window.fetch = jest.fn().mockImplementation(() => 
         Promise.resolve({json: () => Promise.resolve(Mocks.mockResults)})
       );
@@ -16,7 +15,6 @@ describe('fetchData', () => {
     Fetch.fetchData()
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
-})
 
   it('calls fetch with the correct params when a user logs in', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -42,9 +40,49 @@ describe('fetchData', () => {
   })
 
   it('calls fetch with the correct params when a user signsup', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(Mocks.mockUserSignUpResponse)
+    }));
+
+    const mockEmail = Mocks.mockUserSignup.email
+    const mockPassword = Mocks.mockUserSignup.password
+    const mockName = Mocks.mockUserSignup.username
+    const expectedFetchBody = {
+      method: "POST",
+      body: JSON.stringify({
+        name: mockName,
+        email: mockEmail,
+        password: mockPassword
+      }),
+      headers: { "Content-Type": "application/json" }
+    }
+
+    Fetch.fetchSignupUser(mockName, mockEmail, mockPassword)
+    expect(window.fetch).toHaveBeenCalledWith("http://localhost:3000/api/users/new", expectedFetchBody)
   })
 
   it('calls fetch with the correct params when a user adds a favorite', () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve(Mocks.mockAddMovieResponse)
+    }));
+
+    const mockMovie = Mocks.mockMovie
+    const expectedFetchBody = {
+      method: "POST",
+      body: JSON.stringify({
+        movie_id: mockMovie.id,
+        user_id: mockMovie.currentUser.id,
+        title: mockMovie.title,
+        poster_path: mockMovie.poster,
+        release_date: mockMovie.date,
+        vote_average: mockMovie.voteAverage,
+        overview: mockMovie.overview
+      }),
+      headers: { "Content-Type": "application/json" }
+    }
+
+    Fetch.fetchAddFavorite(mockMovie)
+    expect(window.fetch).toHaveBeenCalledWith("http://localhost:3000/api/users/favorites/new", expectedFetchBody)
   })
 
   it('calls fetch with the correct params when retrieving favorites', () => {
@@ -52,3 +90,5 @@ describe('fetchData', () => {
 
   it('calls fetch with the correct params when user removes a favorite', () => {
   })
+
+})
