@@ -2,9 +2,9 @@
 
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { LoginControls, mapStateToProps, mapDispatchToProps } from "./index";
-import * as fetch from '../../utilities/fetch.js';
-import { logIn, saveUserData } from "../../actions";
+import { LoginControls, mapStateToProps, mapDispatchToProps } from "../index";
+import * as fetch from '../../../utilities/fetch.js';
+import { logIn, saveUserData } from "../../../actions";
 
 describe("LoginControls", () => {
   let wrapper;
@@ -196,6 +196,10 @@ describe("LoginControls", () => {
 
   })
 
+  describe('getUserFavorites', () => {
+    
+  })
+
   describe('signupUser', () => {
     it('should return if the username does not have the required length', async () => {
       wrapper.setState({ username: 'Jo'});
@@ -225,7 +229,14 @@ describe('mapStateToProps', () => {
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
   })
+
+  it('should return an object with current user id', () => {
+  })
+
+  it('should return an object with an error message', () => {
+  })
 })
+
 describe('mapDispatchToProps', () => {
   const mockDispatch = jest.fn();
   const mappedProps = mapDispatchToProps(mockDispatch);
@@ -244,4 +255,8 @@ describe('mapDispatchToProps', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   })
+
+  it('should call dispatch with setErrorMessage action when handleErrorMessage is called', () => {})
+  
+  it('should call dispatch with toggleFavorite action when handleFavoriteToggle is called', () => {})
 })

@@ -2,8 +2,8 @@
 
 import React from "react";
 import { shallow } from "enzyme";
-import { mapStateToProps, MovieContainer } from "./index";
-import Movie from '../../components/Movie'
+import { mapStateToProps, MovieContainer } from "../index";
+import Movie from '../../../components/Movie'
 
 describe("MovieContainer", () => {
   let wrapper;

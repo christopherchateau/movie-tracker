@@ -8,9 +8,7 @@ describe('movieCleaner', async () => {
 	beforeEach(() => {
 		window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
 			status: 200,
-			json: () => Promise.resolve(
-				Mocks.mockResults
-			)
+			json: () => Promise.resolve( Mocks.mockResults )
 		}))
 	})
 
@@ -20,12 +18,12 @@ describe('movieCleaner', async () => {
 		expect(window.fetch).toHaveBeenCalled()
 	})
 
-  	it('should remove unwanted movie data', async () => {
-  		const expected = Mocks.mockMovies
+	it('should remove unwanted movie data', async () => {
+		const expected = Mocks.mockMovies
 
-  		const result = await movieCleaner()
+		const result = await movieCleaner()
 
-  		expect(result).toEqual(expected)
-  	})
+		expect(result).toEqual(expected)
 	})
+})
 
