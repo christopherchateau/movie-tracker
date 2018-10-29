@@ -2,7 +2,7 @@
 
 import React from "react";
 import { shallow } from "enzyme";
-import Movie from "../index";
+import { Movie, mapStateToProps, mapDispatchToProps } from "../index";
 
 describe("Movie", () => {
   let wrapper;
@@ -64,6 +64,26 @@ describe("Movie", () => {
   });
 });
 
+  describe('mapStateToProps', () => {
+    it('should return an object with currentUser', () => {
+      const mockState = {
+        currentUser: {
+          name: 'John',
+          id: 11
+        }
+      }
+
+      const expected = {
+        currentUser: {
+          name: 'John',
+          id: 11
+        }
+      }
+
+      const mappedToProps = mapStateToProps(mockState)
+      expect(mappedToProps).toEqual(expected)
+    })
+  })
 
 
 

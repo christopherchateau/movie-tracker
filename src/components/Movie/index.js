@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { toggleFavorite, setErrorMessage } from "../../actions";
 import * as fetch from "../../utilities/fetch.js";
 
-class Movie extends Component {
+export class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
