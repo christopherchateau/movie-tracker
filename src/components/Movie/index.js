@@ -26,7 +26,7 @@ export class Movie extends Component {
         const addFavorite = fetch.fetchAddFavorite(this.props);
       } catch (error) {}
     } else {
-      console.log("already favorited");
+      fetch.removeFavorite(this.props.currentUser.id, id);
     }
   };
 

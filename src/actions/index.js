@@ -3,9 +3,14 @@ export const loadMovies = movies => ({
   movies
 });
 
-export const logIn = (loggedIn) => ({
+export const displayFavorites = bool => ({
+  type: "DISPLAY_FAVORITES",
+  displayFavorites: bool
+});
+
+export const logIn = loggedIn => ({
   type: "TOGGLE_LOGIN",
-  loggedIn,
+  loggedIn
 });
 
 export const saveUserData = (name, id) => ({
@@ -14,7 +19,7 @@ export const saveUserData = (name, id) => ({
   id
 });
 
-export const toggleFavorite = (id) => ({
+export const toggleFavorite = id => ({
   type: "TOGGLE_FAVORITE",
   id
 });
@@ -23,7 +28,7 @@ export const resetFavorites = () => ({
   type: "RESET_FAVORITES"
 });
 
-export const setErrorMessage = (errorMessage) => ({
+export const setErrorMessage = errorMessage => ({
   type: "SET_ERROR_MESSAGE",
   errorMessage
 });

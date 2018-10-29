@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logIn, setErrorMessage, resetFavorites } from "../../actions";
-
+import {
+  logIn,
+  setErrorMessage,
+  resetFavorites,
+  displayFavorites
+} from "../../actions";
 import "./NavBar.css";
 
 export const NavBar = props => {
@@ -26,7 +30,7 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1>Hello {props.currentUser.name}</h1>
+        <h1 className="user-name">Hello {props.currentUser.name}</h1>
         <button
           className="sign-out-button buttons"
           onClick={() => {
@@ -36,6 +40,13 @@ export const NavBar = props => {
         >
           Sign Out
         </button>
+        <NavLink
+          className="favorites-button buttons"
+          to="/favorites"
+          onClick={props.handleDisplayFavorites}
+        >
+          My Favorites
+        </NavLink>
       </div>
     );
   }
@@ -50,7 +61,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   handleLogin: loggedIn => dispatch(logIn(loggedIn)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
-  handleResetFavorites: () => dispatch(resetFavorites())
+  handleResetFavorites: () => dispatch(resetFavorites()),
+  handleDisplayFavorites: () => dispatch(displayFavorites())
 });
 
 export default connect(
