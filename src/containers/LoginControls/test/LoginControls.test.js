@@ -279,54 +279,18 @@ describe("LoginControls", () => {
     it('should call retrieveUserFavorites with the correct params', () => {
       const mockUserId = 3
 
-      wrapper.instance().loginUser();
+      wrapper.instance().getUserFavorites(mockUserId);
 
       expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
     })
 
     it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
 
-
-    
- 
   });
 
-  // describe("signupUser", () => {
-  //   it("should return if the username does not have the required length", async () => {
-  //     wrapper.setState({ username: "Jo" });
-
-  //     expect(await wrapper.instance().signupUser()).toEqual(undefined);
-  //   })
-
-  //   it('should call fetchSignupUser with the correct params', () => {
-  //     let mockEmail = 'bigLo@gmail.com'
-  //     let mockPassword = 'password'
-  //     let mockUsername = 'Taylor'
-
-  //     wrapper.setState({
-  //       email: mockEmail,
-  //       password: mockPassword,
-  //       username: mockUsername
-  //     })
-
-  //     wrapper.instance().signupUser()
-
-  //     expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
-  //   })
-
-  //   it('should call saveUserData with the correct params', () => {
-  //   });
-    
-  //   it('should call handleLogin with the correct param', () => {
-
-  //   })
-  //   it('should update errorMessage if there is an error', () => {
-
-  //   })
-  // })
 
   describe('clearErrorMessage', () => {
-    it('should call handleErrorMessage witht he correct params', () => {})
+    it('should call handleErrorMessage with the correct params', () => {})
   });
 });
 
