@@ -51,6 +51,10 @@ export const NavBar = props => {
             props.handleLogin(false);
             props.handleResetFavorites();
             props.handleDisplayFavorites(false);
+            localStorage.setItem(
+              "coenCollection",
+              JSON.stringify({ loggedIn: false, email: "", password: "" })
+            );
           }}
         >
           Sign Out

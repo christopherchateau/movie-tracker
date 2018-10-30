@@ -23,6 +23,17 @@ export class LoginControls extends Component {
     };
   }
 
+  componentDidMount = async () => {
+    const storedLogin = JSON.parse(localStorage.getItem("coenCollection"));
+    if (storedLogin.loggedIn) {
+      await this.setState({
+        email: storedLogin.email,
+        password: storedLogin.password
+      });
+      this.loginUser();
+    }
+  };
+
   handleInputChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -63,6 +74,10 @@ export class LoginControls extends Component {
       this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
       this.props.handleLogin(true);
       this.getUserFavorites(fetchUser.data.id);
+      localStorage.setItem(
+        "coenCollection",
+        JSON.stringify({ loggedIn: true, email, password })
+      );
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
     }
