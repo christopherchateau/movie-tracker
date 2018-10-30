@@ -57,10 +57,7 @@ export class Movie extends Component {
     if (!this.state.isHovered) {
       cardContents = (
         <div>
-          <i
-            className={"far fa-star" + (favorited ? " favorited" : "")}
-            onClick={this.handleClickFavorite}
-          />
+          <i className={"fa-star" + (favorited ? " fas favorited" : " far")} />
           <img className="movie-poster" src={poster} alt="Movie Poster" />
         </div>
       );
@@ -69,7 +66,7 @@ export class Movie extends Component {
         <div className="movie-details">
           <article className="text-wrapper">
             <i
-              className={"far fa-star" + (favorited ? " favorited" : "")}
+              className={"fa-star" + (favorited ? " fas favorited" : " far")}
               onClick={this.handleClickFavorite}
             />
             <h1 className="movie-title">{title}</h1>

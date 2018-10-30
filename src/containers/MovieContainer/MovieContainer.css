@@ -6,7 +6,7 @@
   justify-content: space-evenly;
   margin: 0 auto;
   overflow: scroll;
-  padding-bottom: 50px;
+  padding: 50px 0;
   position: absolute;
   top: 176px;
   width: 100%;
