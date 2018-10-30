@@ -16,7 +16,9 @@ export const MovieContainer = props => {
     return (
       <div className="Movie-Container no-favs">
         <img className="walter" src={walter} />
-        <h3>{`You're entering a world of pain, ${props.userName}. Pick some favorites!`}</h3>
+        <h3>{`You're entering a world of pain, ${
+          props.userName
+        }. Pick some favorites!`}</h3>
       </div>
     );
   } else {

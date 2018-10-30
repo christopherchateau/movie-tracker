@@ -1,1 +1,1 @@
-export const removeFavorite = jest.fn()
+export const removeFavorite = jest.fn();

@@ -1,32 +1,32 @@
-import { userReducer } from '../userReducer.js';
+import { userReducer } from "../userReducer.js";
 
-describe('userReducer', () => {
-  it('should return the initial state', () => {
-    const expected = ''
-    const result = userReducer(undefined, {})
-    expect(result).toEqual(expected)
-  })
+describe("userReducer", () => {
+  it("should return the initial state", () => {
+    const expected = "";
+    const result = userReducer(undefined, {});
+    expect(result).toEqual(expected);
+  });
 
-  it('should assign a users name in state', () => {
+  it("should assign a users name in state", () => {
     const mockState = {
-      currentUser: '',
+      currentUser: "",
       id: null
-    }
+    };
 
-    const expected =  {
-      id: 3 ,
+    const expected = {
+      id: 3,
       name: "Taylor"
-    }
+    };
 
     const action = {
-      type: 'SAVE_USERDATA',
-      currentUser: 'Taylor',
+      type: "SAVE_USERDATA",
+      currentUser: "Taylor",
       id: 3
-    }
+    };
 
-    const result = userReducer(mockState, action)
-    expect(result).toEqual(expected)
-  })
+    const result = userReducer(mockState, action);
+    expect(result).toEqual(expected);
+  });
 
   // it('should assign a users id in state', () => {
   //   const mockState = {
@@ -42,4 +42,4 @@ describe('userReducer', () => {
 
   //   const result = userReducer(mockState,)
   // })
-})
+});
