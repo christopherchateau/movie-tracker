@@ -73,26 +73,26 @@ export class LoginControls extends Component {
     this.getUserFavorites(userData.data.id);
   }
 
-  getUserFavorites = async userId => {
-    const fetchFavorites = await fetch.retrieveUserFavorites(userId);
-    fetchFavorites.forEach(fav =>
-      this.props.handleFavoriteToggle(fav.movie_id)
-    );
-  };
+  // getUserFavorites = async userId => {
+  //   const fetchFavorites = await fetch.retrieveUserFavorites(userId);
+  //   fetchFavorites.forEach(fav =>
+  //     this.props.handleFavoriteToggle(fav.movie_id)
+  //   );
+  // };
 
-  signupUser = async () => {
-    if (!this.validateInputLength("username", 2)) {
-      return;
-    }
-    const { username, email, password } = this.state;
-    const fetchSignup = await fetch.fetchSignupUser(username, email, password);
+  // signupUser = async () => {
+  //   if (!this.validateInputLength("username", 2)) {
+  //     return;
+  //   }
+  //   const { username, email, password } = this.state;
+  //   const fetchSignup = await fetch.fetchSignupUser(username, email, password);
 
-    if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
-      this.props.handleErrorMessage("User account already exists!");
-    } else {
-      this.updateUserDataAfterSignup(username, fetchSignup.id)
-    }
-  };
+  //   if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
+  //     this.props.handleErrorMessage("User account already exists!");
+  //   } else {
+  //     this.updateUserDataAfterSignup(username, fetchSignup.id)
+  //   }
+  // };
 
   updateUserDataAfterSignup = (username, id) => {
     this.props.saveUserData(username, id);

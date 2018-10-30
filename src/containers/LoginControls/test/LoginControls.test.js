@@ -220,6 +220,17 @@ describe("LoginControls", () => {
   
   describe('loginUser', () => {
 
+    const mockUserLoginResponse = {
+      data: {
+        email: "bigLebow@yahoo.com",
+        id: 1,
+        name: "Taylor",
+        password: "password"
+      },
+      message: "Retrieved ONE User",
+      status: "success"
+    };
+
     it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
@@ -231,20 +242,23 @@ describe("LoginControls", () => {
         username: mockUsername
       })
 
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
+
       wrapper.instance().loginUser();
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
 
-    // it('should call updateUserDataAfterLogin', async () => {
-    //   wrapper.instance().updateUserDataAfterLogin = jest.fn()
+    it('should call updateUserDataAfterLogin', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
 
-    //   wrapper.instance().loginUser();
-    //   expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
-    // })
+      wrapper.instance().updateUserDataAfterLogin = jest.fn()
 
-    // it('should call handleErrorMessage if there is an error', () => {})
+      await wrapper.instance().loginUser();
+      expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
+    })
+
+    it('should call handleErrorMessage if there is an error', () => {})
   })
-
 
   describe('updateUserDataAfterLogin', () => {
     let wrapper = mount(
@@ -292,27 +306,44 @@ describe("LoginControls", () => {
   
 
 
-  describe('getUserFavorites', () => {
-    it('should call retrieveUserFavorites with the correct params', () => {
-      const mockUserId = 3
+  // describe('getUserFavorites', () => {
+  //   it('should call retrieveUserFavorites with the correct params', () => {
+  //     const mockUserId = 3
+  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+  //       ok: true
+  //     }))
 
-      wrapper.instance().getUserFavorites(mockUserId);
+  //     wrapper.instance().getUserFavorites(mockUserId);
 
-      expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
-    })
+  //     expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
+  //   })
 
-    it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
+  //   it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
 
-  });
+  // });
 
-  describe('signupUser', () => {
-    it('should return if a username is 2 or less letters in length', () => {
+  // describe('signupUser', () => {
+  //   it('should return if a username is 2 or less letters in length', () => {
 
-    })
+  //   })
 
-    it('should call fetchSignupUser with the correct params', () => { })
+  //   it('should call fetchSignupUser with the correct params', () => { 
+  //     let mockEmail = 'bigLo@gmail.com'
+  //     let mockPassword = 'password'
+  //     let mockUsername = 'Taylor'
 
-  })
+  //     wrapper.setState({
+  //       email: mockEmail,
+  //       password: mockPassword,
+  //       username: mockUsername
+  //     })
+
+  //     wrapper.instance().signupUser();
+
+  //     expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
+  //   })
+
+  // })
 
   describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
