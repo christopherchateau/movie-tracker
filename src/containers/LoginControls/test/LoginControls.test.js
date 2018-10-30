@@ -360,9 +360,14 @@ describe("LoginControls", () => {
       message: "New user created",
       id: 9
     }
-    // it('should return if a username is 2 or less letters in length', () => {
 
-    // })
+    it('should return if a username is 2 or less letters in length', () => {
+      wrapper.setState({userName: 'Jo'})
+
+      wrapper.instance().signupUser();
+
+      expect(fetch.fetchSignupUser).not.toHaveBeenCalled()
+    })
 
     it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
@@ -399,20 +404,7 @@ describe("LoginControls", () => {
       await wrapper.instance().signupUser();
       expect(wrapper.instance().updateUserDataAfterSignup).toHaveBeenCalled();
     })
-
   })
-
-
-
-
-
-
-
-
-
-
-
-
 
   describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
