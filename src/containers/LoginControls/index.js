@@ -73,12 +73,12 @@ export class LoginControls extends Component {
     this.getUserFavorites(userData.data.id);
   }
 
-  // getUserFavorites = async userId => {
-  //   const fetchFavorites = await fetch.retrieveUserFavorites(userId);
-  //   fetchFavorites.forEach(fav =>
-  //     this.props.handleFavoriteToggle(fav.movie_id)
-  //   );
-  // };
+  getUserFavorites = async userId => {
+    const fetchFavorites = await fetch.retrieveUserFavorites(userId);
+    fetchFavorites.forEach(fav =>
+      this.props.handleFavoriteToggle(fav.movie_id)
+    );
+  };
 
   // signupUser = async () => {
   //   if (!this.validateInputLength("username", 2)) {

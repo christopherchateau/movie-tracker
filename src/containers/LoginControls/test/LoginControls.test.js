@@ -219,6 +219,18 @@ describe("LoginControls", () => {
   })
   
   describe('loginUser', () => {
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
 
     const mockUserLoginResponse = {
       data: {
@@ -257,7 +269,13 @@ describe("LoginControls", () => {
       expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
     })
 
-    it('should call handleErrorMessage if there is an error', () => {})
+    it('should call handleErrorMessage if there is an error', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'error'}))
+
+      await wrapper.instance().loginUser();
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Invalid e-mail/password");
+
+    })
   })
 
   describe('updateUserDataAfterLogin', () => {
