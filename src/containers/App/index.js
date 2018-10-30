@@ -15,7 +15,7 @@ export class App extends Component {
     const { handleErrorMessage, handleFetch } = this.props;
     const data = await movieCleaner();
     if (!data.length) {
-      handleErrorMessage("Ugn... movies failed to load");
+      handleErrorMessage("Ugh... movies failed to load");
     }
     handleFetch(data);
   };
