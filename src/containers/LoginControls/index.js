@@ -74,10 +74,14 @@ export class LoginControls extends Component {
   }
 
   getUserFavorites = async userId => {
-    const fetchFavorites = await fetch.retrieveUserFavorites(userId);
-    fetchFavorites.forEach(fav =>
-      this.props.handleFavoriteToggle(fav.movie_id)
-    );
+    try {
+      const fetchFavorites = await fetch.retrieveUserFavorites(userId);
+      fetchFavorites.forEach(fav =>
+        this.props.handleFavoriteToggle(fav.movie_id)
+      );
+    } catch (error) {
+      this.props.handleErrorMessage("Favorites error")
+    }
   };
 
   signupUser = async () => {
