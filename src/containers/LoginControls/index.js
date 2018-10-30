@@ -61,13 +61,18 @@ export class LoginControls extends Component {
       const { email, password } = this.state;
       const fetchUser = await fetch.fetchLoginUser(email, password);
 
-      this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
-      this.props.handleLogin(true);
-      this.getUserFavorites(fetchUser.data.id);
+      this.updateUserDataAfterLogin(fetchUser)
+
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
     }
   };
+
+  updateUserDataAfterLogin = (userData) => {
+    this.props.saveUserData(userData.data.name, userData.data.id);
+    this.props.handleLogin(true);
+    this.getUserFavorites(userData.data.id);
+  }
 
   getUserFavorites = async userId => {
     const fetchFavorites = await fetch.retrieveUserFavorites(userId);

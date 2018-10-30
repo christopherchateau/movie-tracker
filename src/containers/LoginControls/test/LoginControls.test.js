@@ -207,8 +207,6 @@ describe("LoginControls", () => {
   
   describe('loginUser', () => {
 
-
-
     it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
@@ -222,6 +220,11 @@ describe("LoginControls", () => {
 
       wrapper.instance().loginUser();
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
+    })
+
+    it('should call updateUserDataAfterLogin', () => {
+      wrapper.instance().loginUser();
+      expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
     })
 
     it('should call saveUserData with the correct params', async () => {
@@ -290,7 +293,25 @@ describe("LoginControls", () => {
 
 
   describe('clearErrorMessage', () => {
-    it('should call handleErrorMessage with the correct params', () => {})
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
+
+    it('should call handleErrorMessage with the correct params', () => {
+
+    wrapper.instance().clearErrorMessage();
+    expect(wrapper.props().handleErrorMessage).toHaveBeenCalled();
+
+    })
   });
 });
 
