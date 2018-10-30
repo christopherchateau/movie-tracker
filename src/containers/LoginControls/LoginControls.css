@@ -19,7 +19,6 @@ input {
   margin: 10px 0;
   padding-left: 15px;
   position: relative;
-  width: 20%;
 }
 
 .submit-btn {
@@ -46,30 +45,50 @@ input {
   transition: all 0.4s ease-in-out;
 }
 
-.error-msg {
+.login-error-msg {
   bottom: 20px;
   color: red;
-  font-size: 66;
   position: relative;
   text-align: center;
 }
 
-/* @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .LoginControls {
-    height: 140px;
+    height: 160px;
   }
 
   .login-form {
     align-items: center;
     flex-direction: column;
+    position: relative;
+    top: 45px;
   }
 
-  .input {
-    bottom: 0px;
-    top: 30px;
+  .signup {
+    margin: 2px;
+  }
+
+  .login {
+    margin: 8px;
+  }
+
+  .login,
+  .signup {
+    width: 250px;
+  }
+
+  .submit-btn {
+    width: 273px;
   }
 
   .submit-btn {
     height: 36px;
   }
-} */
+
+  .login-error-msg {
+    color: red;
+    position: relative;
+    text-align: center;
+    top: 85px;
+  }
+}

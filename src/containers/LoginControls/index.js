@@ -94,7 +94,7 @@ export class LoginControls extends Component {
         this.props.handleFavoriteToggle(fav.movie_id)
       );
     } catch (error) {
-      this.props.handleErrorMessage("Favorites error")
+      this.props.handleErrorMessage("Favorites error");
     }
   };
 
@@ -121,6 +121,7 @@ export class LoginControls extends Component {
   };
 
   render() {
+    const { pathname } = this.state;
     return (
       <div className="LoginControls">
         {!this.props.loggedIn && (
@@ -129,14 +130,14 @@ export class LoginControls extends Component {
               name="email"
               placeholder="email"
               value={this.state.email}
-              className="email"
+              className={pathname === "/signup" ? "signup" : "login"}
               onChange={this.handleInputChange}
             />
-            {this.state.pathname === "/signup" && (
+            {pathname === "/signup" && (
               <input
                 name="username"
                 placeholder="username"
-                className="username"
+                className={pathname === "/signup" ? "signup" : "login"}
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -144,11 +145,17 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
-              className="password"
+              className={pathname === "/signup" ? "signup" : "login"}
               value={this.state.password}
               onChange={this.handleInputChange}
             />
-            <button className="submit-btn">submit</button>
+            <button
+              className={
+                "submit-btn" + (pathname === "/signup" ? " signup" : " login")
+              }
+            >
+              submit
+            </button>
           </form>
         )}
         {this.props.loggedIn && (
@@ -157,7 +164,7 @@ export class LoginControls extends Component {
           </div>
         )}
         <section>
-          <p className="error-msg">{this.props.errorMessage}</p>
+          <p className="login-error-msg">{this.props.errorMessage}</p>
         </section>
       </div>
     );
@@ -188,6 +195,6 @@ LoginControls.propTypes = {
   handleErrorMessage: PropTypes.func.isRequired,
   handleFavoriteToggle: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.number,
   errorMessage: PropTypes.string.isRequired
-}
+};

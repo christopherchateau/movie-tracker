@@ -4,9 +4,19 @@ exports[`NavBar render like snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <NavBar
-    currentUser="Taylor"
+    currentUser={
+      Object {
+        "id": 2,
+        "name": "Taylor",
+      }
+    }
+    errorMessage="Invalid login"
+    handleDisplayFavorites={[MockFunction]}
+    handleErrorMessage={[MockFunction]}
     handleLogin={[MockFunction]}
+    handleResetFavorites={[MockFunction]}
     loggedIn={true}
+    showFavorites={false}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -35,6 +45,7 @@ ShallowWrapper {
           className="user-name"
         >
           Hello 
+          Taylor
           !
         </h1>,
         <NavLink
@@ -74,7 +85,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             "Hello ",
-            undefined,
+            "Taylor",
             "!",
           ],
           "className": "user-name",
@@ -82,7 +93,7 @@ ShallowWrapper {
         "ref": null,
         "rendered": Array [
           "Hello ",
-          undefined,
+          "Taylor",
           "!",
         ],
         "type": "h1",
@@ -104,7 +115,7 @@ ShallowWrapper {
         "type": [Function],
       },
     ],
-    "type": "div",
+    "type": "nav",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -126,6 +137,7 @@ ShallowWrapper {
             className="user-name"
           >
             Hello 
+            Taylor
             !
           </h1>,
           <NavLink
@@ -165,7 +177,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               "Hello ",
-              undefined,
+              "Taylor",
               "!",
             ],
             "className": "user-name",
@@ -173,7 +185,7 @@ ShallowWrapper {
           "ref": null,
           "rendered": Array [
             "Hello ",
-            undefined,
+            "Taylor",
             "!",
           ],
           "type": "h1",
@@ -195,7 +207,7 @@ ShallowWrapper {
           "type": [Function],
         },
       ],
-      "type": "div",
+      "type": "nav",
     },
   ],
   Symbol(enzyme.__options__): Object {

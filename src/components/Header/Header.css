@@ -12,3 +12,23 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@media screen and (max-width: 800px) {
+  .coen-collection {
+    font-size: 70px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .coen-collection {
+    font-size: 50px;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .coen-collection {
+    font-size: 40px;
+  }
+}

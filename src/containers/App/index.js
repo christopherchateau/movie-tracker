@@ -10,12 +10,18 @@ import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 
 export class App extends Component {
+  
   componentDidMount = async () => {
+    const { handleErrorMessage, handleFetch } = this.props;
     const data = await movieCleaner();
     if (!data.length) {
-      this.props.handleErrorMessage("Ugn... movies failed to load");
+      handleErrorMessage("Ugn... movies failed to load");
     }
-    this.props.handleFetch(data);
+    handleFetch(data);
+  };
+
+  componentDidUpdate = () => {
+    this.props.handleErrorMessage("");
   };
 
   render() {

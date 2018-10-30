@@ -12,8 +12,14 @@ describe("NavBar", () => {
     wrapper = shallow(
       <NavBar
         loggedIn={true}
-        currentUser={"Taylor"}
+        currentUser={{ name: "Taylor", id: 2 }}
         handleLogin={mockHandleLogin}
+        errorMessage={"Invalid login"}
+        showFavorites={false}
+        handleLogin={jest.fn()}
+        handleErrorMessage={jest.fn()}
+        handleResetFavorites={jest.fn()}
+        handleDisplayFavorites={jest.fn()}
       />
     );
   });
@@ -28,13 +34,23 @@ describe("NavBar", () => {
 
   it("should render navlinks if user is not logged in", () => {
     wrapper = shallow(
-      <NavBar loggedIn={false} currentUser={""} handleLogin={mockHandleLogin} />
+      <NavBar
+        loggedIn={false}
+        currentUser={{ name: "Taylor", id: 2 }}
+        handleLogin={mockHandleLogin}
+        errorMessage={"Invalid login"}
+        showFavorites={false}
+        handleLogin={jest.fn()}
+        handleErrorMessage={jest.fn()}
+        handleResetFavorites={jest.fn()}
+        handleDisplayFavorites={jest.fn()}
+      />
     );
     expect(wrapper.find(NavLink).length).toEqual(2);
   });
 
   it("should render a signout button if user is logged in", () => {
-    expect(wrapper.find(NavLink).length).toEqual(0);
+    expect(wrapper.find(NavLink).length).toEqual(2);
     expect(wrapper.find(".sign-out-button")).toBeDefined();
   });
 
