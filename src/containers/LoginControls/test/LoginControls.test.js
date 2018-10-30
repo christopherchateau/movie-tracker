@@ -300,7 +300,6 @@ describe("LoginControls", () => {
     }
 
     it('should call saveUserData with the correct params', async () => {
-
       wrapper.instance().updateUserDataAfterLogin(mockUserData);
      
       expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockUserData.data.name, mockUserData.data.id)
@@ -322,46 +321,46 @@ describe("LoginControls", () => {
     })
   })
   
+  describe('getUserFavorites', () => {
+    it('should call retrieveUserFavorites with the correct params', () => {
+      const mockUserId = 3
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        ok: true
+      }))
 
+      wrapper.instance().getUserFavorites(mockUserId);
 
-  // describe('getUserFavorites', () => {
-  //   it('should call retrieveUserFavorites with the correct params', () => {
-  //     const mockUserId = 3
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-  //       ok: true
-  //     }))
+      expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
+    })
 
-  //     wrapper.instance().getUserFavorites(mockUserId);
+    // it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
+    // it('should call handleErrorMessage with the correct params', () => {
+      
+    // })
+  });
 
-  //     expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
-  //   })
+  describe('signupUser', () => {
+    it('should return if a username is 2 or less letters in length', () => {
 
-  //   it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
+    })
 
-  // });
+    it('should call fetchSignupUser with the correct params', () => { 
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
+      let mockUsername = 'Taylor'
 
-  // describe('signupUser', () => {
-  //   it('should return if a username is 2 or less letters in length', () => {
+      wrapper.setState({
+        email: mockEmail,
+        password: mockPassword,
+        username: mockUsername
+      })
 
-  //   })
+      wrapper.instance().signupUser();
 
-  //   it('should call fetchSignupUser with the correct params', () => { 
-  //     let mockEmail = 'bigLo@gmail.com'
-  //     let mockPassword = 'password'
-  //     let mockUsername = 'Taylor'
+      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
+    })
 
-  //     wrapper.setState({
-  //       email: mockEmail,
-  //       password: mockPassword,
-  //       username: mockUsername
-  //     })
-
-  //     wrapper.instance().signupUser();
-
-  //     expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
-  //   })
-
-  // })
+  })
 
   describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
