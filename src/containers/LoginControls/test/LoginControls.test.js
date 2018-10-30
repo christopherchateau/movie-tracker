@@ -258,7 +258,7 @@ describe("LoginControls", () => {
 
       wrapper.instance().updateUserDataAfterLogin(mockUserData);
      
-      expect(wrapper.props().saveUserData).toHaveBeenCalled()
+      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockUserData.data.name, mockUserData.data.id)
     })
 
 
@@ -297,9 +297,39 @@ describe("LoginControls", () => {
 
     })
 
-    it('should call fetchSignupUser with the correct params', () => { }
+    it('should call fetchSignupUser with the correct params', () => { })
 
-    
+  })
+
+  describe('updateUserDataAfterSignup', () => {
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
+    let mockUsername='Taylor'
+    let mockId = 4
+
+    it('should call saveUserData with the correct params', async () => {
+
+      wrapper.instance().updateUserDataAfterSignup(mockUsername, mockId);
+     
+      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockUsername, mockId)
+    })
+
+
+    it('should call handleLogin with the correct params', () => {
+      wrapper.instance().updateUserDataAfterSignup(mockUsername, mockId);
+
+      expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
+    })
   })
 
 
