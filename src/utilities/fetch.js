@@ -2,14 +2,17 @@ import apiKey from "../apiKey";
 
 export const fetchData = async () => {
   try {
-    const url = `https://api.themoviedb.org/3/person/1223/movie_credits?api_key=${
+    const url = `ttps://api.themoviedb.org/3/person/1223/movie_credits?api_key=${
       apiKey.theMoveDBApiKey
     }`;
     const response = await fetch(url);
+    if (!response.ok) {
+      throw Error(response.statusText)
+    }
     const movieData = await response.json();
     return movieData;
   } catch (error) {
-    return error;
+    console.log(error.message)
   }
 };
 
@@ -38,7 +41,6 @@ export const fetchSignupUser = async (username, email, password) => {
     headers: { "Content-Type": "application/json" }
   });
   const data = await response.json();
-
   return data;
 };
 

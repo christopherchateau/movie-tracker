@@ -100,7 +100,6 @@ export class LoginControls extends Component {
     }
     const { username, email, password } = this.state;
     const fetchSignup = await fetch.fetchSignupUser(username, email, password);
-
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.props.handleErrorMessage("User account already exists!");
     } else {
