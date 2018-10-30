@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   loggedIn: loginReducer,
   currentUser: userReducer,
   errorMessage: errorMessageReducer,
-  displayFavorites: favoritesReducer
+  showFavorites: favoritesReducer
 });
 
 export default rootReducer;

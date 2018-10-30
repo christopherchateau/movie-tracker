@@ -3,7 +3,7 @@ export const loadMovies = movies => ({
   movies
 });
 
-export const displayFavorites = bool => ({
+export const displayFavorites = (bool) => ({
   type: "DISPLAY_FAVORITES",
   displayFavorites: bool
 });

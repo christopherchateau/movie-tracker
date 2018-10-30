@@ -43,7 +43,7 @@ export const NavBar = props => {
         <NavLink
           className="favorites-button buttons"
           to="/favorites"
-          onClick={props.handleDisplayFavorites}
+          onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
         >
           My Favorites
         </NavLink>
@@ -55,14 +55,15 @@ export const NavBar = props => {
 export const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   currentUser: state.currentUser,
-  errorMessage: state.errorMessage
+  errorMessage: state.errorMessage,
+  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleLogin: loggedIn => dispatch(logIn(loggedIn)),
+  handleLogin: bool => dispatch(logIn(bool)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
   handleResetFavorites: () => dispatch(resetFavorites()),
-  handleDisplayFavorites: () => dispatch(displayFavorites())
+  handleDisplayFavorites: (bool) => dispatch(displayFavorites(bool))
 });
 
 export default connect(
