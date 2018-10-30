@@ -84,7 +84,7 @@ export default connect(
 
 NavBar.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
-  currentUser: PropTypes.string.isRequired,
+  currentUser: PropTypes.object.isRequired,
   errorMessage: PropTypes.string.isRequired,
   showFavorites: PropTypes.bool.isRequired,
   handleLogin: PropTypes.func.isRequired,

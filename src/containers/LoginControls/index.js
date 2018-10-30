@@ -195,6 +195,6 @@ LoginControls.propTypes = {
   handleErrorMessage: PropTypes.func.isRequired,
   handleFavoriteToggle: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.number,
   errorMessage: PropTypes.string.isRequired
 };
