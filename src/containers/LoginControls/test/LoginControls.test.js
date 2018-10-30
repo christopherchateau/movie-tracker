@@ -222,19 +222,18 @@ describe("LoginControls", () => {
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
 
-    it('should call updateUserDataAfterLogin', async () => {
-      wrapper.instance().updateUserDataAfterLogin = jest.fn()
+    // it('should call updateUserDataAfterLogin', async () => {
+    //   wrapper.instance().updateUserDataAfterLogin = jest.fn()
 
-      wrapper.instance().loginUser();
-      expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
-    })
+    //   wrapper.instance().loginUser();
+    //   expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
+    // })
 
-    it('should call handleErrorMessage if there is an error', () => {})
+    // it('should call handleErrorMessage if there is an error', () => {})
   })
 
 
   describe('updateUserDataAfterLogin', () => {
-
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
@@ -276,10 +275,6 @@ describe("LoginControls", () => {
      
       expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(mockUserData.data.id)
     })
-
-
-
-
   })
   
 
@@ -296,6 +291,16 @@ describe("LoginControls", () => {
     it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
 
   });
+
+  describe('signupUser', () => {
+    it('should return if a username is 2 or less letters in length', () => {
+
+    })
+
+    it('should call fetchSignupUser with the correct params', () => { }
+
+    
+  })
 
 
   describe('clearErrorMessage', () => {

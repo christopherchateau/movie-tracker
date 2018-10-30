@@ -56,12 +56,11 @@ export class LoginControls extends Component {
   };
 
   loginUser = async () => {
-    // console.log(this.props)
     try {
       const { email, password } = this.state;
       const fetchUser = await fetch.fetchLoginUser(email, password);
+
       this.updateUserDataAfterLogin(fetchUser)
-console.log('HERE')
 
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
@@ -91,10 +90,16 @@ console.log('HERE')
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.props.handleErrorMessage("User account already exists!");
     } else {
-      this.props.saveUserData(username, fetchSignup.id);
-      this.props.handleLogin(true);
+      this.updateUserDataAfterSignup(username, fetchSignup.id)
+      // this.props.saveUserData(username, fetchSignup.id);
+      // this.props.handleLogin(true);
     }
   };
+
+  updateUserDataAfterSignup = (username, id) => {
+    this.props.saveUserData(username, id);
+    this.props.handleLogin(true);
+  }
 
   clearErrorMessage = () => {
     this.props.handleErrorMessage("");
