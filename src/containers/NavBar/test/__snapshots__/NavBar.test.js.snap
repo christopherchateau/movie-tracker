@@ -22,15 +22,30 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          className="favorites-button buttons"
+          onClick={[Function]}
+          to="/favorites"
+        >
+          My Favorites
+        </NavLink>,
+        <h1
+          className="user-name"
+        >
           Hello 
+          !
         </h1>,
-        <button
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
           className="sign-out-button buttons"
           onClick={[Function]}
+          to="/"
         >
           Sign Out
-        </button>,
+        </NavLink>,
       ],
       "className": "navBar",
     },
@@ -39,32 +54,54 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "function",
         "props": Object {
-          "children": Array [
-            "Hello ",
-            undefined,
-          ],
+          "activeClassName": "active",
+          "aria-current": "page",
+          "children": "My Favorites",
+          "className": "favorites-button buttons",
+          "onClick": [Function],
+          "to": "/favorites",
         },
         "ref": null,
-        "rendered": Array [
-          "Hello ",
-          undefined,
-        ],
-        "type": "h1",
+        "rendered": "My Favorites",
+        "type": [Function],
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "children": Array [
+            "Hello ",
+            undefined,
+            "!",
+          ],
+          "className": "user-name",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Hello ",
+          undefined,
+          "!",
+        ],
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "activeClassName": "active",
+          "aria-current": "page",
           "children": "Sign Out",
           "className": "sign-out-button buttons",
           "onClick": [Function],
+          "to": "/",
         },
         "ref": null,
         "rendered": "Sign Out",
-        "type": "button",
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -76,15 +113,30 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="favorites-button buttons"
+            onClick={[Function]}
+            to="/favorites"
+          >
+            My Favorites
+          </NavLink>,
+          <h1
+            className="user-name"
+          >
             Hello 
+            !
           </h1>,
-          <button
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
             className="sign-out-button buttons"
             onClick={[Function]}
+            to="/"
           >
             Sign Out
-          </button>,
+          </NavLink>,
         ],
         "className": "navBar",
       },
@@ -93,32 +145,54 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": Array [
-              "Hello ",
-              undefined,
-            ],
+            "activeClassName": "active",
+            "aria-current": "page",
+            "children": "My Favorites",
+            "className": "favorites-button buttons",
+            "onClick": [Function],
+            "to": "/favorites",
           },
           "ref": null,
-          "rendered": Array [
-            "Hello ",
-            undefined,
-          ],
-          "type": "h1",
+          "rendered": "My Favorites",
+          "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": Array [
+              "Hello ",
+              undefined,
+              "!",
+            ],
+            "className": "user-name",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Hello ",
+            undefined,
+            "!",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "aria-current": "page",
             "children": "Sign Out",
             "className": "sign-out-button buttons",
             "onClick": [Function],
+            "to": "/",
           },
           "ref": null,
           "rendered": "Sign Out",
-          "type": "button",
+          "type": [Function],
         },
       ],
       "type": "div",

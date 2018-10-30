@@ -43,7 +43,6 @@ ShallowWrapper {
         />,
         <Connect(MovieContainer) />,
       ],
-      "className": "App",
     },
     "ref": null,
     "rendered": Array [
@@ -150,7 +149,6 @@ ShallowWrapper {
           />,
           <Connect(MovieContainer) />,
         ],
-        "className": "App",
       },
       "ref": null,
       "rendered": Array [
