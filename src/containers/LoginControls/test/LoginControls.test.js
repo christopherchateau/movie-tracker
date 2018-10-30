@@ -373,7 +373,7 @@ describe("mapStateToProps", () => {
   it("should return a props object", () => {
     const mockState = { 
       loggedIn: true,
-      userId: 3,
+      currentUser: {name: 'Taylor', id: 3},
       errorMessage:''
     };
 
@@ -386,10 +386,6 @@ describe("mapStateToProps", () => {
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
   });
-
-  // it("should return an object with current user id", () => {});
-
-  // it("should return an object with an error message", () => {});
 });
 
 describe("mapDispatchToProps", () => {
