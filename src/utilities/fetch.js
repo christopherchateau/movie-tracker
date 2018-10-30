@@ -5,9 +5,6 @@ export const fetchData = async () => {
     apiKey.theMoveDBApiKey
   }`;
   const response = await fetch(url);
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
   const movieData = await response.json();
   return movieData;
 };
