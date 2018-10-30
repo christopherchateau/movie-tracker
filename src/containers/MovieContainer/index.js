@@ -15,7 +15,7 @@ export const MovieContainer = props => {
   if (props.showFavorites && !moviesToDisplay.length) {
     return (
       <div className="Movie-Container no-favs">
-        <img className="walter" src={walter} />
+        <img className="walter" alt="Walter Sobchak" src={walter} />
         <h3>{`You're entering a world of pain, ${
           props.userName
         }. Pick some favorites!`}</h3>
@@ -27,7 +27,7 @@ export const MovieContainer = props => {
     });
     return (
       <div className="Movie-Container">
-        {cards.length ? cards : <img className="spinner" src={spinner} />}
+        {cards.length ? cards : <img className="spinner" alt="loading content" src={spinner} />}
       </div>
     );
   }

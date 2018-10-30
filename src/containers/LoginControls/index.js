@@ -8,7 +8,7 @@ import {
   setErrorMessage
 } from "../../actions";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as fetch from "../../utilities/fetch.js";
 
 export class LoginControls extends Component {
@@ -37,7 +37,8 @@ export class LoginControls extends Component {
   };
 
   validateEmail = () => {
-    if (this.state.email.includes("@")) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(this.state.email)) {
       return true;
     }
     this.props.handleErrorMessage("Please enter a valid e-mail address");
