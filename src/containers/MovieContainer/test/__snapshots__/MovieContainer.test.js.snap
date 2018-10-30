@@ -7,10 +7,18 @@ ShallowWrapper {
     movies={
       Array [
         Object {
-          "title": "Raising Arizona",
+          "date": "1998-03-06",
+          "favorited": false,
+          "id": 115,
+          "overview": "Jeffrey \\"The Dude\\" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.",
+          "poster": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aHaVjVoXeNanfwUwQ92SG7tosFM.jpg",
+          "title": "The Big Lebowski",
+          "voteAverage": 7.9,
         },
       ]
     }
+    showFavorites={true}
+    userName="Taylor"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -26,24 +34,42 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Connect(Movie)
-          title="Raising Arizona"
+        <img
+          alt="Walter Sobchak"
+          className="walter"
+          src="walter.jpg"
         />,
+        <h3>
+          You're entering a world of pain, Taylor. Pick some favorites!
+        </h3>,
       ],
-      "className": "Movie-Container",
+      "className": "Movie-Container no-favs",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "Raising Arizona",
-        "nodeType": "class",
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {
-          "title": "Raising Arizona",
+          "alt": "Walter Sobchak",
+          "className": "walter",
+          "src": "walter.jpg",
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "You're entering a world of pain, Taylor. Pick some favorites!",
+        },
+        "ref": null,
+        "rendered": "You're entering a world of pain, Taylor. Pick some favorites!",
+        "type": "h3",
       },
     ],
     "type": "div",
@@ -55,24 +81,42 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Connect(Movie)
-            title="Raising Arizona"
+          <img
+            alt="Walter Sobchak"
+            className="walter"
+            src="walter.jpg"
           />,
+          <h3>
+            You're entering a world of pain, Taylor. Pick some favorites!
+          </h3>,
         ],
-        "className": "Movie-Container",
+        "className": "Movie-Container no-favs",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
-          "key": "Raising Arizona",
-          "nodeType": "class",
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {
-            "title": "Raising Arizona",
+            "alt": "Walter Sobchak",
+            "className": "walter",
+            "src": "walter.jpg",
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "You're entering a world of pain, Taylor. Pick some favorites!",
+          },
+          "ref": null,
+          "rendered": "You're entering a world of pain, Taylor. Pick some favorites!",
+          "type": "h3",
         },
       ],
       "type": "div",
