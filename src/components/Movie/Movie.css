@@ -2,6 +2,7 @@
   background-color: black;
   border-radius: 40px;
   height: 390px;
+  position: relative;
   margin: 20px;
   width: 260px;
 }
@@ -9,38 +10,24 @@
 .movie-details,
 .movie-poster {
   border-radius: 30px;
-  cursor: pointer;
   height: 390;
-  opacity: 0.9;
   width: 260px;
 }
 
 .movie-details {
-  background-image: linear-gradient(silver, white);
-  border: 7px solid silver;
+  background-image: linear-gradient(grey, white);
   height: 390px;
   line-height: 1.2;
+  overflow: scroll;
   text-align: center;
 }
 
-.movie-details:hover,
-.movie-poster:hover {
-  display: block;
-  opacity: 1;
-  position: relative;
-}
-
-.movie-details:hover {
-  opacity: 0.9;
-  overflow: scroll;
-}
-
 .movie-date {
-  margin: 10px;
+  margin: 20px;
 }
 
 .text-wrapper {
-  margin: auto;
+  margin: 10px auto;
   padding: 20px 0;
   width: 230px;
 }
@@ -51,10 +38,10 @@
   border-radius: 50%;
   color: white;
   cursor: pointer;
-  left: 230px;
+  left: 225px;
   padding: 10px;
-  position: relative;
-  top: 30px;
+  position: absolute;
+  top: -5px;
   z-index: 10;
 }
 
