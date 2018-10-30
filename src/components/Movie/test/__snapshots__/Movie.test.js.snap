@@ -437,7 +437,7 @@ ReactWrapper {
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-            "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+            "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
             "lineNumber": 72,
           },
           "actualDuration": 0,
@@ -448,7 +448,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
               "lineNumber": 49,
             },
             "actualDuration": 0,
@@ -459,7 +459,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
                 "lineNumber": 50,
               },
               "actualDuration": 0,
@@ -493,7 +493,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
                   "lineNumber": 54,
                 },
                 "actualDuration": 0,
@@ -1670,7 +1670,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
               "lineNumber": 72,
             },
             "actualDuration": 0,
@@ -1681,7 +1681,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
                 "lineNumber": 49,
               },
               "actualDuration": 0,
@@ -1692,7 +1692,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
                   "lineNumber": 50,
                 },
                 "actualDuration": 0,
@@ -1726,7 +1726,7 @@ ReactWrapper {
                   "_debugIsCurrentlyTiming": false,
                   "_debugOwner": [Circular],
                   "_debugSource": Object {
-                    "fileName": "/Users/haleyjacobs/mod3/projects/movie-tracker/movie-tracker/src/components/Movie/index.js",
+                    "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
                     "lineNumber": 54,
                   },
                   "actualDuration": 0,

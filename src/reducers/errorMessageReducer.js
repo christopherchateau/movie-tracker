@@ -1,4 +1,4 @@
-export const errorMessageReducer = (state = '', action) => {
+export const errorMessageReducer = (state = "", action) => {
   switch (action.type) {
     case "SET_ERROR_MESSAGE":
       return action.errorMessage;

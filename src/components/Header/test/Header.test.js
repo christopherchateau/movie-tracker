@@ -5,9 +5,9 @@ import { shallow } from "enzyme";
 import Header from "../index";
 
 describe("Header", () => {
-  it('should exist', () => {
+  it("should exist", () => {
     const wrapper = shallow(<Header />);
-    expect(wrapper).toBeDefined();    
+    expect(wrapper).toBeDefined();
   });
 
   it("should render like snapshot", () => {

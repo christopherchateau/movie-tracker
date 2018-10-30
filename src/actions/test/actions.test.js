@@ -1,36 +1,36 @@
-import * as actions from '../index.js'
+import * as actions from "../index.js";
 
-describe('actions', () => {
-	it('should have a type of LOAD_MOVIES', () => {
-		const movies = []
-		const expectedAction = {
-			type: 'LOAD_MOVIES',
-			movies
-		}
+describe("actions", () => {
+  it("should have a type of LOAD_MOVIES", () => {
+    const movies = [];
+    const expectedAction = {
+      type: "LOAD_MOVIES",
+      movies
+    };
 
-		const result = actions.loadMovies(movies)
-		expect(result).toEqual(expectedAction)
-	})
+    const result = actions.loadMovies(movies);
+    expect(result).toEqual(expectedAction);
+  });
 
-	it('should have a type of TOGGLE_LOGIN', () => {
-		const loggedIn = false
-		const expectedAction = {
-			type: 'TOGGLE_LOGIN',
-			loggedIn
-		}
+  it("should have a type of TOGGLE_LOGIN", () => {
+    const loggedIn = false;
+    const expectedAction = {
+      type: "TOGGLE_LOGIN",
+      loggedIn
+    };
 
-		const result = actions.logIn(loggedIn)
-		expect(result).toEqual(expectedAction)
-	})
+    const result = actions.logIn(loggedIn);
+    expect(result).toEqual(expectedAction);
+  });
 
-	it('should have a type of SAVE_NAME', () => {
-		const name = 'Taylor'
-		const expectedAction = {
-			type: 'SAVE_NAME',
-			currentUser: name
-		}
+  it("should have a type of SAVE_NAME", () => {
+    const name = "Taylor";
+    const expectedAction = {
+      type: "SAVE_NAME",
+      currentUser: name
+    };
 
-		const result = actions.saveName(name)
-		expect(result).toEqual(expectedAction)
-	})
-})
+    const result = actions.saveName(name);
+    expect(result).toEqual(expectedAction);
+  });
+});

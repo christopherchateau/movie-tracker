@@ -8,9 +8,9 @@ export const displayFavorites = bool => ({
   displayFavorites: bool
 });
 
-export const logIn = loggedIn => ({
+export const logIn = bool => ({
   type: "TOGGLE_LOGIN",
-  loggedIn
+  loggedIn: bool
 });
 
 export const saveUserData = (name, id) => ({

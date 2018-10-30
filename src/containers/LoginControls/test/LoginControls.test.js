@@ -3,8 +3,13 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { LoginControls, mapStateToProps, mapDispatchToProps } from "../index";
-import * as fetch from '../../../utilities/fetch.js';
-import { logIn, saveUserData, setErrorMessage, toggleFavorite } from "../../../actions";
+import * as fetch from "../../../utilities/fetch.js";
+import {
+  logIn,
+  saveUserData,
+  setErrorMessage,
+  toggleFavorite
+} from "../../../actions";
 
 jest.mock('../../../utilities/fetch.js')
 
@@ -13,147 +18,149 @@ describe("LoginControls", () => {
   let mockHandleSubmit;
 
   beforeEach(() => {
-    mockHandleSubmit = jest.fn()
-    wrapper = shallow(<LoginControls 
-      loggedIn={false}
-      handleLogin={jest.fn()}
-      saveUserData={jest.fn()}
-      location={{pathname: ''}} 
-      handleErrorMessage={jest.fn()}
-      handleFavoriteToggle={jest.fn()}
-      />)
+    mockHandleSubmit = jest.fn();
+    wrapper = shallow(
+      <LoginControls
+        loggedIn={false}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
+  });
 
-  })
-
-  it('should exist', () => {
+  it("should exist", () => {
     expect(wrapper).toBeDefined();
-  })
+  });
 
   it("should render like snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('handleInputChange', () => {
-    it('calls handleInputChange when username is changed', () => {
-      wrapper.setState({ pathname: '/signup' });
-      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+  describe("handleInputChange", () => {
+    it("calls handleInputChange when username is changed", () => {
+      wrapper.setState({ pathname: "/signup" });
+      const spy = spyOn(wrapper.instance(), "handleInputChange");
       wrapper.instance().forceUpdate();
-      const mockEvent = {target: {value: 'users name'}};
+      const mockEvent = { target: { value: "users name" } };
 
-      wrapper.find('.username').simulate('change', mockEvent);
+      wrapper.find(".username").simulate("change", mockEvent);
 
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should update username in state when handleInputChange is called', () => {
-      let mockName = 'John';
+    it("should update username in state when handleInputChange is called", () => {
+      let mockName = "John";
       let mockEvent = {
-        target: { name: 'username', value: mockName }
+        target: { name: "username", value: mockName }
       };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('username')).toBe(mockName);
+      expect(wrapper.state("username")).toBe(mockName);
     });
 
-    it('calls handleInputChange when password is changed', () => {
-      wrapper.setState({ pathname: '/signup' });
-      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+    it("calls handleInputChange when password is changed", () => {
+      wrapper.setState({ pathname: "/signup" });
+      const spy = spyOn(wrapper.instance(), "handleInputChange");
       wrapper.instance().forceUpdate();
-      const mockEvent = {target: {value: 'users password'}};
+      const mockEvent = { target: { value: "users password" } };
 
-      wrapper.find('.password').simulate('change', mockEvent);
+      wrapper.find(".password").simulate("change", mockEvent);
 
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should update password in state when handleInputChange is called', () => {
-      let mockPassword = 'password';
+    it("should update password in state when handleInputChange is called", () => {
+      let mockPassword = "password";
       let mockEvent = {
-        target: { name: 'password', value: mockPassword }
+        target: { name: "password", value: mockPassword }
       };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('password')).toBe(mockPassword);
+      expect(wrapper.state("password")).toBe(mockPassword);
     });
 
-    it('calls handleInputChange when email is changed', () => {
-      wrapper.setState({ pathname: '/signup' });
-      const spy = spyOn(wrapper.instance(), 'handleInputChange');
+    it("calls handleInputChange when email is changed", () => {
+      wrapper.setState({ pathname: "/signup" });
+      const spy = spyOn(wrapper.instance(), "handleInputChange");
       wrapper.instance().forceUpdate();
-      const mockEvent = {target: {value: 'users email'}};
+      const mockEvent = { target: { value: "users email" } };
 
-      wrapper.find('.email').simulate('change', mockEvent);
+      wrapper.find(".email").simulate("change", mockEvent);
 
       expect(spy).toHaveBeenCalled();
     });
 
-    it('should update email in state when handleInputChange is called', () => {
-      let mockEmail = 'john@gmail.com'
+    it("should update email in state when handleInputChange is called", () => {
+      let mockEmail = "john@gmail.com";
       let mockEvent = {
-        target: { name: 'email', value: mockEmail }
+        target: { name: "email", value: mockEmail }
       };
 
       wrapper.instance().handleInputChange(mockEvent);
 
-      expect(wrapper.state('email')).toBe(mockEmail);
+      expect(wrapper.state("email")).toBe(mockEmail);
     });
-  })
-  
-  describe('handleSubmit', () => {
-    const mockEvent = { preventDefault: jest.fn() }
+  });
 
-    it('should call handleSubmit when button is clicked', () => {
-      const spy = spyOn(wrapper.instance(), 'handleSubmit');
-      const mockEvent = { preventDefault: jest.fn() }
+  describe("handleSubmit", () => {
+    const mockEvent = { preventDefault: jest.fn() };
+
+    it("should call handleSubmit when button is clicked", () => {
+      const spy = spyOn(wrapper.instance(), "handleSubmit");
+      const mockEvent = { preventDefault: jest.fn() };
       wrapper.instance().forceUpdate();
 
-      wrapper.find('form').simulate('submit', mockEvent)
+      wrapper.find("form").simulate("submit", mockEvent);
 
-      expect(spy).toHaveBeenCalled()
-    })
-    it('should clear the errorMessage in state', () => {
-      wrapper.setState({ 
-          pathname: '/login',
-          email: 'bob@gmail.com',
-          password: 'password' 
-        })
+      expect(spy).toHaveBeenCalled();
+    });
+    it("should clear the errorMessage in state", () => {
+      wrapper.setState({
+        pathname: "/login",
+        email: "bob@gmail.com",
+        password: "password"
+      });
 
-      wrapper.instance().loginUser = jest.fn()
-      wrapper.instance().signupUser = jest.fn()
+      wrapper.instance().loginUser = jest.fn();
+      wrapper.instance().signupUser = jest.fn();
 
-      wrapper.instance().handleSubmit(mockEvent)
+      wrapper.instance().handleSubmit(mockEvent);
 
-      expect(wrapper.state('errorMessage')).toEqual('')
-    })
-    it('should call loginUser given the right conditions', () => {
-      wrapper.setState({ 
-          pathname: '/login',
-          email: 'bob@gmail.com',
-          password: 'password' 
-        })
+      expect(wrapper.state("errorMessage")).toEqual("");
+    });
+    it("should call loginUser given the right conditions", () => {
+      wrapper.setState({
+        pathname: "/login",
+        email: "bob@gmail.com",
+        password: "password"
+      });
 
-      wrapper.instance().loginUser = jest.fn()
-      wrapper.instance().signupUser = jest.fn()
-      
-      wrapper.instance().handleSubmit(mockEvent)
+      wrapper.instance().loginUser = jest.fn();
+      wrapper.instance().signupUser = jest.fn();
+
+      wrapper.instance().handleSubmit(mockEvent);
 
       expect(wrapper.instance().loginUser).toHaveBeenCalled();
-    })
-    it('should call signupUser given the right conditions', () => {
-      wrapper.setState({ 
-          pathname: '/signup',
-          email: 'bob@gmail.com',
-          password: 'password' 
-        })
-      
-      wrapper.instance().loginUser = jest.fn()
-      wrapper.instance().signupUser = jest.fn()
-      
-      wrapper.instance().handleSubmit(mockEvent)
+    });
+    it("should call signupUser given the right conditions", () => {
+      wrapper.setState({
+        pathname: "/signup",
+        email: "bob@gmail.com",
+        password: "password"
+      });
+
+      wrapper.instance().loginUser = jest.fn();
+      wrapper.instance().signupUser = jest.fn();
+
+      wrapper.instance().handleSubmit(mockEvent);
 
       expect(wrapper.instance().signupUser).toHaveBeenCalled();
+<<<<<<< HEAD
     })
   })
 
@@ -198,7 +205,8 @@ describe("LoginControls", () => {
         username: mockUsername
       })
 
-      wrapper.instance().loginUser()
+      wrapper.instance().loginUser();
+
 
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
@@ -212,11 +220,16 @@ describe("LoginControls", () => {
       }
     })
 
+      expect(wrapper.instance().fetch.fetchLoginUser).toHaveBeenCalled();
+    });
+
+
     it('should call handleLogin with the correct params', () => {})
 
     it('should call getUserFavorites witht he correct params', () => {})
 
     it('should update errorMessage if there is an error', () => {})
+
 
     it('should call handleErrorMessage if there is an error', () => {})
 
@@ -229,11 +242,12 @@ describe("LoginControls", () => {
 
 
     
-  })
+ 
+  });
 
-  describe('signupUser', () => {
-    it('should return if the username does not have the required length', async () => {
-      wrapper.setState({ username: 'Jo'});
+  describe("signupUser", () => {
+    it("should return if the username does not have the required length", async () => {
+      wrapper.setState({ username: "Jo" });
 
       expect(await wrapper.instance().signupUser()).toEqual(undefined);
     })
@@ -267,74 +281,55 @@ describe("LoginControls", () => {
 
   describe('clearErrorMessage', () => {
     it('should call handleErrorMessage witht he correct params', () => {})
-  })
+  });
 });
 
-describe('mapStateToProps', () => {
-  it('should return an object with a loggedIn status', () => {
+describe("mapStateToProps", () => {
+  it("should return an object with a loggedIn status", () => {
     const mockState = { loggedIn: true };
     const expected = { loggedIn: true };
 
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
-  })
+  });
 
-  it('should return an object with current user id', () => {
-  })
+  it("should return an object with current user id", () => {});
 
-  it('should return an object with an error message', () => {
-  })
-})
+  it("should return an object with an error message", () => {});
+});
 
-describe('mapDispatchToProps', () => {
+describe("mapDispatchToProps", () => {
   const mockDispatch = jest.fn();
   const mappedProps = mapDispatchToProps(mockDispatch);
 
-  it('should call dispatch with logIn action when handleLogin is called', () => {
+  it("should call dispatch with logIn action when handleLogin is called", () => {
     const actionToDispatch = logIn(true);
 
     mappedProps.handleLogin(true);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  })
-  it('should call dispatch with saveUserData action when saveUserData is called', () => {
-    const actionToDispatch = saveUserData('username', 3);
+  });
+  it("should call dispatch with saveUserData action when saveUserData is called", () => {
+    const actionToDispatch = saveUserData("username", 3);
 
-    mappedProps.saveUserData('username', 3);
-
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  })
-
-  it('should call dispatch with setErrorMessage action when handleErrorMessage is called', () => {
-    const actionToDispatch = setErrorMessage('');
-
-    mappedProps.handleErrorMessage('');
+    mappedProps.saveUserData("username", 3);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  })
-  
-  it('should call dispatch with toggleFavorite action when handleFavoriteToggle is called', () => {
+  });
+
+  it("should call dispatch with setErrorMessage action when handleErrorMessage is called", () => {
+    const actionToDispatch = setErrorMessage("");
+
+    mappedProps.handleErrorMessage("");
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it("should call dispatch with toggleFavorite action when handleFavoriteToggle is called", () => {
     const actionToDispatch = toggleFavorite(3);
 
     mappedProps.handleFavoriteToggle(3);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
-  })
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  });
+});

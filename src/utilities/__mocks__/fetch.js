@@ -9,3 +9,4 @@ export const fetchAddFavorite = jest.fn()
 export const retrieveUserFavorites = jest.fn()
 
 export const removeFavorite = jest.fn()
+
