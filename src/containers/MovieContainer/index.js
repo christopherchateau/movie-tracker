@@ -6,7 +6,11 @@ import spinner from "../../images/circle-loader.gif";
 import "./MovieContainer.css";
 
 export const MovieContainer = props => {
-  const cards = props.movies.map(movie => {
+  let moviesToDisplay = [...props.movies];
+  if (props.showFavorites) {
+    moviesToDisplay = moviesToDisplay.filter(movie => movie.favorited);
+  }
+  const cards = moviesToDisplay.map(movie => {
     return <Movie {...movie} key={movie.title} />;
   });
 
@@ -17,8 +21,9 @@ export const MovieContainer = props => {
   );
 };
 
-export const mapStateToProps = state => {
-  return { movies: state.movies };
-};
+export const mapStateToProps = state => ({
+  movies: state.movies,
+  showFavorites: state.showFavorites
+});
 
 export default connect(mapStateToProps)(MovieContainer);
