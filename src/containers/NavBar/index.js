@@ -34,7 +34,7 @@ export const NavBar = props => {
     );
   } else {
     return (
-      <div className="navBar">
+      <nav className="navBar">
         <NavLink
           className="favorites-button buttons"
           to={props.showFavorites ? "/" : "/favorites"}
@@ -58,7 +58,7 @@ export const NavBar = props => {
         >
           Sign Out
         </NavLink>
-      </div>
+      </nav>
     );
   }
 };

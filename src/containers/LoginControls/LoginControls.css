@@ -55,7 +55,7 @@ input {
 
 @media screen and (max-width: 800px) {
   .LoginControls {
-    height: 140px;
+    height: 160px;
   }
 
   .login-form {
@@ -65,16 +65,31 @@ input {
     top: 45px;
   }
 
-  .email,
-  .username,
-  .password {
+  .signup {
+    margin: 2px;
+  }
+
+  .login {
+    margin: 8px;
+  }
+
+  .login,
+  .signup {
     width: 250px;
   }
+
   .submit-btn {
     width: 273px;
   }
 
   .submit-btn {
     height: 36px;
+  }
+
+  .login-error-msg {
+    color: red;
+    position: relative;
+    text-align: center;
+    top: 85px;
   }
 }
