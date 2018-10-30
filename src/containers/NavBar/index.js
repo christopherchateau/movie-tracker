@@ -91,4 +91,4 @@ NavBar.propTypes = {
   handleErrorMessage: PropTypes.func.isRequired,
   handleResetFavorites: PropTypes.func.isRequired,
   handleDisplayFavorites: PropTypes.func.isRequired
-}
+};
