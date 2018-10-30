@@ -45,6 +45,11 @@
   }
 
   .buttons{
-    bottom: 0;
+    width: 40%
+  }
+
+  .user-name {
+    bottom: 10px;
+    position: relative;
   }
 }

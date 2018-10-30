@@ -19,7 +19,6 @@ input {
   margin: 10px 0;
   padding-left: 15px;
   position: relative;
-  width: 20%;
 }
 
 .submit-btn {
@@ -54,7 +53,7 @@ input {
   text-align: center;
 }
 
-/* @media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .LoginControls {
     height: 140px;
   }
@@ -62,14 +61,20 @@ input {
   .login-form {
     align-items: center;
     flex-direction: column;
+    position: relative;
+    top: 45px;
   }
 
-  .input {
-    bottom: 0px;
-    top: 30px;
+  .email,
+  .username,
+  .password {
+    width: 250px;
+  }
+  .submit-btn {
+    width: 273px;
   }
 
   .submit-btn {
     height: 36px;
   }
-} */
+}
