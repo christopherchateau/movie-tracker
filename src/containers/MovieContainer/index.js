@@ -40,3 +40,9 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(MovieContainer);
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  showFavorites: PropTypes.bool.isRequired,
+  userName: PropTypes.string
+}

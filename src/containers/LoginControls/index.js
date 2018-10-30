@@ -164,3 +164,13 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(LoginControls);
+
+LoginControls.propTypes = {
+  saveUserData: PropType.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  handleErrorMessage: PropTypes.func.isRequired,
+  handleFavoriteToggle: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  userId: PropTypes.number.isRequired,
+  errorMessage: PropTypes.string.isRequired
+}
