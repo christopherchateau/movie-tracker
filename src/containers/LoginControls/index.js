@@ -23,9 +23,17 @@ export class LoginControls extends Component {
     };
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.checkAutoLogin();
+  };
+
+  checkAutoLogin = async () => {
     const storedLogin = JSON.parse(localStorage.getItem("coenCollection"));
-    if (storedLogin.loggedIn) {
+    if (
+      storedLogin &&
+      storedLogin.loggedIn &&
+      this.props.location.pathname === "/login"
+    ) {
       await this.setState({
         email: storedLogin.email,
         password: storedLogin.password
