@@ -81,3 +81,14 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(NavBar);
+
+NavBar.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  currentUser: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  showFavorites: PropTypes.bool.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  handleErrorMessage: PropTypes.func.isRequired,
+  handleResetFavorites: PropTypes.func.isRequired,
+  handleDisplayFavorites: PropTypes.func.isRequired
+}
