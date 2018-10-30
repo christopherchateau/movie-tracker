@@ -243,15 +243,15 @@ describe("LoginControls", () => {
       status: "success"
     };
 
-    it('should call fetchSignupUser with the correct params', async () => { 
+    it('should call fetchLoginUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
-      let mockUsername = 'Taylor'
+      // let mockUsername = 'Taylor'
 
       wrapper.setState({
         email: mockEmail,
         password: mockPassword,
-        username: mockUsername
+        // username: mockUsername
       })
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
@@ -335,16 +335,36 @@ describe("LoginControls", () => {
 
     // it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
     // it('should call handleErrorMessage with the correct params', () => {
-      
+
     // })
   });
 
   describe('signupUser', () => {
-    it('should return if a username is 2 or less letters in length', () => {
 
-    })
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
 
-    it('should call fetchSignupUser with the correct params', () => { 
+    let mockUserSignUpResponse = {
+      status: "success",
+      data: {},
+      message: "New user created",
+      id: 9
+    }
+    // it('should return if a username is 2 or less letters in length', () => {
+
+    // })
+
+    it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
       let mockUsername = 'Taylor'
@@ -355,12 +375,44 @@ describe("LoginControls", () => {
         username: mockUsername
       })
 
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
+
       wrapper.instance().signupUser();
 
       expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
     })
 
+    it('should call handleErrorMessage if there is an error', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'already exists'}))
+
+      await wrapper.instance().signupUser();
+
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("User account already exists!");
+
+    })
+
+    it('should call updateUserDataAfterSignup if there is not an error', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
+
+      wrapper.instance().updateUserDataAfterSignup = jest.fn()
+
+      await wrapper.instance().signupUser();
+      expect(wrapper.instance().updateUserDataAfterSignup).toHaveBeenCalled();
+    })
+
   })
+
+
+
+
+
+
+
+
+
+
+
+
 
   describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
