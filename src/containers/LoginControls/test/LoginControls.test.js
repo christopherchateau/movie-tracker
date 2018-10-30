@@ -184,7 +184,9 @@ describe("LoginControls", () => {
       expect(wrapper.state('errorMessage')).toEqual(expected)
     })
   })
+  
   describe('loginUser', () => {
+
     it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
@@ -200,19 +202,32 @@ describe("LoginControls", () => {
 
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
-    // it('should call saveUserData with the correct params', () => {
 
-    // })
-    // it('should call handleLogin with the correct params', () => {
+    it('should call saveUserData with the correct params', () => {
+      let mockFetchReturn = {
+        data: {
+          name: 'Taylor',
+          id: 7
+        }
+      }
+    })
 
-    // })
-    // it('should update errorMessage if there is an error', () => {
+    it('should call handleLogin with the correct params', () => {})
 
-    // })
+    it('should call getUserFavorites witht he correct params', () => {})
+
+    it('should update errorMessage if there is an error', () => {})
+
+    it('should call handleErrorMessage if there is an error', () => {})
 
   })
 
   describe('getUserFavorites', () => {
+    it('should call retrieveUserFavorites with the correct params', () => {})
+
+    it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
+
+
     
   })
 
@@ -238,16 +253,20 @@ describe("LoginControls", () => {
 
       expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
     })
-    
-    // it('should call saveUserData with the correct params', () => {
-    // });
-    
-    // it('should call handleLogin with the correct param', () => {
 
-    // })
-    // it('should update errorMessage if there is an error', () => {
+    it('should call saveUserData with the correct params', () => {
+    });
+    
+    it('should call handleLogin with the correct param', () => {
 
-    // })
+    })
+    it('should update errorMessage if there is an error', () => {
+
+    })
+  })
+
+  describe('clearErrorMessage', () => {
+    it('should call handleErrorMessage witht he correct params', () => {})
   })
 });
 
