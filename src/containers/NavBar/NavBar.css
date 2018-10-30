@@ -28,13 +28,13 @@
   transition: all 0.4s ease-in-out;
 }
 
-.error-msg {
+/* .error-msg {
   bottom: 20px;
   color: red;
   font-size: 66;
   position: relative;
   text-align: center;
-}
+} */
 
 
 @media screen and (max-width: 800px) {
