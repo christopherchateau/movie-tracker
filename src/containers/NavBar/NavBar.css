@@ -14,7 +14,7 @@
   cursor: pointer;
   font-size: 18px;
   font-weight: bolder;
-  margin: 10px 70px;
+  margin: 10px 0;
   padding: 4px;
   position: relative;
   text-align: center;
@@ -34,8 +34,4 @@
   font-size: 66;
   position: relative;
   text-align: center;
-}
-
-.user-name {
-  width: 400px;
 }

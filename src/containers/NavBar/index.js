@@ -36,7 +36,14 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1 className="user-name">Hello {props.currentUser.name}</h1>
+        <NavLink
+          className="favorites-button buttons"
+          to="/favorites"
+          onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
+        >
+          {favoritesBtnText}
+        </NavLink>
+        <h1 className="user-name">Hello {props.currentUser.name}!</h1>
         <NavLink
           className="sign-out-button buttons"
           to="/"
@@ -47,13 +54,6 @@ export const NavBar = props => {
           }}
         >
           Sign Out
-        </NavLink>
-        <NavLink
-          className="favorites-button buttons"
-          to="/favorites"
-          onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
-        >
-          {favoritesBtnText}
         </NavLink>
       </div>
     );
