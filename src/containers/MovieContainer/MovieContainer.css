@@ -25,6 +25,13 @@
 }
 
 .walter {
-  margin: 25vh auto 20px auto;
+  margin: 20vh auto 20px auto;
   width: 25%;
+}
+
+
+@media screen and (max-width: 800px) {
+  .Movie-Container {
+    top: 260px;
+  }
 }

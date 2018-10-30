@@ -12,7 +12,6 @@ import "./NavBar.css";
 
 export const NavBar = props => {
   let favoritesBtnText;
-
   props.showFavorites
     ? (favoritesBtnText = "Show all")
     : (favoritesBtnText = "My Favorites");
@@ -38,7 +37,7 @@ export const NavBar = props => {
       <div className="navBar">
         <NavLink
           className="favorites-button buttons"
-          to="/favorites"
+          to={props.showFavorites ? "/" : "/favorites"}
           onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
         >
           {favoritesBtnText}
@@ -51,6 +50,10 @@ export const NavBar = props => {
             props.handleLogin(false);
             props.handleResetFavorites();
             props.handleDisplayFavorites(false);
+            localStorage.setItem(
+              "coenCollection",
+              JSON.stringify({ loggedIn: false, email: "", password: "" })
+            );
           }}
         >
           Sign Out

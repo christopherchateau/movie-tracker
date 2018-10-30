@@ -1,5 +1,5 @@
 import React from "react";
-import Movie from "../../components/Movie";
+import Movie from "../../containers/Movie";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import spinner from "../../images/circle-loader.gif";

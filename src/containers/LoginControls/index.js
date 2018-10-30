@@ -23,6 +23,17 @@ export class LoginControls extends Component {
     };
   }
 
+  componentDidMount = async () => {
+    const storedLogin = JSON.parse(localStorage.getItem("coenCollection"));
+    if (storedLogin.loggedIn) {
+      await this.setState({
+        email: storedLogin.email,
+        password: storedLogin.password
+      });
+      this.loginUser();
+    }
+  };
+
   handleInputChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -59,19 +70,22 @@ export class LoginControls extends Component {
     try {
       const { email, password } = this.state;
       const fetchUser = await fetch.fetchLoginUser(email, password);
-
-      this.updateUserDataAfterLogin(fetchUser)
-
+      this.updateUserDataAfterLogin(fetchUser);
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
     }
   };
 
-  updateUserDataAfterLogin = (userData) => {
+  updateUserDataAfterLogin = userData => {
+    const { email, password } = this.state;
     this.props.saveUserData(userData.data.name, userData.data.id);
     this.props.handleLogin(true);
     this.getUserFavorites(userData.data.id);
-  }
+    localStorage.setItem(
+      "coenCollection",
+      JSON.stringify({ loggedIn: true, email, password })
+    );
+  };
 
   getUserFavorites = async userId => {
     try {
@@ -90,18 +104,17 @@ export class LoginControls extends Component {
     }
     const { username, email, password } = this.state;
     const fetchSignup = await fetch.fetchSignupUser(username, email, password);
-
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.props.handleErrorMessage("User account already exists!");
     } else {
-      this.updateUserDataAfterSignup(username, fetchSignup.id)
+      this.updateUserDataAfterSignup(username, fetchSignup.id);
     }
   };
 
   updateUserDataAfterSignup = (username, id) => {
     this.props.saveUserData(username, id);
     this.props.handleLogin(true);
-  }
+  };
 
   clearErrorMessage = () => {
     this.props.handleErrorMessage("");
@@ -116,14 +129,14 @@ export class LoginControls extends Component {
               name="email"
               placeholder="email"
               value={this.state.email}
-              className='email'
+              className="email"
               onChange={this.handleInputChange}
             />
             {this.state.pathname === "/signup" && (
               <input
                 name="username"
                 placeholder="username"
-                className='username'
+                className="username"
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
