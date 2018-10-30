@@ -138,14 +138,14 @@ export class LoginControls extends Component {
               name="email"
               placeholder="email"
               value={this.state.email}
-              className={pathname === "/signup" ? "signup" : "login"}
+              className={pathname === "/signup" ? "signup email" : "login email"}
               onChange={this.handleInputChange}
             />
             {pathname === "/signup" && (
               <input
                 name="username"
                 placeholder="username"
-                className={pathname === "/signup" ? "signup" : "login"}
+                className={pathname === "/signup" ? "signup username" : "login username"}
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -153,7 +153,7 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
-              className={pathname === "/signup" ? "signup" : "login"}
+              className={pathname === "/signup" ? "signup password" : "login password"}
               value={this.state.password}
               onChange={this.handleInputChange}
             />
