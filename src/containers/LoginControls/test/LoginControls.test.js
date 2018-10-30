@@ -6,6 +6,8 @@ import { LoginControls, mapStateToProps, mapDispatchToProps } from "../index";
 import * as fetch from '../../../utilities/fetch.js';
 import { logIn, saveUserData, setErrorMessage, toggleFavorite } from "../../../actions";
 
+jest.mock('../../../utilities/fetch.js')
+
 describe("LoginControls", () => {
   let wrapper;
   let mockHandleSubmit;
@@ -184,19 +186,19 @@ describe("LoginControls", () => {
   })
   describe('loginUser', () => {
     it('should call fetchSignupUser with the correct params', async () => { 
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
+      let mockUsername = 'Taylor'
 
-      wrapper.setState({email: 'john@gmail.com', password: 'password'})
-
-      window.fetch = jest.fn().mockImplementation(() => 
-          Promise.resolve({json: () => Promise.resolve({})})
-        );
-
-      wrapper.instance().fetch.fetchLoginUser = window.fetch
-      wrapper.instance().getUserFavorites = jest.fn()
+      wrapper.setState({
+        email: mockEmail,
+        password: mockPassword,
+        username: mockUsername
+      })
 
       wrapper.instance().loginUser()
 
-      expect(wrapper.instance().fetch.fetchLoginUser).toHaveBeenCalled()
+      expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
     // it('should call saveUserData with the correct params', () => {
 
@@ -219,13 +221,27 @@ describe("LoginControls", () => {
       wrapper.setState({ username: 'Jo'});
 
       expect(await wrapper.instance().signupUser()).toEqual(undefined);
-    });
-    // it('should call fetchSignupUser with the correct params', () => {
+    })
 
-    // })
+    it('should call fetchSignupUser with the correct params', () => {
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
+      let mockUsername = 'Taylor'
+
+      wrapper.setState({
+        email: mockEmail,
+        password: mockPassword,
+        username: mockUsername
+      })
+
+      wrapper.instance().signupUser()
+
+      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
+    })
+    
     // it('should call saveUserData with the correct params', () => {
-
-    // })
+    // });
+    
     // it('should call handleLogin with the correct param', () => {
 
     // })
