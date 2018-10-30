@@ -37,15 +37,17 @@ export const NavBar = props => {
     return (
       <div className="navBar">
         <h1 className="user-name">Hello {props.currentUser.name}</h1>
-        <button
+        <NavLink
           className="sign-out-button buttons"
+          to="/"
           onClick={() => {
             props.handleLogin(false);
             props.handleResetFavorites();
+            props.handleDisplayFavorites(false);
           }}
         >
           Sign Out
-        </button>
+        </NavLink>
         <NavLink
           className="favorites-button buttons"
           to="/favorites"
