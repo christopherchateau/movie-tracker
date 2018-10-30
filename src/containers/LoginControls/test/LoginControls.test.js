@@ -207,6 +207,8 @@ describe("LoginControls", () => {
   
   describe('loginUser', () => {
 
+
+
     it('should call fetchSignupUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
@@ -222,27 +224,51 @@ describe("LoginControls", () => {
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
 
-    it('should call saveUserData with the correct params', () => {
+    it('should call saveUserData with the correct params', async () => {
+      wrapper = mount(
+        <LoginControls
+          loggedIn={false}
+          userId={7}
+          errorMessage={'error'}
+          handleLogin={jest.fn()}
+          saveUserData={jest.fn()}
+          location={{ pathname: "" }}
+          handleErrorMessage={jest.fn()}
+          handleFavoriteToggle={jest.fn()}
+        />
+      );
+
       let mockFetchUserReturn = {
         data: {
           name: 'Taylor',
           id: 7
         }
       }
+    console.log(wrapper.instance().props.saveUserData)
+
       wrapper.instance().loginUser();
-      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockFetchUserReturn.data.name, mockFetchUserReturn.data.id);
+      expect(wrapper.instance().props.saveUserData).toHaveBeenCalled()
     })
 
 
     it('should call handleLogin with the correct params', () => {
       wrapper.instance().loginUser();
 
-      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(true);
+      expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
     })
 
-    it('should call getUserFavorites witht he correct params', () => {})
+    it('should call getUserFavorites with the correct params', () => {
+      let mockFetchUserReturn = {
+        data: {
+          name: 'Taylor',
+          id: 7
+        }
+      }
 
-    it('should update errorMessage if there is an error', () => {})
+      wrapper.instance().loginUser();
+      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(mockFetchUserReturn.id)
+
+    })
 
 
     it('should call handleErrorMessage if there is an error', () => {})
@@ -250,7 +276,13 @@ describe("LoginControls", () => {
   })
 
   describe('getUserFavorites', () => {
-    it('should call retrieveUserFavorites with the correct params', () => {})
+    it('should call retrieveUserFavorites with the correct params', () => {
+      const mockUserId = 3
+
+      wrapper.instance().loginUser();
+
+      expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
+    })
 
     it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
 
