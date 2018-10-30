@@ -246,12 +246,10 @@ describe("LoginControls", () => {
     it('should call fetchLoginUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
-      // let mockUsername = 'Taylor'
 
       wrapper.setState({
         email: mockEmail,
         password: mockPassword,
-        // username: mockUsername
       })
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
@@ -475,7 +473,6 @@ describe("LoginControls", () => {
       expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
     })
   })
-
 
   describe('clearErrorMessage', () => {
     let wrapper = mount(
