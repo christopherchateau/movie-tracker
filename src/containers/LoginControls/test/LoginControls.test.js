@@ -222,13 +222,21 @@ describe("LoginControls", () => {
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
 
-    it('should call updateUserDataAfterLogin', () => {
+    it('should call updateUserDataAfterLogin', async () => {
+      wrapper.instance().updateUserDataAfterLogin = jest.fn()
+
       wrapper.instance().loginUser();
       expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
     })
 
-    it('should call saveUserData with the correct params', async () => {
-      wrapper = mount(
+    it('should call handleErrorMessage if there is an error', () => {})
+  })
+
+
+  describe('updateUserDataAfterLogin', () => {
+
+
+        let wrapper = mount(
         <LoginControls
           loggedIn={false}
           userId={7}
@@ -241,16 +249,18 @@ describe("LoginControls", () => {
         />
       );
 
-      let mockFetchUserReturn = {
+      let mockUserData = {
         data: {
           name: 'Taylor',
           id: 7
         }
       }
-    console.log(wrapper.instance().props.saveUserData)
 
-      wrapper.instance().loginUser();
-      expect(wrapper.instance().props.saveUserData).toHaveBeenCalled()
+    it('should call saveUserData with the correct params', async () => {
+
+      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+     
+      expect(wrapper.props().saveUserData).toHaveBeenCalled()
     })
 
 
@@ -274,9 +284,11 @@ describe("LoginControls", () => {
     })
 
 
-    it('should call handleErrorMessage if there is an error', () => {})
+
 
   })
+  
+
 
   describe('getUserFavorites', () => {
     it('should call retrieveUserFavorites with the correct params', () => {

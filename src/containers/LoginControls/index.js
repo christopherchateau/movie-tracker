@@ -60,8 +60,8 @@ export class LoginControls extends Component {
     try {
       const { email, password } = this.state;
       const fetchUser = await fetch.fetchLoginUser(email, password);
-
       this.updateUserDataAfterLogin(fetchUser)
+console.log('HERE')
 
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
