@@ -102,6 +102,7 @@ export class LoginControls extends Component {
             <input
               name="email"
               placeholder="email"
+              className='email'
               value={this.state.email}
               onChange={this.handleInputChange}
             />
@@ -109,6 +110,7 @@ export class LoginControls extends Component {
               <input
                 name="username"
                 placeholder="username"
+                className='username'
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -116,6 +118,7 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
+              className="password"
               value={this.state.password}
               onChange={this.handleInputChange}
             />
