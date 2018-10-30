@@ -183,7 +183,7 @@ export default connect(
 )(LoginControls);
 
 LoginControls.propTypes = {
-  saveUserData: PropType.func.isRequired,
+  saveUserData: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   handleErrorMessage: PropTypes.func.isRequired,
   handleFavoriteToggle: PropTypes.func.isRequired,
