@@ -11,6 +11,12 @@ import {
 import "./NavBar.css";
 
 export const NavBar = props => {
+  let favoritesBtnText;
+
+  props.showFavorites
+    ? (favoritesBtnText = "Show all")
+    : (favoritesBtnText = "My Favorites");
+
   if (!props.loggedIn) {
     return (
       <div>
@@ -45,7 +51,7 @@ export const NavBar = props => {
           to="/favorites"
           onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
         >
-          My Favorites
+          {favoritesBtnText}
         </NavLink>
       </div>
     );
@@ -63,7 +69,7 @@ export const mapDispatchToProps = dispatch => ({
   handleLogin: bool => dispatch(logIn(bool)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
   handleResetFavorites: () => dispatch(resetFavorites()),
-  handleDisplayFavorites: (bool) => dispatch(displayFavorites(bool))
+  handleDisplayFavorites: bool => dispatch(displayFavorites(bool))
 });
 
 export default connect(
