@@ -150,7 +150,7 @@ ReactWrapper {
                   >
                     <div>
                       <i
-                        class="far fa-star favorited"
+                        class="fa-star fas favorited"
                       />
                       <img
                         alt="Movie Poster"
@@ -302,7 +302,7 @@ ReactWrapper {
                 >
                   <div>
                     <i
-                      class="far fa-star favorited"
+                      class="fa-star fas favorited"
                     />
                     <img
                       alt="Movie Poster"
@@ -437,8 +437,8 @@ ReactWrapper {
           "_debugIsCurrentlyTiming": false,
           "_debugOwner": [Circular],
           "_debugSource": Object {
-            "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-            "lineNumber": 72,
+            "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+            "lineNumber": 83,
           },
           "actualDuration": 0,
           "actualStartTime": -1,
@@ -448,8 +448,8 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-              "lineNumber": 49,
+              "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+              "lineNumber": 59,
             },
             "actualDuration": 0,
             "actualStartTime": -1,
@@ -459,8 +459,8 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-                "lineNumber": 50,
+                "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+                "lineNumber": 60,
               },
               "actualDuration": 0,
               "actualStartTime": -1,
@@ -475,15 +475,13 @@ ReactWrapper {
               "key": null,
               "lastEffect": null,
               "memoizedProps": Object {
-                "className": "far fa-star favorited",
-                "onClick": [Function],
+                "className": "fa-star fas favorited",
               },
               "memoizedState": null,
               "mode": 0,
               "nextEffect": null,
               "pendingProps": Object {
-                "className": "far fa-star favorited",
-                "onClick": [Function],
+                "className": "fa-star fas favorited",
               },
               "ref": null,
               "return": [Circular],
@@ -493,8 +491,8 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-                  "lineNumber": 54,
+                  "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+                  "lineNumber": 61,
                 },
                 "actualDuration": 0,
                 "actualStartTime": -1,
@@ -536,7 +534,7 @@ ReactWrapper {
                 "updateQueue": null,
               },
               "stateNode": <i
-                class="far fa-star favorited"
+                class="fa-star fas favorited"
               />,
               "tag": 7,
               "treeBaseDuration": 0,
@@ -554,8 +552,7 @@ ReactWrapper {
             "memoizedProps": Object {
               "children": Array [
                 <i
-                  className="far fa-star favorited"
-                  onClick={[Function]}
+                  className="fa-star fas favorited"
                 />,
                 <img
                   alt="Movie Poster"
@@ -570,8 +567,7 @@ ReactWrapper {
             "pendingProps": Object {
               "children": Array [
                 <i
-                  className="far fa-star favorited"
-                  onClick={[Function]}
+                  className="fa-star fas favorited"
                 />,
                 <img
                   alt="Movie Poster"
@@ -586,7 +582,7 @@ ReactWrapper {
             "sibling": null,
             "stateNode": <div>
               <i
-                class="far fa-star favorited"
+                class="fa-star fas favorited"
               />
               <img
                 alt="Movie Poster"
@@ -610,8 +606,7 @@ ReactWrapper {
           "memoizedProps": Object {
             "children": <div>
               <i
-                className="far fa-star favorited"
-                onClick={[Function]}
+                className="fa-star fas favorited"
               />
               <img
                 alt="Movie Poster"
@@ -620,6 +615,8 @@ ReactWrapper {
               />
             </div>,
             "className": "Movie",
+            "onMouseEnter": [Function],
+            "onMouseLeave": [Function],
           },
           "memoizedState": null,
           "mode": 0,
@@ -627,8 +624,7 @@ ReactWrapper {
           "pendingProps": Object {
             "children": <div>
               <i
-                className="far fa-star favorited"
-                onClick={[Function]}
+                className="fa-star fas favorited"
               />
               <img
                 alt="Movie Poster"
@@ -637,6 +633,8 @@ ReactWrapper {
               />
             </div>,
             "className": "Movie",
+            "onMouseEnter": [Function],
+            "onMouseLeave": [Function],
           },
           "ref": null,
           "return": [Circular],
@@ -647,7 +645,7 @@ ReactWrapper {
           >
             <div>
               <i
-                class="far fa-star favorited"
+                class="fa-star fas favorited"
               />
               <img
                 alt="Movie Poster"
@@ -685,7 +683,7 @@ ReactWrapper {
           "title": "title",
         },
         "memoizedState": Object {
-          "isClicked": false,
+          "isHovered": false,
         },
         "mode": 0,
         "nextEffect": null,
@@ -822,7 +820,7 @@ ReactWrapper {
                   >
                     <div>
                       <i
-                        class="far fa-star favorited"
+                        class="fa-star fas favorited"
                       />
                       <img
                         alt="Movie Poster"
@@ -974,7 +972,7 @@ ReactWrapper {
                 >
                   <div>
                     <i
-                      class="far fa-star favorited"
+                      class="fa-star fas favorited"
                     />
                     <img
                       alt="Movie Poster"
@@ -1110,7 +1108,8 @@ ReactWrapper {
       },
       "_reactInternalInstance": Object {},
       "context": Object {},
-      "handleCardClick": [Function],
+      "handleClickFavorite": [Function],
+      "handleHover": [Function],
       "props": Object {
         "currentUser": Object {
           "id": 3,
@@ -1128,7 +1127,7 @@ ReactWrapper {
       },
       "refs": Object {},
       "state": Object {
-        "isClicked": false,
+        "isHovered": false,
       },
       "updater": Object {
         "enqueueForceUpdate": [Function],
@@ -1162,7 +1161,7 @@ ReactWrapper {
       >
         <div>
           <i
-            class="far fa-star favorited"
+            class="fa-star fas favorited"
           />
           <img
             alt="Movie Poster"
@@ -1176,8 +1175,7 @@ ReactWrapper {
       "props": Object {
         "children": <div>
           <i
-            className="far fa-star favorited"
-            onClick={[Function]}
+            className="fa-star fas favorited"
           />
           <img
             alt="Movie Poster"
@@ -1186,13 +1184,15 @@ ReactWrapper {
           />
         </div>,
         "className": "Movie",
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": <div>
             <i
-              class="far fa-star favorited"
+              class="fa-star fas favorited"
             />
             <img
               alt="Movie Poster"
@@ -1205,8 +1205,7 @@ ReactWrapper {
           "props": Object {
             "children": Array [
               <i
-                className="far fa-star favorited"
-                onClick={[Function]}
+                className="fa-star fas favorited"
               />,
               <img
                 alt="Movie Poster"
@@ -1219,13 +1218,12 @@ ReactWrapper {
           "rendered": Array [
             Object {
               "instance": <i
-                class="far fa-star favorited"
+                class="fa-star fas favorited"
               />,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "far fa-star favorited",
-                "onClick": [Function],
+                "className": "fa-star fas favorited",
               },
               "ref": null,
               "rendered": Array [
@@ -1383,7 +1381,7 @@ ReactWrapper {
                     >
                       <div>
                         <i
-                          class="far fa-star favorited"
+                          class="fa-star fas favorited"
                         />
                         <img
                           alt="Movie Poster"
@@ -1535,7 +1533,7 @@ ReactWrapper {
                   >
                     <div>
                       <i
-                        class="far fa-star favorited"
+                        class="fa-star fas favorited"
                       />
                       <img
                         alt="Movie Poster"
@@ -1670,8 +1668,8 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": [Circular],
             "_debugSource": Object {
-              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-              "lineNumber": 72,
+              "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+              "lineNumber": 83,
             },
             "actualDuration": 0,
             "actualStartTime": -1,
@@ -1681,8 +1679,8 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-                "lineNumber": 49,
+                "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+                "lineNumber": 59,
               },
               "actualDuration": 0,
               "actualStartTime": -1,
@@ -1692,8 +1690,8 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-                  "lineNumber": 50,
+                  "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+                  "lineNumber": 60,
                 },
                 "actualDuration": 0,
                 "actualStartTime": -1,
@@ -1708,15 +1706,13 @@ ReactWrapper {
                 "key": null,
                 "lastEffect": null,
                 "memoizedProps": Object {
-                  "className": "far fa-star favorited",
-                  "onClick": [Function],
+                  "className": "fa-star fas favorited",
                 },
                 "memoizedState": null,
                 "mode": 0,
                 "nextEffect": null,
                 "pendingProps": Object {
-                  "className": "far fa-star favorited",
-                  "onClick": [Function],
+                  "className": "fa-star fas favorited",
                 },
                 "ref": null,
                 "return": [Circular],
@@ -1726,8 +1722,8 @@ ReactWrapper {
                   "_debugIsCurrentlyTiming": false,
                   "_debugOwner": [Circular],
                   "_debugSource": Object {
-                    "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/components/Movie/index.js",
-                    "lineNumber": 54,
+                    "fileName": "/Users/tobinnelson/turing/projects-mod-3/movieTracker/frontend/src/components/Movie/index.js",
+                    "lineNumber": 61,
                   },
                   "actualDuration": 0,
                   "actualStartTime": -1,
@@ -1769,7 +1765,7 @@ ReactWrapper {
                   "updateQueue": null,
                 },
                 "stateNode": <i
-                  class="far fa-star favorited"
+                  class="fa-star fas favorited"
                 />,
                 "tag": 7,
                 "treeBaseDuration": 0,
@@ -1787,8 +1783,7 @@ ReactWrapper {
               "memoizedProps": Object {
                 "children": Array [
                   <i
-                    className="far fa-star favorited"
-                    onClick={[Function]}
+                    className="fa-star fas favorited"
                   />,
                   <img
                     alt="Movie Poster"
@@ -1803,8 +1798,7 @@ ReactWrapper {
               "pendingProps": Object {
                 "children": Array [
                   <i
-                    className="far fa-star favorited"
-                    onClick={[Function]}
+                    className="fa-star fas favorited"
                   />,
                   <img
                     alt="Movie Poster"
@@ -1819,7 +1813,7 @@ ReactWrapper {
               "sibling": null,
               "stateNode": <div>
                 <i
-                  class="far fa-star favorited"
+                  class="fa-star fas favorited"
                 />
                 <img
                   alt="Movie Poster"
@@ -1843,8 +1837,7 @@ ReactWrapper {
             "memoizedProps": Object {
               "children": <div>
                 <i
-                  className="far fa-star favorited"
-                  onClick={[Function]}
+                  className="fa-star fas favorited"
                 />
                 <img
                   alt="Movie Poster"
@@ -1853,6 +1846,8 @@ ReactWrapper {
                 />
               </div>,
               "className": "Movie",
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
             },
             "memoizedState": null,
             "mode": 0,
@@ -1860,8 +1855,7 @@ ReactWrapper {
             "pendingProps": Object {
               "children": <div>
                 <i
-                  className="far fa-star favorited"
-                  onClick={[Function]}
+                  className="fa-star fas favorited"
                 />
                 <img
                   alt="Movie Poster"
@@ -1870,6 +1864,8 @@ ReactWrapper {
                 />
               </div>,
               "className": "Movie",
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
             },
             "ref": null,
             "return": [Circular],
@@ -1880,7 +1876,7 @@ ReactWrapper {
             >
               <div>
                 <i
-                  class="far fa-star favorited"
+                  class="fa-star fas favorited"
                 />
                 <img
                   alt="Movie Poster"
@@ -1918,7 +1914,7 @@ ReactWrapper {
             "title": "title",
           },
           "memoizedState": Object {
-            "isClicked": false,
+            "isHovered": false,
           },
           "mode": 0,
           "nextEffect": null,
@@ -2055,7 +2051,7 @@ ReactWrapper {
                     >
                       <div>
                         <i
-                          class="far fa-star favorited"
+                          class="fa-star fas favorited"
                         />
                         <img
                           alt="Movie Poster"
@@ -2207,7 +2203,7 @@ ReactWrapper {
                   >
                     <div>
                       <i
-                        class="far fa-star favorited"
+                        class="fa-star fas favorited"
                       />
                       <img
                         alt="Movie Poster"
@@ -2343,7 +2339,8 @@ ReactWrapper {
         },
         "_reactInternalInstance": Object {},
         "context": Object {},
-        "handleCardClick": [Function],
+        "handleClickFavorite": [Function],
+        "handleHover": [Function],
         "props": Object {
           "currentUser": Object {
             "id": 3,
@@ -2361,7 +2358,7 @@ ReactWrapper {
         },
         "refs": Object {},
         "state": Object {
-          "isClicked": false,
+          "isHovered": false,
         },
         "updater": Object {
           "enqueueForceUpdate": [Function],
@@ -2395,7 +2392,7 @@ ReactWrapper {
         >
           <div>
             <i
-              class="far fa-star favorited"
+              class="fa-star fas favorited"
             />
             <img
               alt="Movie Poster"
@@ -2409,8 +2406,7 @@ ReactWrapper {
         "props": Object {
           "children": <div>
             <i
-              className="far fa-star favorited"
-              onClick={[Function]}
+              className="fa-star fas favorited"
             />
             <img
               alt="Movie Poster"
@@ -2419,13 +2415,15 @@ ReactWrapper {
             />
           </div>,
           "className": "Movie",
+          "onMouseEnter": [Function],
+          "onMouseLeave": [Function],
         },
         "ref": null,
         "rendered": Array [
           Object {
             "instance": <div>
               <i
-                class="far fa-star favorited"
+                class="fa-star fas favorited"
               />
               <img
                 alt="Movie Poster"
@@ -2438,8 +2436,7 @@ ReactWrapper {
             "props": Object {
               "children": Array [
                 <i
-                  className="far fa-star favorited"
-                  onClick={[Function]}
+                  className="fa-star fas favorited"
                 />,
                 <img
                   alt="Movie Poster"
@@ -2452,13 +2449,12 @@ ReactWrapper {
             "rendered": Array [
               Object {
                 "instance": <i
-                  class="far fa-star favorited"
+                  class="fa-star fas favorited"
                 />,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "far fa-star favorited",
-                  "onClick": [Function],
+                  "className": "fa-star fas favorited",
                 },
                 "ref": null,
                 "rendered": Array [
