@@ -40,9 +40,10 @@ export class LoginControls extends Component {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(this.state.email)) {
       return true;
+    } else {
+      this.props.handleErrorMessage("Please enter a valid e-mail address");
+      return false;
     }
-    this.props.handleErrorMessage("Please enter a valid e-mail address");
-    return false;
   };
 
   validateInputLength = (inputType, length) => {
