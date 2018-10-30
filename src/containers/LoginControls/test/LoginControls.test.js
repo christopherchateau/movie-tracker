@@ -322,6 +322,19 @@ describe("LoginControls", () => {
   })
   
   describe('getUserFavorites', () => {
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
+
     it('should call retrieveUserFavorites with the correct params', () => {
       const mockUserId = 3
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -333,10 +346,36 @@ describe("LoginControls", () => {
       expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
     })
 
-    // it('should call handleFavoriteToggle with the correct params for each favorite', () => {})
-    // it('should call handleErrorMessage with the correct params', () => {
+    it('should call handleFavoriteToggle with the correct params for each favorite', async () => {
+      const mockMovies = [
+        {
+          title: "The Big Lebowski",
+          date: "1998-03-06",
+          poster:
+            "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aHaVjVoXeNanfwUwQ92SG7tosFM.jpg",
+          overview:
+            'Jeffrey "The Dude" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.',
+          voteAverage: 7.9,
+          id: 115,
+          favorited: false
+        }
+      ]
 
-    // })
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockMovies))
+      
+      await wrapper.instance().getUserFavorites()
+
+      expect(wrapper.props().handleFavoriteToggle).toHaveBeenCalled()
+
+    })
+
+    it('should call handleErrorMessage with the correct params', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'error'}))
+
+      await wrapper.instance().loginUser();
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Favorites error");
+
+    })
   });
 
   describe('signupUser', () => {
