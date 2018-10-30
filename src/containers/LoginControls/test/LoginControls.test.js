@@ -198,7 +198,7 @@ describe("LoginControls", () => {
         handleFavoriteToggle={jest.fn()}
       />
     );
-    
+
     it('should accept a password of at least 6 letters', () => {
       wrapper.setState({password: 'password'})
 
@@ -207,7 +207,7 @@ describe("LoginControls", () => {
       expect(result).toEqual(true)
     })
 
-    it('should call handleErrorMessage with too few letters', () => {
+    it('should call handleErrorMessage with too few letters in password', () => {
       wrapper.setState({password: 'go'})
 
       const expected = 'password must be at least 6 characters' 
@@ -370,17 +370,26 @@ describe("LoginControls", () => {
 });
 
 describe("mapStateToProps", () => {
-  it("should return an object with a loggedIn status", () => {
-    const mockState = { loggedIn: true };
-    const expected = { loggedIn: true };
+  it("should return a props object", () => {
+    const mockState = { 
+      loggedIn: true,
+      userId: 3,
+      errorMessage:''
+    };
+
+    const expected = { 
+      loggedIn: true,
+      userId: 3,
+      errorMessage:''
+    };
 
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
   });
 
-  it("should return an object with current user id", () => {});
+  // it("should return an object with current user id", () => {});
 
-  it("should return an object with an error message", () => {});
+  // it("should return an object with an error message", () => {});
 });
 
 describe("mapDispatchToProps", () => {

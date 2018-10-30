@@ -91,8 +91,6 @@ export class LoginControls extends Component {
       this.props.handleErrorMessage("User account already exists!");
     } else {
       this.updateUserDataAfterSignup(username, fetchSignup.id)
-      // this.props.saveUserData(username, fetchSignup.id);
-      // this.props.handleLogin(true);
     }
   };
 
