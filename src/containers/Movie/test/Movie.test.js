@@ -124,6 +124,18 @@ describe("Movie", () => {
 
         expect(wrapper.state().isHovered).toEqual(true);
       })
+
+      it('should call handleHover when mouse leaves picture', () => {
+        wrapper.setState({ isHovered: true })
+        wrapper.find('.Movie').simulate('mouseLeave')
+        expect(wrapper.state().isHovered).toEqual(false)
+      })
+
+      it('should call handleHover when mouse enters picture', () => {
+        wrapper.setState({ isHovered: false })
+        wrapper.find('.Movie').simulate('mouseEnter')
+        expect(wrapper.state().isHovered).toEqual(true)
+      })
     });
 
     describe('verifyUserIsLoggedIn', () => {
