@@ -2,7 +2,7 @@ import React from "react";
 import { mapStateToProps, mapDispatchToProps, NavBar } from "../index";
 import { shallow } from "enzyme";
 import { NavLink } from "react-router-dom";
-import { logIn } from "../../../actions";
+import { logIn, setErrorMessage, resetFavorites, displayFavorites } from "../../../actions";
 
 describe("NavBar", () => {
   let wrapper;
@@ -53,21 +53,52 @@ describe("NavBar", () => {
     expect(wrapper.find(NavLink).length).toEqual(2);
     expect(wrapper.find(".sign-out-button")).toBeDefined();
   });
-
-  it("should call handleLogin on click", () => {
-    wrapper.find(".sign-out-button").simulate("click");
-    expect(mockHandleLogin).toHaveBeenCalled();
-  });
 });
 
 describe("mapStateToProps", () => {
   it("should return an object with a loggedIn status", () => {
     const mockState = {
-      loggedIn: true
+      loggedIn: true,
     };
 
     const expected = {
-      loggedIn: true
+      loggedIn: true,
+    };
+
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  });
+  it("should return an object with a currentUser", () => {
+    const mockState = {
+      currentUser: {name: 'Taylor', id: 5},
+    };
+
+    const expected = {
+      currentUser: {name: 'Taylor', id: 5},
+    };
+
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  });
+  it("should return an object with an errorMessage", () => {
+    const mockState = {
+      errorMessage: 'Error',
+    };
+
+    const expected = {
+      errorMessage: 'Error',
+    };
+
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  });
+  it("should return an object with showFavorites status", () => {
+    const mockState = {
+      showFavorites: true
+    };
+
+    const expected = {
+      showFavorites: true
     };
 
     const mappedProps = mapStateToProps(mockState);
@@ -82,6 +113,33 @@ describe("mapDispatchToProps", () => {
 
     const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.handleLogin(true);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+    it("should call dispatch with a setErrorMessage action when handleErrorMessage is called", () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = setErrorMessage('error');
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.handleErrorMessage('error');
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+      it("should call dispatch with a resetFavorites action when handleResetFavorites is called", () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = resetFavorites();
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.handleResetFavorites();
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+        it("should call dispatch with a displayFavorites action when handleDisplayFavorites is called", () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = displayFavorites(true);
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.handleDisplayFavorites(true);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
