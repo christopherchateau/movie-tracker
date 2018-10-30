@@ -186,6 +186,19 @@ describe("LoginControls", () => {
   })
 
   describe('validateInputLength', () => {
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
+    
     it('should accept a password of at least 6 letters', () => {
       wrapper.setState({password: 'password'})
 
@@ -194,15 +207,15 @@ describe("LoginControls", () => {
       expect(result).toEqual(true)
     })
 
-    // it('should update error message in state with too few letters', () => {
-    //   wrapper.setState({password: 'go'})
+    it('should call handleErrorMessage with too few letters', () => {
+      wrapper.setState({password: 'go'})
 
-    //   const expected = 'password must be at least 6 characters' 
+      const expected = 'password must be at least 6 characters' 
 
-    //   wrapper.instance().validateInputLength('password', 6)
+      wrapper.instance().validateInputLength('password', 6)
 
-    //   expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(expected);
-    // })
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(expected);
+    })
   })
   
   describe('loginUser', () => {
