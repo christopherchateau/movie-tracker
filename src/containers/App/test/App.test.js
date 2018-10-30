@@ -3,7 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import { loadMovies } from "../../../actions";
+import { loadMovies, setErrorMessage } from "../../../actions";
 import { App, mapDispatchToProps } from "../index";
 
 describe("App", () => {
@@ -33,4 +33,15 @@ describe("mapDispatchToProps", () => {
     mappedProps.handleFetch([{ title: "Raising Arizona" }]);
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
+
+  it('should call dispatch with setErrorMessage when handleErrorMessage is called', () => {
+    const wrapper = shallow(<App handleErrorMessage={jest.fn()} />);
+
+    const mockDispatch = jest.fn()
+    const actionToDispatch = setErrorMessage({ message: 'Invalid login' });
+
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.handleErrorMessage({ message: 'Invalid login' });
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  })
 });
