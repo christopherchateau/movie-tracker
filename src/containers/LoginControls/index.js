@@ -70,17 +70,21 @@ export class LoginControls extends Component {
     try {
       const { email, password } = this.state;
       const fetchUser = await fetch.fetchLoginUser(email, password);
-
-      this.props.saveUserData(fetchUser.data.name, fetchUser.data.id);
-      this.props.handleLogin(true);
-      this.getUserFavorites(fetchUser.data.id);
-      localStorage.setItem(
-        "coenCollection",
-        JSON.stringify({ loggedIn: true, email, password })
-      );
+      this.updateUserDataAfterLogin(fetchUser);
     } catch (error) {
       this.props.handleErrorMessage("Invalid e-mail/password");
     }
+  };
+
+  updateUserDataAfterLogin = userData => {
+    const { email, password } = this.state;
+    this.props.saveUserData(userData.data.name, userData.data.id);
+    this.props.handleLogin(true);
+    this.getUserFavorites(userData.data.id);
+    localStorage.setItem(
+      "coenCollection",
+      JSON.stringify({ loggedIn: true, email, password })
+    );
   };
 
   getUserFavorites = async userId => {
@@ -100,9 +104,13 @@ export class LoginControls extends Component {
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.props.handleErrorMessage("User account already exists!");
     } else {
-      this.props.saveUserData(username, fetchSignup.id);
-      this.props.handleLogin(true);
+      this.updateUserDataAfterSignup(username, fetchSignup.id);
     }
+  };
+
+  updateUserDataAfterSignup = (username, id) => {
+    this.props.saveUserData(username, id);
+    this.props.handleLogin(true);
   };
 
   clearErrorMessage = () => {
@@ -118,12 +126,14 @@ export class LoginControls extends Component {
               name="email"
               placeholder="email"
               value={this.state.email}
+              className="email"
               onChange={this.handleInputChange}
             />
             {this.state.pathname === "/signup" && (
               <input
                 name="username"
                 placeholder="username"
+                className="username"
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -131,6 +141,7 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
+              className="password"
               value={this.state.password}
               onChange={this.handleInputChange}
             />
