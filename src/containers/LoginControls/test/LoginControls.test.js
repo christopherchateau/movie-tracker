@@ -235,26 +235,25 @@ describe("LoginControls", () => {
 
   describe('updateUserDataAfterLogin', () => {
 
+    let wrapper = mount(
+      <LoginControls
+        loggedIn={false}
+        userId={7}
+        errorMessage={'error'}
+        handleLogin={jest.fn()}
+        saveUserData={jest.fn()}
+        location={{ pathname: "" }}
+        handleErrorMessage={jest.fn()}
+        handleFavoriteToggle={jest.fn()}
+      />
+    );
 
-        let wrapper = mount(
-        <LoginControls
-          loggedIn={false}
-          userId={7}
-          errorMessage={'error'}
-          handleLogin={jest.fn()}
-          saveUserData={jest.fn()}
-          location={{ pathname: "" }}
-          handleErrorMessage={jest.fn()}
-          handleFavoriteToggle={jest.fn()}
-        />
-      );
-
-      let mockUserData = {
-        data: {
-          name: 'Taylor',
-          id: 7
-        }
+    let mockUserData = {
+      data: {
+        name: 'Taylor',
+        id: 7
       }
+    }
 
     it('should call saveUserData with the correct params', async () => {
 
@@ -265,22 +264,17 @@ describe("LoginControls", () => {
 
 
     it('should call handleLogin with the correct params', () => {
-      wrapper.instance().loginUser();
+      wrapper.instance().updateUserDataAfterLogin(mockUserData);
 
       expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
     })
 
     it('should call getUserFavorites with the correct params', () => {
-      let mockFetchUserReturn = {
-        data: {
-          name: 'Taylor',
-          id: 7
-        }
-      }
+      wrapper.instance().getUserFavorites = jest.fn()
 
-      wrapper.instance().loginUser();
-      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(mockFetchUserReturn.id)
-
+      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+     
+      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(mockUserData.data.id)
     })
 
 
