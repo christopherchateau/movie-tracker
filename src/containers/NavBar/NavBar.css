@@ -19,7 +19,7 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  width: 280px;
+  width: 22%;
 }
 
 .buttons:hover {
@@ -34,4 +34,17 @@
   font-size: 66;
   position: relative;
   text-align: center;
+}
+
+
+@media screen and (max-width: 800px) {
+  .navBar {
+    align-items: center;
+    flex-direction: column;
+    height: 140px;
+  }
+
+  .buttons{
+    bottom: 0;
+  }
 }

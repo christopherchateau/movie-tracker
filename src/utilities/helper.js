@@ -14,7 +14,6 @@ export const movieCleaner = async () => {
       favorited: false
     }));
   } else {
-    return []
+    return [];
   }
-
 };

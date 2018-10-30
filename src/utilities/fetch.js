@@ -1,19 +1,15 @@
 import apiKey from "../apiKey";
 
 export const fetchData = async () => {
-  try {
-    const url = `ttps://api.themoviedb.org/3/person/1223/movie_credits?api_key=${
-      apiKey.theMoveDBApiKey
-    }`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw Error(response.statusText)
-    }
-    const movieData = await response.json();
-    return movieData;
-  } catch (error) {
-    console.log(error.message)
+  const url = `https://api.themoviedb.org/3/person/1223/movie_credits?api_key=${
+    apiKey.theMoveDBApiKey
+  }`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw Error(response.statusText);
   }
+  const movieData = await response.json();
+  return movieData;
 };
 
 export const fetchLoginUser = async (email, password) => {
@@ -74,21 +70,17 @@ export const retrieveUserFavorites = async userId => {
 };
 
 export const removeFavorite = async (userId, movieId) => {
-  try {
-    return fetch(
-      `http://localhost:3000/api/users/${userId}/favorites/${movieId}`,
-      {
-        method: "DELETE",
-        body: JSON.stringify({
-          user_id: userId,
-          movie_id: movieId
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
+  return fetch(
+    `http://localhost:3000/api/users/${userId}/favorites/${movieId}`,
+    {
+      method: "DELETE",
+      body: JSON.stringify({
+        user_id: userId,
+        movie_id: movieId
+      }),
+      headers: {
+        "Content-Type": "application/json"
       }
-    );
-  } catch (error) {
-    console.log(error.message);
-  }
+    }
+  );
 };
