@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -11,6 +11,12 @@ import {
 import "./NavBar.css";
 
 export const NavBar = props => {
+  let favoritesBtnText;
+
+  props.showFavorites
+    ? (favoritesBtnText = "Show all")
+    : (favoritesBtnText = "My Favorites");
+
   if (!props.loggedIn) {
     return (
       <div>
@@ -30,22 +36,24 @@ export const NavBar = props => {
   } else {
     return (
       <div className="navBar">
-        <h1 className="user-name">Hello {props.currentUser.name}</h1>
-        <button
-          className="sign-out-button buttons"
-          onClick={() => {
-            props.handleLogin(false);
-            props.handleResetFavorites();
-          }}
-        >
-          Sign Out
-        </button>
         <NavLink
           className="favorites-button buttons"
           to="/favorites"
-          onClick={props.handleDisplayFavorites}
+          onClick={() => props.handleDisplayFavorites(!props.showFavorites)}
         >
-          My Favorites
+          {favoritesBtnText}
+        </NavLink>
+        <h1 className="user-name">Hello {props.currentUser.name}!</h1>
+        <NavLink
+          className="sign-out-button buttons"
+          to="/"
+          onClick={() => {
+            props.handleLogin(false);
+            props.handleResetFavorites();
+            props.handleDisplayFavorites(false);
+          }}
+        >
+          Sign Out
         </NavLink>
       </div>
     );
@@ -55,14 +63,15 @@ export const NavBar = props => {
 export const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   currentUser: state.currentUser,
-  errorMessage: state.errorMessage
+  errorMessage: state.errorMessage,
+  showFavorites: state.showFavorites
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleLogin: loggedIn => dispatch(logIn(loggedIn)),
+  handleLogin: bool => dispatch(logIn(bool)),
   handleErrorMessage: message => dispatch(setErrorMessage(message)),
   handleResetFavorites: () => dispatch(resetFavorites()),
-  handleDisplayFavorites: () => dispatch(displayFavorites())
+  handleDisplayFavorites: bool => dispatch(displayFavorites(bool))
 });
 
 export default connect(

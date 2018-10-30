@@ -10,12 +10,8 @@ export const moviesReducer = (state = [], action) => {
       });
     case "RESET_FAVORITES":
       return state.map(movie => {
-        return movie.favorited
-          ? { ...movie, favorited: false}
-          : movie;
-        });
-    case "DISPLAY_FAVORITES":
-      return state.filter(movie => movie.favorited);
+        return movie.favorited ? { ...movie, favorited: false } : movie;
+      });
     default:
       return state;
   }

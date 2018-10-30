@@ -8,7 +8,7 @@ import {
   setErrorMessage
 } from "../../actions";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as fetch from "../../utilities/fetch.js";
 
 export class LoginControls extends Component {
@@ -31,25 +31,26 @@ export class LoginControls extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.clearErrorMessage();
-    if (this.validateEmail() && this.validateInputLength("password")) {
+    if (this.validateEmail() && this.validateInputLength("password", 6)) {
       this.state.pathname === "/login" ? this.loginUser() : this.signupUser();
     }
   };
 
   validateEmail = () => {
-    if (this.state.email.includes("@")) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(this.state.email)) {
       return true;
     }
     this.props.handleErrorMessage("Please enter a valid e-mail address");
     return false;
   };
 
-  validateInputLength = inputType => {
-    if (this.state[inputType].length > 2) {
+  validateInputLength = (inputType, length) => {
+    if (this.state[inputType].length >= length) {
       return true;
     } else {
       this.props.handleErrorMessage(
-        `${inputType} must be at least 3 characters`
+        `${inputType} must be at least ${length} characters`
       );
     }
   };
@@ -75,17 +76,17 @@ export class LoginControls extends Component {
   };
 
   signupUser = async () => {
-    if (!this.validateInputLength("username")) {
+    if (!this.validateInputLength("username", 2)) {
       return;
     }
     const { username, email, password } = this.state;
     const fetchSignup = await fetch.fetchSignupUser(username, email, password);
 
-    this.props.saveUserData(username, fetchSignup.id);
-    this.props.handleLogin(true);
-
     if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
       this.props.handleErrorMessage("User account already exists!");
+    } else {
+      this.props.saveUserData(username, fetchSignup.id);
+      this.props.handleLogin(true);
     }
   };
 
@@ -101,7 +102,6 @@ export class LoginControls extends Component {
             <input
               name="email"
               placeholder="email"
-              className="email"
               value={this.state.email}
               onChange={this.handleInputChange}
             />
@@ -109,7 +109,6 @@ export class LoginControls extends Component {
               <input
                 name="username"
                 placeholder="username"
-                className="username"
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -117,7 +116,6 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
-              className="password"
               value={this.state.password}
               onChange={this.handleInputChange}
             />

@@ -10,15 +10,14 @@ import { Route, withRouter } from "react-router-dom";
 import "./App.css";
 
 export class App extends Component {
-  
   componentDidMount = async () => {
     const data = await movieCleaner();
-    this.props.handleFetch(data);    
+    this.props.handleFetch(data);
   };
-  
+
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
         <Route exact path="/" component={NavBar} />
         <Route exact path="/login" component={LoginControls} />

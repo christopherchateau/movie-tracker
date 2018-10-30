@@ -9,25 +9,35 @@ export class Movie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClicked: false
+      isHovered: false
     };
   }
 
-  handleCardClick = () => {
-    const { favorited, id, handleToggleFavorite, handleErrorMessage } = this.props;
+  handleClickFavorite = () => {
+    const {
+      favorited,
+      id,
+      handleToggleFavorite,
+      handleErrorMessage
+    } = this.props;
     if (!this.verifyUserIsLoggedIn()) {
-      handleErrorMessage("Please log in or sign up to select favorites")
-      return
-    };
-    
+      handleErrorMessage("Please log in or sign up to select favorites");
+      return;
+    }
+
     handleToggleFavorite(id);
     if (!favorited) {
       try {
-      fetch.fetchAddFavorite(this.props);
+        fetch.fetchAddFavorite(this.props);
       } catch (error) {}
     } else {
       fetch.removeFavorite(this.props.currentUser.id, id);
     }
+  };
+
+  handleHover = bool => {
+    const isHovered = bool;
+    this.setState({ isHovered });
   };
 
   verifyUserIsLoggedIn = () => {
@@ -44,13 +54,10 @@ export class Movie extends Component {
       .slice(1)
       .join("/");
 
-    if (!this.state.isClicked) {
+    if (!this.state.isHovered) {
       cardContents = (
         <div>
-          <i
-            className={"far fa-star" + (favorited ? " favorited" : "")}
-            onClick={this.handleCardClick}
-          />
+          <i className={"fa-star" + (favorited ? " fas favorited" : " far")} />
           <img className="movie-poster" src={poster} alt="Movie Poster" />
         </div>
       );
@@ -58,7 +65,10 @@ export class Movie extends Component {
       cardContents = (
         <div className="movie-details">
           <article className="text-wrapper">
-            <i className="far fa-star" onClick={this.handleCardClick} />
+            <i
+              className={"fa-star" + (favorited ? " fas favorited" : " far")}
+              onClick={this.handleClickFavorite}
+            />
             <h1 className="movie-title">{title}</h1>
             <p className="movie-date">
               {date}
@@ -69,7 +79,15 @@ export class Movie extends Component {
         </div>
       );
     }
-    return <div className="Movie">{cardContents}</div>;
+    return (
+      <div
+        onMouseLeave={() => this.handleHover(false)}
+        onMouseEnter={() => this.handleHover(true)}
+        className="Movie"
+      >
+        {cardContents}
+      </div>
+    );
   }
 }
 
@@ -80,7 +98,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   handleToggleFavorite: id => dispatch(toggleFavorite(id)),
-  handleErrorMessage: message => dispatch(setErrorMessage(message)),
+  handleErrorMessage: message => dispatch(setErrorMessage(message))
 });
 
 export default connect(

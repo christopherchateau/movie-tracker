@@ -2,9 +2,3 @@
   margin: 0;
   padding: 0;
 }
-
-.header-controls {
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-}
