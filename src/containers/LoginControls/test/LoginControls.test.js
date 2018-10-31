@@ -171,14 +171,6 @@ describe("LoginControls", () => {
       expect(wrapper.instance().validateEmail()).toEqual(true)
     })
 
-    // it('should call handleErrorMessage with invalid email address', () => {
-    //   wrapper.setState({email: 'johngmail'})
-
-    //   wrapper.instance().validateEmail()
-
-    //   expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Please enter a valid e-mail address")
-    // })
-
     it('should return false with invalid email', () => {
       wrapper.setState({email: 'johngmail'})
 
@@ -242,14 +234,21 @@ describe("LoginControls", () => {
         password: mockPassword,
       })
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserLoginResponse))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserLoginResponse
+      ))
 
       wrapper.instance().loginUser();
-      expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
+      expect(fetch.fetchLoginUser).toHaveBeenCalledWith( 
+        mockEmail, 
+        mockPassword
+      )
     })
 
     it('should call updateUserDataAfterLogin', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserLoginResponse))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserLoginResponse
+      ))
 
       wrapper.instance().updateUserDataAfterLogin = jest.fn()
 
@@ -258,10 +257,14 @@ describe("LoginControls", () => {
     })
 
     it('should call handleErrorMessage if there is an error', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'error'}))
+      window.fetch = jest
+        .fn()
+        .mockImplementation(() => Promise.reject({error: 'error'}))
 
       await wrapper.instance().loginUser();
-      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Invalid e-mail/password");
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(
+        "Invalid e-mail/password"
+      );
 
     })
   })
@@ -283,7 +286,10 @@ describe("LoginControls", () => {
     it('should call saveUserData with the correct params', async () => {
       wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
      
-      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(Mocks.mockUserData.data.name, Mocks.mockUserData.data.id)
+      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(
+        Mocks.mockUserData.data.name, 
+        Mocks.mockUserData.data.id
+      )
     })
 
 
@@ -298,7 +304,9 @@ describe("LoginControls", () => {
 
       wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
      
-      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(Mocks.mockUserData.data.id)
+      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(
+        Mocks.mockUserData.data.id
+      )
     })
   })
   
@@ -328,10 +336,14 @@ describe("LoginControls", () => {
     })
 
     it('should call handleErrorMessage with the correct params', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'error'}))
+      window.fetch = jest
+      .fn()
+      .mockImplementation(() => Promise.reject({error: 'error'}))
 
       await wrapper.instance().getUserFavorites(mockUserId);
-      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Favorites error");
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(
+        "Favorites error"
+      );
     })
   });
 
@@ -369,11 +381,17 @@ describe("LoginControls", () => {
         username: mockUsername
       })
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserSignUpResponse))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserSignUpResponse
+      ))
 
       wrapper.instance().signupUser();
 
-      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
+      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(
+        mockUsername, 
+        mockEmail, 
+        mockPassword
+      )
     })
   })
 
@@ -397,7 +415,10 @@ describe("LoginControls", () => {
 
       wrapper.instance().updateUserDataAfterSignup(mockUsername, mockId);
      
-      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockUsername, mockId)
+      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(
+        mockUsername, 
+        mockId
+      )
     })
 
 

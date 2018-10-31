@@ -1,22 +1,17 @@
-# Title
+# coenCollection
 
-A site for....
+coenCollection is an app that serves as a catalogue for the films of the Coen Brothers. Users can navigate the app to see all the films of the famed directors. Hover over the poster image to find an overview of the film along with the release date. Upon login, users can favorite the films and also view just their favorited films. New users are asked to sign up before logging in.
 
-### Background/About
-
-### See it Live
-
-[title](https://www.example.com) on Heroku
 
 ### API's used
 
-* Name
-* Name
+* The Movie DB API 
 
 ### Primary JavaScript Technologies Used
 
-* Name
-* Name
+* React
+* Redux
+* React Router
 
 ### Desktop Screenshots:
 
@@ -41,7 +36,7 @@ A site for....
 ### Setup
 #### Frontend
 
-Clone the repo
+Clone this repo
 
 Run ```npm install``` from the root directory
 
@@ -49,9 +44,18 @@ Run ```npm start``` and visit localhost:3000 in your browser
 
 #### Backend
 
+Clone the [repo](https://github.com/turingschool-examples/movie-tracker)
+
+Run ```npm install``` from the root directory
+
+Run ```npm start``` and visit localhost:3000/api/users in your browser
+
+Note postgresSQl is needed to run the backend. Head to [Postres.app](Postres.app) to download
+
+
 ### Test Driven Development
 
-(Title of Site) uses Jest and Enzyme for frontend testing, and Mocha and Chai for backend testing.
+coenCollection uses Jest and Enzyme for frontend testing.
 
 Run with ```npm test``` from the root directory
 
