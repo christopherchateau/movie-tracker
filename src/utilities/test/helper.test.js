@@ -24,4 +24,15 @@ describe("movieCleaner", async () => {
 
     expect(result).toEqual(expected);
   });
+  it('should return an empty array if there are no films', async () => {
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(undefined)
+      }))
+
+    const result = await movieCleaner();
+
+    expect(result).toEqual([])
+  })
 });
