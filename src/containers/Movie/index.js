@@ -109,7 +109,7 @@ export default connect(
 Movie.propTypes = {
   title: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
-  date: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
   voteAverage: PropTypes.number.isRequired,
   poster: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,

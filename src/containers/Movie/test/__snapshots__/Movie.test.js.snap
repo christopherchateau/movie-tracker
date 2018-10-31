@@ -18,6 +18,7 @@ ReactWrapper {
     overview="overview"
     poster="url"
     title="title"
+    voteAverage={4}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -67,6 +68,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "memoizedState": Object {
@@ -86,6 +88,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "mode": 0,
@@ -107,6 +110,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "ref": null,
@@ -214,6 +218,7 @@ ReactWrapper {
                           "overview": "overview",
                           "poster": "url",
                           "title": "title",
+                          "voteAverage": 4,
                         }
                       }
                     />,
@@ -247,6 +252,7 @@ ReactWrapper {
                           "overview": "overview",
                           "poster": "url",
                           "title": "title",
+                          "voteAverage": 4,
                         }
                       }
                     />,
@@ -284,6 +290,7 @@ ReactWrapper {
                     "overview": "overview",
                     "poster": "url",
                     "title": "title",
+                    "voteAverage": 4,
                   }
                 }
               />,
@@ -357,6 +364,7 @@ ReactWrapper {
                       "overview": "overview",
                       "poster": "url",
                       "title": "title",
+                      "voteAverage": 4,
                     }
                   }
                 />,
@@ -394,6 +402,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "refs": Object {},
@@ -414,6 +423,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "updater": Object {
@@ -681,6 +691,7 @@ ReactWrapper {
           "overview": "overview",
           "poster": "url",
           "title": "title",
+          "voteAverage": 4,
         },
         "memoizedState": Object {
           "isHovered": false,
@@ -701,6 +712,7 @@ ReactWrapper {
           "overview": "overview",
           "poster": "url",
           "title": "title",
+          "voteAverage": 4,
         },
         "ref": null,
         "return": FiberNode {
@@ -737,6 +749,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "memoizedState": Object {
@@ -756,6 +769,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "mode": 0,
@@ -777,6 +791,7 @@ ReactWrapper {
               "overview": "overview",
               "poster": "url",
               "title": "title",
+              "voteAverage": 4,
             },
           },
           "ref": null,
@@ -884,6 +899,7 @@ ReactWrapper {
                           "overview": "overview",
                           "poster": "url",
                           "title": "title",
+                          "voteAverage": 4,
                         }
                       }
                     />,
@@ -917,6 +933,7 @@ ReactWrapper {
                           "overview": "overview",
                           "poster": "url",
                           "title": "title",
+                          "voteAverage": 4,
                         }
                       }
                     />,
@@ -954,6 +971,7 @@ ReactWrapper {
                     "overview": "overview",
                     "poster": "url",
                     "title": "title",
+                    "voteAverage": 4,
                   }
                 }
               />,
@@ -1027,6 +1045,7 @@ ReactWrapper {
                       "overview": "overview",
                       "poster": "url",
                       "title": "title",
+                      "voteAverage": 4,
                     }
                   }
                 />,
@@ -1064,6 +1083,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "refs": Object {},
@@ -1084,6 +1104,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "updater": Object {
@@ -1124,6 +1145,7 @@ ReactWrapper {
         "overview": "overview",
         "poster": "url",
         "title": "title",
+        "voteAverage": 4,
       },
       "refs": Object {},
       "state": Object {
@@ -1153,6 +1175,7 @@ ReactWrapper {
       "overview": "overview",
       "poster": "url",
       "title": "title",
+      "voteAverage": 4,
     },
     "ref": null,
     "rendered": Object {
@@ -1298,6 +1321,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "memoizedState": Object {
@@ -1317,6 +1341,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "mode": 0,
@@ -1338,6 +1363,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "ref": null,
@@ -1445,6 +1471,7 @@ ReactWrapper {
                             "overview": "overview",
                             "poster": "url",
                             "title": "title",
+                            "voteAverage": 4,
                           }
                         }
                       />,
@@ -1478,6 +1505,7 @@ ReactWrapper {
                             "overview": "overview",
                             "poster": "url",
                             "title": "title",
+                            "voteAverage": 4,
                           }
                         }
                       />,
@@ -1515,6 +1543,7 @@ ReactWrapper {
                       "overview": "overview",
                       "poster": "url",
                       "title": "title",
+                      "voteAverage": 4,
                     }
                   }
                 />,
@@ -1588,6 +1617,7 @@ ReactWrapper {
                         "overview": "overview",
                         "poster": "url",
                         "title": "title",
+                        "voteAverage": 4,
                       }
                     }
                   />,
@@ -1625,6 +1655,7 @@ ReactWrapper {
                   "overview": "overview",
                   "poster": "url",
                   "title": "title",
+                  "voteAverage": 4,
                 },
               },
               "refs": Object {},
@@ -1645,6 +1676,7 @@ ReactWrapper {
                   "overview": "overview",
                   "poster": "url",
                   "title": "title",
+                  "voteAverage": 4,
                 },
               },
               "updater": Object {
@@ -1912,6 +1944,7 @@ ReactWrapper {
             "overview": "overview",
             "poster": "url",
             "title": "title",
+            "voteAverage": 4,
           },
           "memoizedState": Object {
             "isHovered": false,
@@ -1932,6 +1965,7 @@ ReactWrapper {
             "overview": "overview",
             "poster": "url",
             "title": "title",
+            "voteAverage": 4,
           },
           "ref": null,
           "return": FiberNode {
@@ -1968,6 +2002,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "memoizedState": Object {
@@ -1987,6 +2022,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "mode": 0,
@@ -2008,6 +2044,7 @@ ReactWrapper {
                 "overview": "overview",
                 "poster": "url",
                 "title": "title",
+                "voteAverage": 4,
               },
             },
             "ref": null,
@@ -2115,6 +2152,7 @@ ReactWrapper {
                             "overview": "overview",
                             "poster": "url",
                             "title": "title",
+                            "voteAverage": 4,
                           }
                         }
                       />,
@@ -2148,6 +2186,7 @@ ReactWrapper {
                             "overview": "overview",
                             "poster": "url",
                             "title": "title",
+                            "voteAverage": 4,
                           }
                         }
                       />,
@@ -2185,6 +2224,7 @@ ReactWrapper {
                       "overview": "overview",
                       "poster": "url",
                       "title": "title",
+                      "voteAverage": 4,
                     }
                   }
                 />,
@@ -2258,6 +2298,7 @@ ReactWrapper {
                         "overview": "overview",
                         "poster": "url",
                         "title": "title",
+                        "voteAverage": 4,
                       }
                     }
                   />,
@@ -2295,6 +2336,7 @@ ReactWrapper {
                   "overview": "overview",
                   "poster": "url",
                   "title": "title",
+                  "voteAverage": 4,
                 },
               },
               "refs": Object {},
@@ -2315,6 +2357,7 @@ ReactWrapper {
                   "overview": "overview",
                   "poster": "url",
                   "title": "title",
+                  "voteAverage": 4,
                 },
               },
               "updater": Object {
@@ -2355,6 +2398,7 @@ ReactWrapper {
           "overview": "overview",
           "poster": "url",
           "title": "title",
+          "voteAverage": 4,
         },
         "refs": Object {},
         "state": Object {
@@ -2384,6 +2428,7 @@ ReactWrapper {
         "overview": "overview",
         "poster": "url",
         "title": "title",
+        "voteAverage": 4,
       },
       "ref": null,
       "rendered": Object {

@@ -9,7 +9,7 @@ describe("userReducer", () => {
 
   it("should assign a users name in state", () => {
     const mockState = {
-      currentUser: "",
+      currentUser: {},
       id: null
     };
 

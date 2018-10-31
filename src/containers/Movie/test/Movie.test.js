@@ -31,6 +31,7 @@ describe("Movie", () => {
         handleErrorMessage={jest.fn()}
         favorited={true}
         id={115}
+        voteAverage={4}
       />
     );
 
@@ -66,6 +67,7 @@ describe("Movie", () => {
           handleErrorMessage={jest.fn()}
           favorited={true}
           id={115}
+          voteAverage={5}
         />
       );
 
