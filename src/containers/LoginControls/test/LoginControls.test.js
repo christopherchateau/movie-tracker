@@ -10,8 +10,9 @@ import {
   setErrorMessage,
   toggleFavorite
 } from "../../../actions";
+import * as Mocks from './mocks'
 
-jest.mock("../../../utilities/fetch.js");
+jest.mock('../../../utilities/fetch.js')
 
 describe("LoginControls", () => {
   let wrapper;
@@ -23,7 +24,7 @@ describe("LoginControls", () => {
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -48,7 +49,7 @@ describe("LoginControls", () => {
       wrapper.instance().forceUpdate();
       const mockEvent = { target: { value: "users name" } };
 
-      wrapper.find(".username").simulate("change", mockEvent);
+      wrapper.find('.username').simulate("change", mockEvent);
 
       expect(spy).toHaveBeenCalled();
     });
@@ -58,7 +59,7 @@ describe("LoginControls", () => {
       let mockEvent = {
         target: { name: "username", value: mockName }
       };
-      wrapper.setState({ pathname: "/signup" });
+      wrapper.setState({pathname: "/signup"})
 
       wrapper.instance().handleInputChange(mockEvent);
 
@@ -110,6 +111,7 @@ describe("LoginControls", () => {
     });
   });
 
+
   describe("handleSubmit", () => {
     const mockEvent = { preventDefault: jest.fn() };
 
@@ -124,7 +126,7 @@ describe("LoginControls", () => {
     });
 
     it("should call clearErrorMessage", () => {
-      wrapper.instance().clearErrorMessage = jest.fn();
+      wrapper.instance().clearErrorMessage = jest.fn()
 
       wrapper.instance().handleSubmit(mockEvent);
 
@@ -159,37 +161,29 @@ describe("LoginControls", () => {
       wrapper.instance().handleSubmit(mockEvent);
 
       expect(wrapper.instance().signupUser).toHaveBeenCalled();
-    });
-  });
+    })
+  })
 
-  describe("validateEmail", () => {
-    it("should accept valid email and return true", () => {
-      wrapper.setState({ email: "john@gmail.com" });
+  describe('validateEmail', () => {
+    it('should accept valid email and return true', () => {
+      wrapper.setState({ email: 'john@gmail.com' })
 
-      expect(wrapper.instance().validateEmail()).toEqual(true);
-    });
+      expect(wrapper.instance().validateEmail()).toEqual(true)
+    })
 
-    // it('should call handleErrorMessage with invalid email address', () => {
-    //   wrapper.setState({email: 'johngmail'})
+    it('should return false with invalid email', () => {
+      wrapper.setState({email: 'johngmail'})
 
-    //   wrapper.instance().validateEmail()
+      expect(wrapper.instance().validateEmail()).toEqual(false)
+    })
+  })
 
-    //   expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Please enter a valid e-mail address")
-    // })
-
-    it("should return false with invalid email", () => {
-      wrapper.setState({ email: "johngmail" });
-
-      expect(wrapper.instance().validateEmail()).toEqual(false);
-    });
-  });
-
-  describe("validateInputLength", () => {
+  describe('validateInputLength', () => {
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -198,31 +192,31 @@ describe("LoginControls", () => {
       />
     );
 
-    it("should accept a password of at least 6 letters", () => {
-      wrapper.setState({ password: "password" });
+    it('should accept a password of at least 6 letters', () => {
+      wrapper.setState({password: 'password'})
 
-      let result = wrapper.instance().validateInputLength("password", 6);
+      let result = wrapper.instance().validateInputLength('password', 6)
 
-      expect(result).toEqual(true);
-    });
+      expect(result).toEqual(true)
+    })
 
-    it("should call handleErrorMessage with too few letters in password", () => {
-      wrapper.setState({ password: "go" });
+    it('should call handleErrorMessage with too few letters in password', () => {
+      wrapper.setState({password: 'go'})
 
-      const expected = "password must be at least 6 characters";
+      const expected = 'password must be at least 6 characters' 
 
-      wrapper.instance().validateInputLength("password", 6);
+      wrapper.instance().validateInputLength('password', 6)
 
       expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(expected);
-    });
-  });
-
-  describe("loginUser", () => {
+    })
+  })
+  
+  describe('loginUser', () => {
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -231,66 +225,56 @@ describe("LoginControls", () => {
       />
     );
 
-    const mockUserLoginResponse = {
-      data: {
-        email: "bigLebow@yahoo.com",
-        id: 1,
-        name: "Taylor",
-        password: "password"
-      },
-      message: "Retrieved ONE User",
-      status: "success"
-    };
-
-    it("should call fetchLoginUser with the correct params", async () => {
-      let mockEmail = "bigLo@gmail.com";
-      let mockPassword = "password";
+    it('should call fetchLoginUser with the correct params', async () => { 
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
 
       wrapper.setState({
         email: mockEmail,
-        password: mockPassword
-      });
+        password: mockPassword,
+      })
 
-      window.fetch = jest
-        .fn()
-        .mockImplementation(() => Promise.resolve(mockUserLoginResponse));
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserLoginResponse
+      ))
 
       wrapper.instance().loginUser();
-      expect(fetch.fetchLoginUser).toHaveBeenCalledWith(
-        mockEmail,
+      expect(fetch.fetchLoginUser).toHaveBeenCalledWith( 
+        mockEmail, 
         mockPassword
-      );
-    });
+      )
+    })
 
-    it("should call updateUserDataAfterLogin", async () => {
-      window.fetch = jest
-        .fn()
-        .mockImplementation(() => Promise.resolve(mockUserLoginResponse));
+    it('should call updateUserDataAfterLogin', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserLoginResponse
+      ))
 
-      wrapper.instance().updateUserDataAfterLogin = jest.fn();
+      wrapper.instance().updateUserDataAfterLogin = jest.fn()
 
       await wrapper.instance().loginUser();
       expect(wrapper.instance().updateUserDataAfterLogin).toHaveBeenCalled();
-    });
+    })
 
-    it("should call handleErrorMessage if there is an error", async () => {
+    it('should call handleErrorMessage if there is an error', async () => {
       window.fetch = jest
         .fn()
-        .mockImplementation(() => Promise.reject({ error: "error" }));
+        .mockImplementation(() => Promise.reject({error: 'error'}))
 
       await wrapper.instance().loginUser();
       expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(
         "Invalid e-mail/password"
       );
-    });
-  });
 
-  describe("updateUserDataAfterLogin", () => {
+    })
+  })
+
+  describe('updateUserDataAfterLogin', () => {
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -299,45 +283,40 @@ describe("LoginControls", () => {
       />
     );
 
-    let mockUserData = {
-      data: {
-        name: "Taylor",
-        id: 7
-      }
-    };
-
-    it("should call saveUserData with the correct params", async () => {
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
-
+    it('should call saveUserData with the correct params', async () => {
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
+     
       expect(wrapper.props().saveUserData).toHaveBeenCalledWith(
-        mockUserData.data.name,
-        mockUserData.data.id
-      );
-    });
+        Mocks.mockUserData.data.name, 
+        Mocks.mockUserData.data.id
+      )
+    })
 
-    it("should call handleLogin with the correct params", () => {
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+
+    it('should call handleLogin with the correct params', () => {
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
 
       expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
-    });
+    })
 
-    it("should call getUserFavorites with the correct params", () => {
-      wrapper.instance().getUserFavorites = jest.fn();
+    it('should call getUserFavorites with the correct params', () => {
+      wrapper.instance().getUserFavorites = jest.fn()
 
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
-
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
+     
       expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(
-        mockUserData.data.id
-      );
-    });
-  });
-
-  describe("getUserFavorites", () => {
+        Mocks.mockUserData.data.id
+      )
+    })
+  })
+  
+  describe('getUserFavorites', () => {
+    const mockUserId = 3
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -346,128 +325,82 @@ describe("LoginControls", () => {
       />
     );
 
-    it("should call retrieveUserFavorites with the correct params", () => {
-      const mockUserId = 3;
-      window.fetch = jest.fn().mockImplementation(() =>
-        Promise.resolve({
-          ok: true
-        })
-      );
+    it('should call retrieveUserFavorites with the correct params', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        ok: true
+      }))
 
       wrapper.instance().getUserFavorites(mockUserId);
 
-      expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId);
-    });
+      expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
+    })
 
-    it("should call handleFavoriteToggle with the correct params for each favorite", async () => {
-      const mockMovies = [
-        {
-          title: "The Big Lebowski",
-          date: "1998-03-06",
-          poster:
-            "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aHaVjVoXeNanfwUwQ92SG7tosFM.jpg",
-          overview:
-            'Jeffrey "The Dude" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.',
-          voteAverage: 7.9,
-          id: 115,
-          favorited: false
-        }
-      ];
-
+    it('should call handleErrorMessage with the correct params', async () => {
       window.fetch = jest
-        .fn()
-        .mockImplementation(() => Promise.resolve(mockMovies));
+      .fn()
+      .mockImplementation(() => Promise.reject({error: 'error'}))
 
-      await wrapper.instance().getUserFavorites();
-
-      expect(wrapper.props().handleFavoriteToggle).toHaveBeenCalled();
-    });
-
-    it("should call handleErrorMessage with the correct params", async () => {
-      window.fetch = jest
-        .fn()
-        .mockImplementation(() => Promise.reject({ error: "error" }));
-
-      await wrapper.instance().loginUser();
+      await wrapper.instance().getUserFavorites(mockUserId);
       expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith(
         "Favorites error"
       );
-    });
+    })
   });
 
-  // describe('signupUser', () => {
+  describe('signupUser', () => {
 
-  //   let wrapper = mount(
-  //     <LoginControls
-  //       loggedIn={false}
-  //       userId={7}
-  //       errorMessage={'error'}
-  //       handleLogin={jest.fn()}
-  //       saveUserData={jest.fn()}
-  //       location={{ pathname: "" }}
-  //       handleErrorMessage={jest.fn()}
-  //       handleFavoriteToggle={jest.fn()}
-  //     />
-  //   );
+    let wrapper = mount(<LoginControls
+      loggedIn={false}
+      userId={7}
+      errorMessage={'error'}
+      handleLogin={jest.fn()}
+      saveUserData={jest.fn()}
+      location={{ pathname: "" }}
+      handleErrorMessage={jest.fn()}
+      handleFavoriteToggle={jest.fn()}
+    />
+  );
 
-  //   let mockUserSignUpResponse = {
-  //     status: "success",
-  //     data: {},
-  //     message: "New user created",
-  //     id: 9
-  //   }
+    it('should return if a username is 2 or less letters in length', () => {
+      wrapper.setState({userName: 'Jo'})
+      fetch.fetchSignupUser = jest.fn()
 
-  //   it('should return if a username is 2 or less letters in length', () => {
-  //     wrapper.setState({userName: 'Jo'})
+      wrapper.instance().signupUser();
 
-  //     wrapper.instance().signupUser();
+      expect(fetch.fetchSignupUser).not.toHaveBeenCalled()
+    })
 
-  //     expect(fetch.fetchSignupUser).not.toHaveBeenCalled()
-  //   })
+    it('should call fetchSignupUser with the correct params', async () => { 
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
+      let mockUsername = 'Taylor'
 
-  //   it('should call fetchSignupUser with the correct params', async () => {
-  //     let mockEmail = 'bigLo@gmail.com'
-  //     let mockPassword = 'password'
-  //     let mockUsername = 'Taylor'
+      wrapper.setState({
+        email: mockEmail,
+        password: mockPassword,
+        username: mockUsername
+      })
 
-  //     wrapper.setState({
-  //       email: mockEmail,
-  //       password: mockPassword,
-  //       username: mockUsername
-  //     })
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+        Mocks.mockUserSignUpResponse
+      ))
 
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
+      wrapper.instance().signupUser();
 
-  //     wrapper.instance().signupUser();
+      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(
+        mockUsername, 
+        mockEmail, 
+        mockPassword
+      )
+    })
+  })
 
-  //     expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
-  //   })
-
-  //   it('should call handleErrorMessage if there is an error', async () => {
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'already exists'}))
-
-  //     await wrapper.instance().signupUser();
-
-  //     expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("User account already exists!");
-
-  //   })
-
-  //   it('should call updateUserDataAfterSignup if there is not an error', async () => {
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
-
-  //     wrapper.instance().updateUserDataAfterSignup = jest.fn()
-
-  //     await wrapper.instance().signupUser();
-  //     expect(wrapper.instance().updateUserDataAfterSignup).toHaveBeenCalled();
-  //   })
-  // })
-
-  describe("updateUserDataAfterSignup", () => {
+  describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -475,31 +408,33 @@ describe("LoginControls", () => {
         handleFavoriteToggle={jest.fn()}
       />
     );
-    let mockUsername = "Taylor";
-    let mockId = 4;
+    let mockUsername='Taylor'
+    let mockId = 4
 
-    it("should call saveUserData with the correct params", async () => {
+    it('should call saveUserData with the correct params', async () => {
+
       wrapper.instance().updateUserDataAfterSignup(mockUsername, mockId);
-
+     
       expect(wrapper.props().saveUserData).toHaveBeenCalledWith(
-        mockUsername,
+        mockUsername, 
         mockId
-      );
-    });
+      )
+    })
 
-    it("should call handleLogin with the correct params", () => {
+
+    it('should call handleLogin with the correct params', () => {
       wrapper.instance().updateUserDataAfterSignup(mockUsername, mockId);
 
       expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
-    });
-  });
+    })
+  })
 
-  describe("clearErrorMessage", () => {
+  describe('clearErrorMessage', () => {
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
         userId={7}
-        errorMessage={"error"}
+        errorMessage={'error'}
         handleLogin={jest.fn()}
         saveUserData={jest.fn()}
         location={{ pathname: "" }}
@@ -508,25 +443,27 @@ describe("LoginControls", () => {
       />
     );
 
-    it("should call handleErrorMessage with the correct params", () => {
-      wrapper.instance().clearErrorMessage();
-      expect(wrapper.props().handleErrorMessage).toHaveBeenCalled();
-    });
+    it('should call handleErrorMessage with the correct params', () => {
+
+    wrapper.instance().clearErrorMessage();
+    expect(wrapper.props().handleErrorMessage).toHaveBeenCalled();
+
+    })
   });
 });
 
 describe("mapStateToProps", () => {
   it("should return a props object", () => {
-    const mockState = {
+    const mockState = { 
       loggedIn: true,
-      currentUser: { name: "Taylor", id: 3 },
-      errorMessage: ""
+      currentUser: {name: 'Taylor', id: 3},
+      errorMessage:''
     };
 
-    const expected = {
+    const expected = { 
       loggedIn: true,
       userId: 3,
-      errorMessage: ""
+      errorMessage:''
     };
 
     const mappedProps = mapStateToProps(mockState);
