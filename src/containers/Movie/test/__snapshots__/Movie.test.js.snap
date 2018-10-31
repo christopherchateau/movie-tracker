@@ -1,0 +1,2556 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie should render like snapshot 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Movie
+    currentUser={
+      Object {
+        "id": 3,
+        "name": "john",
+      }
+    }
+    date="10-20-2018"
+    favorited={true}
+    handleErrorMessage={[MockFunction]}
+    handleToggleFavorite={[MockFunction]}
+    id={115}
+    loggedIn={false}
+    overview="overview"
+    poster="url"
+    title="title"
+    voteAverage={4}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": Movie {
+      "_reactInternalFiber": FiberNode {
+        "_debugID": 58,
+        "_debugIsCurrentlyTiming": false,
+        "_debugOwner": FiberNode {
+          "_debugID": 57,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": null,
+          "child": [Circular],
+          "childExpirationTime": 0,
+          "effectTag": 1,
+          "expirationTime": 0,
+          "firstContextDependency": null,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": Object {
+            "Component": [Function],
+            "context": null,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "memoizedState": Object {
+            "context": null,
+            "mount": true,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": Object {
+            "Component": [Function],
+            "context": null,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "ref": null,
+          "return": FiberNode {
+            "_debugID": 55,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": null,
+            "_debugSource": null,
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": FiberNode {
+              "_debugID": 55,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": null,
+              "_debugSource": null,
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": [Circular],
+              "child": null,
+              "childExpirationTime": 0,
+              "effectTag": 0,
+              "expirationTime": 1,
+              "firstContextDependency": null,
+              "firstEffect": null,
+              "index": 0,
+              "key": null,
+              "lastEffect": null,
+              "memoizedProps": null,
+              "memoizedState": null,
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": null,
+              "ref": null,
+              "return": null,
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": Object {
+                "containerInfo": <div>
+                  <div
+                    class="Movie"
+                  >
+                    <div>
+                      <i
+                        class="fa-star fas favorited"
+                      />
+                      <img
+                        alt="Movie Poster"
+                        class="movie-poster"
+                        src="url"
+                      />
+                    </div>
+                  </div>
+                </div>,
+                "context": Object {},
+                "current": [Circular],
+                "didError": false,
+                "earliestPendingTime": 0,
+                "earliestSuspendedTime": 0,
+                "expirationTime": 0,
+                "finishedWork": null,
+                "firstBatch": null,
+                "hydrate": false,
+                "interactionThreadID": 13,
+                "latestPendingTime": 0,
+                "latestPingedTime": 0,
+                "latestSuspendedTime": 0,
+                "memoizedInteractions": Set {},
+                "nextExpirationTimeToWorkOn": 0,
+                "nextScheduledRoot": null,
+                "pendingChildren": null,
+                "pendingCommitExpirationTime": 0,
+                "pendingContext": null,
+                "pendingInteractionMap": Map {},
+                "timeoutHandle": -1,
+              },
+              "tag": 5,
+              "treeBaseDuration": 0,
+              "type": null,
+              "updateQueue": Object {
+                "baseState": null,
+                "firstCapturedEffect": null,
+                "firstCapturedUpdate": null,
+                "firstEffect": null,
+                "firstUpdate": Object {
+                  "callback": null,
+                  "expirationTime": 1,
+                  "next": null,
+                  "nextEffect": null,
+                  "payload": Object {
+                    "element": <WrapperComponent
+                      Component={[Function]}
+                      context={null}
+                      props={
+                        Object {
+                          "currentUser": Object {
+                            "id": 3,
+                            "name": "john",
+                          },
+                          "date": "10-20-2018",
+                          "favorited": true,
+                          "handleErrorMessage": [MockFunction],
+                          "handleToggleFavorite": [MockFunction],
+                          "id": 115,
+                          "loggedIn": false,
+                          "overview": "overview",
+                          "poster": "url",
+                          "title": "title",
+                          "voteAverage": 4,
+                        }
+                      }
+                    />,
+                  },
+                  "tag": 0,
+                },
+                "lastCapturedEffect": null,
+                "lastCapturedUpdate": null,
+                "lastEffect": null,
+                "lastUpdate": Object {
+                  "callback": null,
+                  "expirationTime": 1,
+                  "next": null,
+                  "nextEffect": null,
+                  "payload": Object {
+                    "element": <WrapperComponent
+                      Component={[Function]}
+                      context={null}
+                      props={
+                        Object {
+                          "currentUser": Object {
+                            "id": 3,
+                            "name": "john",
+                          },
+                          "date": "10-20-2018",
+                          "favorited": true,
+                          "handleErrorMessage": [MockFunction],
+                          "handleToggleFavorite": [MockFunction],
+                          "id": 115,
+                          "loggedIn": false,
+                          "overview": "overview",
+                          "poster": "url",
+                          "title": "title",
+                          "voteAverage": 4,
+                        }
+                      }
+                    />,
+                  },
+                  "tag": 0,
+                },
+              },
+            },
+            "child": [Circular],
+            "childExpirationTime": 0,
+            "effectTag": 32,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": [Circular],
+            "index": 0,
+            "key": null,
+            "lastEffect": [Circular],
+            "memoizedProps": null,
+            "memoizedState": Object {
+              "element": <WrapperComponent
+                Component={[Function]}
+                context={null}
+                props={
+                  Object {
+                    "currentUser": Object {
+                      "id": 3,
+                      "name": "john",
+                    },
+                    "date": "10-20-2018",
+                    "favorited": true,
+                    "handleErrorMessage": [MockFunction],
+                    "handleToggleFavorite": [MockFunction],
+                    "id": 115,
+                    "loggedIn": false,
+                    "overview": "overview",
+                    "poster": "url",
+                    "title": "title",
+                    "voteAverage": 4,
+                  }
+                }
+              />,
+            },
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": null,
+            "ref": null,
+            "return": null,
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": Object {
+              "containerInfo": <div>
+                <div
+                  class="Movie"
+                >
+                  <div>
+                    <i
+                      class="fa-star fas favorited"
+                    />
+                    <img
+                      alt="Movie Poster"
+                      class="movie-poster"
+                      src="url"
+                    />
+                  </div>
+                </div>
+              </div>,
+              "context": Object {},
+              "current": [Circular],
+              "didError": false,
+              "earliestPendingTime": 0,
+              "earliestSuspendedTime": 0,
+              "expirationTime": 0,
+              "finishedWork": null,
+              "firstBatch": null,
+              "hydrate": false,
+              "interactionThreadID": 13,
+              "latestPendingTime": 0,
+              "latestPingedTime": 0,
+              "latestSuspendedTime": 0,
+              "memoizedInteractions": Set {},
+              "nextExpirationTimeToWorkOn": 0,
+              "nextScheduledRoot": null,
+              "pendingChildren": null,
+              "pendingCommitExpirationTime": 0,
+              "pendingContext": null,
+              "pendingInteractionMap": Map {},
+              "timeoutHandle": -1,
+            },
+            "tag": 5,
+            "treeBaseDuration": 0,
+            "type": null,
+            "updateQueue": Object {
+              "baseState": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "currentUser": Object {
+                        "id": 3,
+                        "name": "john",
+                      },
+                      "date": "10-20-2018",
+                      "favorited": true,
+                      "handleErrorMessage": [MockFunction],
+                      "handleToggleFavorite": [MockFunction],
+                      "id": 115,
+                      "loggedIn": false,
+                      "overview": "overview",
+                      "poster": "url",
+                      "title": "title",
+                      "voteAverage": 4,
+                    }
+                  }
+                />,
+              },
+              "firstCapturedEffect": null,
+              "firstCapturedUpdate": null,
+              "firstEffect": null,
+              "firstUpdate": null,
+              "lastCapturedEffect": null,
+              "lastCapturedUpdate": null,
+              "lastEffect": null,
+              "lastUpdate": null,
+            },
+          },
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": WrapperComponent {
+            "_reactInternalFiber": [Circular],
+            "_reactInternalInstance": Object {},
+            "context": Object {},
+            "props": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "refs": Object {},
+            "state": Object {
+              "context": null,
+              "mount": true,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+          "tag": 2,
+          "treeBaseDuration": 0,
+          "type": [Function],
+          "updateQueue": null,
+        },
+        "_debugSource": null,
+        "actualDuration": 0,
+        "actualStartTime": -1,
+        "alternate": null,
+        "child": FiberNode {
+          "_debugID": 59,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": [Circular],
+          "_debugSource": Object {
+            "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+            "lineNumber": 83,
+          },
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": null,
+          "child": FiberNode {
+            "_debugID": 60,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": [Circular],
+            "_debugSource": Object {
+              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+              "lineNumber": 59,
+            },
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": null,
+            "child": FiberNode {
+              "_debugID": 61,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": [Circular],
+              "_debugSource": Object {
+                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+                "lineNumber": 60,
+              },
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": null,
+              "child": null,
+              "childExpirationTime": 0,
+              "effectTag": 0,
+              "expirationTime": 0,
+              "firstContextDependency": null,
+              "firstEffect": null,
+              "index": 0,
+              "key": null,
+              "lastEffect": null,
+              "memoizedProps": Object {
+                "className": "fa-star fas favorited",
+              },
+              "memoizedState": null,
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": Object {
+                "className": "fa-star fas favorited",
+              },
+              "ref": null,
+              "return": [Circular],
+              "selfBaseDuration": 0,
+              "sibling": FiberNode {
+                "_debugID": 62,
+                "_debugIsCurrentlyTiming": false,
+                "_debugOwner": [Circular],
+                "_debugSource": Object {
+                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+                  "lineNumber": 61,
+                },
+                "actualDuration": 0,
+                "actualStartTime": -1,
+                "alternate": null,
+                "child": null,
+                "childExpirationTime": 0,
+                "effectTag": 0,
+                "expirationTime": 0,
+                "firstContextDependency": null,
+                "firstEffect": null,
+                "index": 1,
+                "key": null,
+                "lastEffect": null,
+                "memoizedProps": Object {
+                  "alt": "Movie Poster",
+                  "className": "movie-poster",
+                  "src": "url",
+                },
+                "memoizedState": null,
+                "mode": 0,
+                "nextEffect": null,
+                "pendingProps": Object {
+                  "alt": "Movie Poster",
+                  "className": "movie-poster",
+                  "src": "url",
+                },
+                "ref": null,
+                "return": [Circular],
+                "selfBaseDuration": 0,
+                "sibling": null,
+                "stateNode": <img
+                  alt="Movie Poster"
+                  class="movie-poster"
+                  src="url"
+                />,
+                "tag": 7,
+                "treeBaseDuration": 0,
+                "type": "img",
+                "updateQueue": null,
+              },
+              "stateNode": <i
+                class="fa-star fas favorited"
+              />,
+              "tag": 7,
+              "treeBaseDuration": 0,
+              "type": "i",
+              "updateQueue": null,
+            },
+            "childExpirationTime": 0,
+            "effectTag": 0,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": null,
+            "index": 0,
+            "key": null,
+            "lastEffect": null,
+            "memoizedProps": Object {
+              "children": Array [
+                <i
+                  className="fa-star fas favorited"
+                />,
+                <img
+                  alt="Movie Poster"
+                  className="movie-poster"
+                  src="url"
+                />,
+              ],
+            },
+            "memoizedState": null,
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": Object {
+              "children": Array [
+                <i
+                  className="fa-star fas favorited"
+                />,
+                <img
+                  alt="Movie Poster"
+                  className="movie-poster"
+                  src="url"
+                />,
+              ],
+            },
+            "ref": null,
+            "return": [Circular],
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": <div>
+              <i
+                class="fa-star fas favorited"
+              />
+              <img
+                alt="Movie Poster"
+                class="movie-poster"
+                src="url"
+              />
+            </div>,
+            "tag": 7,
+            "treeBaseDuration": 0,
+            "type": "div",
+            "updateQueue": null,
+          },
+          "childExpirationTime": 0,
+          "effectTag": 0,
+          "expirationTime": 0,
+          "firstContextDependency": null,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": Object {
+            "children": <div>
+              <i
+                className="fa-star fas favorited"
+              />
+              <img
+                alt="Movie Poster"
+                className="movie-poster"
+                src="url"
+              />
+            </div>,
+            "className": "Movie",
+            "onMouseEnter": [Function],
+            "onMouseLeave": [Function],
+          },
+          "memoizedState": null,
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": Object {
+            "children": <div>
+              <i
+                className="fa-star fas favorited"
+              />
+              <img
+                alt="Movie Poster"
+                className="movie-poster"
+                src="url"
+              />
+            </div>,
+            "className": "Movie",
+            "onMouseEnter": [Function],
+            "onMouseLeave": [Function],
+          },
+          "ref": null,
+          "return": [Circular],
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": <div
+            class="Movie"
+          >
+            <div>
+              <i
+                class="fa-star fas favorited"
+              />
+              <img
+                alt="Movie Poster"
+                class="movie-poster"
+                src="url"
+              />
+            </div>
+          </div>,
+          "tag": 7,
+          "treeBaseDuration": 0,
+          "type": "div",
+          "updateQueue": null,
+        },
+        "childExpirationTime": 0,
+        "effectTag": 1,
+        "expirationTime": 0,
+        "firstContextDependency": null,
+        "firstEffect": null,
+        "index": 0,
+        "key": null,
+        "lastEffect": null,
+        "memoizedProps": Object {
+          "currentUser": Object {
+            "id": 3,
+            "name": "john",
+          },
+          "date": "10-20-2018",
+          "favorited": true,
+          "handleErrorMessage": [MockFunction],
+          "handleToggleFavorite": [MockFunction],
+          "id": 115,
+          "loggedIn": false,
+          "overview": "overview",
+          "poster": "url",
+          "title": "title",
+          "voteAverage": 4,
+        },
+        "memoizedState": Object {
+          "isHovered": false,
+        },
+        "mode": 0,
+        "nextEffect": null,
+        "pendingProps": Object {
+          "currentUser": Object {
+            "id": 3,
+            "name": "john",
+          },
+          "date": "10-20-2018",
+          "favorited": true,
+          "handleErrorMessage": [MockFunction],
+          "handleToggleFavorite": [MockFunction],
+          "id": 115,
+          "loggedIn": false,
+          "overview": "overview",
+          "poster": "url",
+          "title": "title",
+          "voteAverage": 4,
+        },
+        "ref": null,
+        "return": FiberNode {
+          "_debugID": 57,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": null,
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": null,
+          "child": [Circular],
+          "childExpirationTime": 0,
+          "effectTag": 1,
+          "expirationTime": 0,
+          "firstContextDependency": null,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": Object {
+            "Component": [Function],
+            "context": null,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "memoizedState": Object {
+            "context": null,
+            "mount": true,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": Object {
+            "Component": [Function],
+            "context": null,
+            "props": Object {
+              "currentUser": Object {
+                "id": 3,
+                "name": "john",
+              },
+              "date": "10-20-2018",
+              "favorited": true,
+              "handleErrorMessage": [MockFunction],
+              "handleToggleFavorite": [MockFunction],
+              "id": 115,
+              "loggedIn": false,
+              "overview": "overview",
+              "poster": "url",
+              "title": "title",
+              "voteAverage": 4,
+            },
+          },
+          "ref": null,
+          "return": FiberNode {
+            "_debugID": 55,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": null,
+            "_debugSource": null,
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": FiberNode {
+              "_debugID": 55,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": null,
+              "_debugSource": null,
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": [Circular],
+              "child": null,
+              "childExpirationTime": 0,
+              "effectTag": 0,
+              "expirationTime": 1,
+              "firstContextDependency": null,
+              "firstEffect": null,
+              "index": 0,
+              "key": null,
+              "lastEffect": null,
+              "memoizedProps": null,
+              "memoizedState": null,
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": null,
+              "ref": null,
+              "return": null,
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": Object {
+                "containerInfo": <div>
+                  <div
+                    class="Movie"
+                  >
+                    <div>
+                      <i
+                        class="fa-star fas favorited"
+                      />
+                      <img
+                        alt="Movie Poster"
+                        class="movie-poster"
+                        src="url"
+                      />
+                    </div>
+                  </div>
+                </div>,
+                "context": Object {},
+                "current": [Circular],
+                "didError": false,
+                "earliestPendingTime": 0,
+                "earliestSuspendedTime": 0,
+                "expirationTime": 0,
+                "finishedWork": null,
+                "firstBatch": null,
+                "hydrate": false,
+                "interactionThreadID": 13,
+                "latestPendingTime": 0,
+                "latestPingedTime": 0,
+                "latestSuspendedTime": 0,
+                "memoizedInteractions": Set {},
+                "nextExpirationTimeToWorkOn": 0,
+                "nextScheduledRoot": null,
+                "pendingChildren": null,
+                "pendingCommitExpirationTime": 0,
+                "pendingContext": null,
+                "pendingInteractionMap": Map {},
+                "timeoutHandle": -1,
+              },
+              "tag": 5,
+              "treeBaseDuration": 0,
+              "type": null,
+              "updateQueue": Object {
+                "baseState": null,
+                "firstCapturedEffect": null,
+                "firstCapturedUpdate": null,
+                "firstEffect": null,
+                "firstUpdate": Object {
+                  "callback": null,
+                  "expirationTime": 1,
+                  "next": null,
+                  "nextEffect": null,
+                  "payload": Object {
+                    "element": <WrapperComponent
+                      Component={[Function]}
+                      context={null}
+                      props={
+                        Object {
+                          "currentUser": Object {
+                            "id": 3,
+                            "name": "john",
+                          },
+                          "date": "10-20-2018",
+                          "favorited": true,
+                          "handleErrorMessage": [MockFunction],
+                          "handleToggleFavorite": [MockFunction],
+                          "id": 115,
+                          "loggedIn": false,
+                          "overview": "overview",
+                          "poster": "url",
+                          "title": "title",
+                          "voteAverage": 4,
+                        }
+                      }
+                    />,
+                  },
+                  "tag": 0,
+                },
+                "lastCapturedEffect": null,
+                "lastCapturedUpdate": null,
+                "lastEffect": null,
+                "lastUpdate": Object {
+                  "callback": null,
+                  "expirationTime": 1,
+                  "next": null,
+                  "nextEffect": null,
+                  "payload": Object {
+                    "element": <WrapperComponent
+                      Component={[Function]}
+                      context={null}
+                      props={
+                        Object {
+                          "currentUser": Object {
+                            "id": 3,
+                            "name": "john",
+                          },
+                          "date": "10-20-2018",
+                          "favorited": true,
+                          "handleErrorMessage": [MockFunction],
+                          "handleToggleFavorite": [MockFunction],
+                          "id": 115,
+                          "loggedIn": false,
+                          "overview": "overview",
+                          "poster": "url",
+                          "title": "title",
+                          "voteAverage": 4,
+                        }
+                      }
+                    />,
+                  },
+                  "tag": 0,
+                },
+              },
+            },
+            "child": [Circular],
+            "childExpirationTime": 0,
+            "effectTag": 32,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": [Circular],
+            "index": 0,
+            "key": null,
+            "lastEffect": [Circular],
+            "memoizedProps": null,
+            "memoizedState": Object {
+              "element": <WrapperComponent
+                Component={[Function]}
+                context={null}
+                props={
+                  Object {
+                    "currentUser": Object {
+                      "id": 3,
+                      "name": "john",
+                    },
+                    "date": "10-20-2018",
+                    "favorited": true,
+                    "handleErrorMessage": [MockFunction],
+                    "handleToggleFavorite": [MockFunction],
+                    "id": 115,
+                    "loggedIn": false,
+                    "overview": "overview",
+                    "poster": "url",
+                    "title": "title",
+                    "voteAverage": 4,
+                  }
+                }
+              />,
+            },
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": null,
+            "ref": null,
+            "return": null,
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": Object {
+              "containerInfo": <div>
+                <div
+                  class="Movie"
+                >
+                  <div>
+                    <i
+                      class="fa-star fas favorited"
+                    />
+                    <img
+                      alt="Movie Poster"
+                      class="movie-poster"
+                      src="url"
+                    />
+                  </div>
+                </div>
+              </div>,
+              "context": Object {},
+              "current": [Circular],
+              "didError": false,
+              "earliestPendingTime": 0,
+              "earliestSuspendedTime": 0,
+              "expirationTime": 0,
+              "finishedWork": null,
+              "firstBatch": null,
+              "hydrate": false,
+              "interactionThreadID": 13,
+              "latestPendingTime": 0,
+              "latestPingedTime": 0,
+              "latestSuspendedTime": 0,
+              "memoizedInteractions": Set {},
+              "nextExpirationTimeToWorkOn": 0,
+              "nextScheduledRoot": null,
+              "pendingChildren": null,
+              "pendingCommitExpirationTime": 0,
+              "pendingContext": null,
+              "pendingInteractionMap": Map {},
+              "timeoutHandle": -1,
+            },
+            "tag": 5,
+            "treeBaseDuration": 0,
+            "type": null,
+            "updateQueue": Object {
+              "baseState": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "currentUser": Object {
+                        "id": 3,
+                        "name": "john",
+                      },
+                      "date": "10-20-2018",
+                      "favorited": true,
+                      "handleErrorMessage": [MockFunction],
+                      "handleToggleFavorite": [MockFunction],
+                      "id": 115,
+                      "loggedIn": false,
+                      "overview": "overview",
+                      "poster": "url",
+                      "title": "title",
+                      "voteAverage": 4,
+                    }
+                  }
+                />,
+              },
+              "firstCapturedEffect": null,
+              "firstCapturedUpdate": null,
+              "firstEffect": null,
+              "firstUpdate": null,
+              "lastCapturedEffect": null,
+              "lastCapturedUpdate": null,
+              "lastEffect": null,
+              "lastUpdate": null,
+            },
+          },
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": WrapperComponent {
+            "_reactInternalFiber": [Circular],
+            "_reactInternalInstance": Object {},
+            "context": Object {},
+            "props": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "refs": Object {},
+            "state": Object {
+              "context": null,
+              "mount": true,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "updater": Object {
+              "enqueueForceUpdate": [Function],
+              "enqueueReplaceState": [Function],
+              "enqueueSetState": [Function],
+              "isMounted": [Function],
+            },
+          },
+          "tag": 2,
+          "treeBaseDuration": 0,
+          "type": [Function],
+          "updateQueue": null,
+        },
+        "selfBaseDuration": 0,
+        "sibling": null,
+        "stateNode": [Circular],
+        "tag": 2,
+        "treeBaseDuration": 0,
+        "type": [Function],
+        "updateQueue": null,
+      },
+      "_reactInternalInstance": Object {},
+      "context": Object {},
+      "handleClickFavorite": [Function],
+      "handleHover": [Function],
+      "props": Object {
+        "currentUser": Object {
+          "id": 3,
+          "name": "john",
+        },
+        "date": "10-20-2018",
+        "favorited": true,
+        "handleErrorMessage": [MockFunction],
+        "handleToggleFavorite": [MockFunction],
+        "id": 115,
+        "loggedIn": false,
+        "overview": "overview",
+        "poster": "url",
+        "title": "title",
+        "voteAverage": 4,
+      },
+      "refs": Object {},
+      "state": Object {
+        "isHovered": false,
+      },
+      "updater": Object {
+        "enqueueForceUpdate": [Function],
+        "enqueueReplaceState": [Function],
+        "enqueueSetState": [Function],
+        "isMounted": [Function],
+      },
+      "verifyUserIsLoggedIn": [Function],
+    },
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "currentUser": Object {
+        "id": 3,
+        "name": "john",
+      },
+      "date": "10-20-2018",
+      "favorited": true,
+      "handleErrorMessage": [MockFunction],
+      "handleToggleFavorite": [MockFunction],
+      "id": 115,
+      "loggedIn": false,
+      "overview": "overview",
+      "poster": "url",
+      "title": "title",
+      "voteAverage": 4,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="Movie"
+      >
+        <div>
+          <i
+            class="fa-star fas favorited"
+          />
+          <img
+            alt="Movie Poster"
+            class="movie-poster"
+            src="url"
+          />
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div>
+          <i
+            className="fa-star fas favorited"
+          />
+          <img
+            alt="Movie Poster"
+            className="movie-poster"
+            src="url"
+          />
+        </div>,
+        "className": "Movie",
+        "onMouseEnter": [Function],
+        "onMouseLeave": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div>
+            <i
+              class="fa-star fas favorited"
+            />
+            <img
+              alt="Movie Poster"
+              class="movie-poster"
+              src="url"
+            />
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <i
+                className="fa-star fas favorited"
+              />,
+              <img
+                alt="Movie Poster"
+                className="movie-poster"
+                src="url"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <i
+                class="fa-star fas favorited"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa-star fas favorited",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "i",
+            },
+            Object {
+              "instance": <img
+                alt="Movie Poster"
+                class="movie-poster"
+                src="url"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "Movie Poster",
+                "className": "movie-poster",
+                "src": "url",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": Movie {
+        "_reactInternalFiber": FiberNode {
+          "_debugID": 58,
+          "_debugIsCurrentlyTiming": false,
+          "_debugOwner": FiberNode {
+            "_debugID": 57,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": null,
+            "_debugSource": null,
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": null,
+            "child": [Circular],
+            "childExpirationTime": 0,
+            "effectTag": 1,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": null,
+            "index": 0,
+            "key": null,
+            "lastEffect": null,
+            "memoizedProps": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "memoizedState": Object {
+              "context": null,
+              "mount": true,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "ref": null,
+            "return": FiberNode {
+              "_debugID": 55,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": null,
+              "_debugSource": null,
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": FiberNode {
+                "_debugID": 55,
+                "_debugIsCurrentlyTiming": false,
+                "_debugOwner": null,
+                "_debugSource": null,
+                "actualDuration": 0,
+                "actualStartTime": -1,
+                "alternate": [Circular],
+                "child": null,
+                "childExpirationTime": 0,
+                "effectTag": 0,
+                "expirationTime": 1,
+                "firstContextDependency": null,
+                "firstEffect": null,
+                "index": 0,
+                "key": null,
+                "lastEffect": null,
+                "memoizedProps": null,
+                "memoizedState": null,
+                "mode": 0,
+                "nextEffect": null,
+                "pendingProps": null,
+                "ref": null,
+                "return": null,
+                "selfBaseDuration": 0,
+                "sibling": null,
+                "stateNode": Object {
+                  "containerInfo": <div>
+                    <div
+                      class="Movie"
+                    >
+                      <div>
+                        <i
+                          class="fa-star fas favorited"
+                        />
+                        <img
+                          alt="Movie Poster"
+                          class="movie-poster"
+                          src="url"
+                        />
+                      </div>
+                    </div>
+                  </div>,
+                  "context": Object {},
+                  "current": [Circular],
+                  "didError": false,
+                  "earliestPendingTime": 0,
+                  "earliestSuspendedTime": 0,
+                  "expirationTime": 0,
+                  "finishedWork": null,
+                  "firstBatch": null,
+                  "hydrate": false,
+                  "interactionThreadID": 13,
+                  "latestPendingTime": 0,
+                  "latestPingedTime": 0,
+                  "latestSuspendedTime": 0,
+                  "memoizedInteractions": Set {},
+                  "nextExpirationTimeToWorkOn": 0,
+                  "nextScheduledRoot": null,
+                  "pendingChildren": null,
+                  "pendingCommitExpirationTime": 0,
+                  "pendingContext": null,
+                  "pendingInteractionMap": Map {},
+                  "timeoutHandle": -1,
+                },
+                "tag": 5,
+                "treeBaseDuration": 0,
+                "type": null,
+                "updateQueue": Object {
+                  "baseState": null,
+                  "firstCapturedEffect": null,
+                  "firstCapturedUpdate": null,
+                  "firstEffect": null,
+                  "firstUpdate": Object {
+                    "callback": null,
+                    "expirationTime": 1,
+                    "next": null,
+                    "nextEffect": null,
+                    "payload": Object {
+                      "element": <WrapperComponent
+                        Component={[Function]}
+                        context={null}
+                        props={
+                          Object {
+                            "currentUser": Object {
+                              "id": 3,
+                              "name": "john",
+                            },
+                            "date": "10-20-2018",
+                            "favorited": true,
+                            "handleErrorMessage": [MockFunction],
+                            "handleToggleFavorite": [MockFunction],
+                            "id": 115,
+                            "loggedIn": false,
+                            "overview": "overview",
+                            "poster": "url",
+                            "title": "title",
+                            "voteAverage": 4,
+                          }
+                        }
+                      />,
+                    },
+                    "tag": 0,
+                  },
+                  "lastCapturedEffect": null,
+                  "lastCapturedUpdate": null,
+                  "lastEffect": null,
+                  "lastUpdate": Object {
+                    "callback": null,
+                    "expirationTime": 1,
+                    "next": null,
+                    "nextEffect": null,
+                    "payload": Object {
+                      "element": <WrapperComponent
+                        Component={[Function]}
+                        context={null}
+                        props={
+                          Object {
+                            "currentUser": Object {
+                              "id": 3,
+                              "name": "john",
+                            },
+                            "date": "10-20-2018",
+                            "favorited": true,
+                            "handleErrorMessage": [MockFunction],
+                            "handleToggleFavorite": [MockFunction],
+                            "id": 115,
+                            "loggedIn": false,
+                            "overview": "overview",
+                            "poster": "url",
+                            "title": "title",
+                            "voteAverage": 4,
+                          }
+                        }
+                      />,
+                    },
+                    "tag": 0,
+                  },
+                },
+              },
+              "child": [Circular],
+              "childExpirationTime": 0,
+              "effectTag": 32,
+              "expirationTime": 0,
+              "firstContextDependency": null,
+              "firstEffect": [Circular],
+              "index": 0,
+              "key": null,
+              "lastEffect": [Circular],
+              "memoizedProps": null,
+              "memoizedState": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "currentUser": Object {
+                        "id": 3,
+                        "name": "john",
+                      },
+                      "date": "10-20-2018",
+                      "favorited": true,
+                      "handleErrorMessage": [MockFunction],
+                      "handleToggleFavorite": [MockFunction],
+                      "id": 115,
+                      "loggedIn": false,
+                      "overview": "overview",
+                      "poster": "url",
+                      "title": "title",
+                      "voteAverage": 4,
+                    }
+                  }
+                />,
+              },
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": null,
+              "ref": null,
+              "return": null,
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": Object {
+                "containerInfo": <div>
+                  <div
+                    class="Movie"
+                  >
+                    <div>
+                      <i
+                        class="fa-star fas favorited"
+                      />
+                      <img
+                        alt="Movie Poster"
+                        class="movie-poster"
+                        src="url"
+                      />
+                    </div>
+                  </div>
+                </div>,
+                "context": Object {},
+                "current": [Circular],
+                "didError": false,
+                "earliestPendingTime": 0,
+                "earliestSuspendedTime": 0,
+                "expirationTime": 0,
+                "finishedWork": null,
+                "firstBatch": null,
+                "hydrate": false,
+                "interactionThreadID": 13,
+                "latestPendingTime": 0,
+                "latestPingedTime": 0,
+                "latestSuspendedTime": 0,
+                "memoizedInteractions": Set {},
+                "nextExpirationTimeToWorkOn": 0,
+                "nextScheduledRoot": null,
+                "pendingChildren": null,
+                "pendingCommitExpirationTime": 0,
+                "pendingContext": null,
+                "pendingInteractionMap": Map {},
+                "timeoutHandle": -1,
+              },
+              "tag": 5,
+              "treeBaseDuration": 0,
+              "type": null,
+              "updateQueue": Object {
+                "baseState": Object {
+                  "element": <WrapperComponent
+                    Component={[Function]}
+                    context={null}
+                    props={
+                      Object {
+                        "currentUser": Object {
+                          "id": 3,
+                          "name": "john",
+                        },
+                        "date": "10-20-2018",
+                        "favorited": true,
+                        "handleErrorMessage": [MockFunction],
+                        "handleToggleFavorite": [MockFunction],
+                        "id": 115,
+                        "loggedIn": false,
+                        "overview": "overview",
+                        "poster": "url",
+                        "title": "title",
+                        "voteAverage": 4,
+                      }
+                    }
+                  />,
+                },
+                "firstCapturedEffect": null,
+                "firstCapturedUpdate": null,
+                "firstEffect": null,
+                "firstUpdate": null,
+                "lastCapturedEffect": null,
+                "lastCapturedUpdate": null,
+                "lastEffect": null,
+                "lastUpdate": null,
+              },
+            },
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": WrapperComponent {
+              "_reactInternalFiber": [Circular],
+              "_reactInternalInstance": Object {},
+              "context": Object {},
+              "props": Object {
+                "Component": [Function],
+                "context": null,
+                "props": Object {
+                  "currentUser": Object {
+                    "id": 3,
+                    "name": "john",
+                  },
+                  "date": "10-20-2018",
+                  "favorited": true,
+                  "handleErrorMessage": [MockFunction],
+                  "handleToggleFavorite": [MockFunction],
+                  "id": 115,
+                  "loggedIn": false,
+                  "overview": "overview",
+                  "poster": "url",
+                  "title": "title",
+                  "voteAverage": 4,
+                },
+              },
+              "refs": Object {},
+              "state": Object {
+                "context": null,
+                "mount": true,
+                "props": Object {
+                  "currentUser": Object {
+                    "id": 3,
+                    "name": "john",
+                  },
+                  "date": "10-20-2018",
+                  "favorited": true,
+                  "handleErrorMessage": [MockFunction],
+                  "handleToggleFavorite": [MockFunction],
+                  "id": 115,
+                  "loggedIn": false,
+                  "overview": "overview",
+                  "poster": "url",
+                  "title": "title",
+                  "voteAverage": 4,
+                },
+              },
+              "updater": Object {
+                "enqueueForceUpdate": [Function],
+                "enqueueReplaceState": [Function],
+                "enqueueSetState": [Function],
+                "isMounted": [Function],
+              },
+            },
+            "tag": 2,
+            "treeBaseDuration": 0,
+            "type": [Function],
+            "updateQueue": null,
+          },
+          "_debugSource": null,
+          "actualDuration": 0,
+          "actualStartTime": -1,
+          "alternate": null,
+          "child": FiberNode {
+            "_debugID": 59,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": [Circular],
+            "_debugSource": Object {
+              "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+              "lineNumber": 83,
+            },
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": null,
+            "child": FiberNode {
+              "_debugID": 60,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": [Circular],
+              "_debugSource": Object {
+                "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+                "lineNumber": 59,
+              },
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": null,
+              "child": FiberNode {
+                "_debugID": 61,
+                "_debugIsCurrentlyTiming": false,
+                "_debugOwner": [Circular],
+                "_debugSource": Object {
+                  "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+                  "lineNumber": 60,
+                },
+                "actualDuration": 0,
+                "actualStartTime": -1,
+                "alternate": null,
+                "child": null,
+                "childExpirationTime": 0,
+                "effectTag": 0,
+                "expirationTime": 0,
+                "firstContextDependency": null,
+                "firstEffect": null,
+                "index": 0,
+                "key": null,
+                "lastEffect": null,
+                "memoizedProps": Object {
+                  "className": "fa-star fas favorited",
+                },
+                "memoizedState": null,
+                "mode": 0,
+                "nextEffect": null,
+                "pendingProps": Object {
+                  "className": "fa-star fas favorited",
+                },
+                "ref": null,
+                "return": [Circular],
+                "selfBaseDuration": 0,
+                "sibling": FiberNode {
+                  "_debugID": 62,
+                  "_debugIsCurrentlyTiming": false,
+                  "_debugOwner": [Circular],
+                  "_debugSource": Object {
+                    "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
+                    "lineNumber": 61,
+                  },
+                  "actualDuration": 0,
+                  "actualStartTime": -1,
+                  "alternate": null,
+                  "child": null,
+                  "childExpirationTime": 0,
+                  "effectTag": 0,
+                  "expirationTime": 0,
+                  "firstContextDependency": null,
+                  "firstEffect": null,
+                  "index": 1,
+                  "key": null,
+                  "lastEffect": null,
+                  "memoizedProps": Object {
+                    "alt": "Movie Poster",
+                    "className": "movie-poster",
+                    "src": "url",
+                  },
+                  "memoizedState": null,
+                  "mode": 0,
+                  "nextEffect": null,
+                  "pendingProps": Object {
+                    "alt": "Movie Poster",
+                    "className": "movie-poster",
+                    "src": "url",
+                  },
+                  "ref": null,
+                  "return": [Circular],
+                  "selfBaseDuration": 0,
+                  "sibling": null,
+                  "stateNode": <img
+                    alt="Movie Poster"
+                    class="movie-poster"
+                    src="url"
+                  />,
+                  "tag": 7,
+                  "treeBaseDuration": 0,
+                  "type": "img",
+                  "updateQueue": null,
+                },
+                "stateNode": <i
+                  class="fa-star fas favorited"
+                />,
+                "tag": 7,
+                "treeBaseDuration": 0,
+                "type": "i",
+                "updateQueue": null,
+              },
+              "childExpirationTime": 0,
+              "effectTag": 0,
+              "expirationTime": 0,
+              "firstContextDependency": null,
+              "firstEffect": null,
+              "index": 0,
+              "key": null,
+              "lastEffect": null,
+              "memoizedProps": Object {
+                "children": Array [
+                  <i
+                    className="fa-star fas favorited"
+                  />,
+                  <img
+                    alt="Movie Poster"
+                    className="movie-poster"
+                    src="url"
+                  />,
+                ],
+              },
+              "memoizedState": null,
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": Object {
+                "children": Array [
+                  <i
+                    className="fa-star fas favorited"
+                  />,
+                  <img
+                    alt="Movie Poster"
+                    className="movie-poster"
+                    src="url"
+                  />,
+                ],
+              },
+              "ref": null,
+              "return": [Circular],
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": <div>
+                <i
+                  class="fa-star fas favorited"
+                />
+                <img
+                  alt="Movie Poster"
+                  class="movie-poster"
+                  src="url"
+                />
+              </div>,
+              "tag": 7,
+              "treeBaseDuration": 0,
+              "type": "div",
+              "updateQueue": null,
+            },
+            "childExpirationTime": 0,
+            "effectTag": 0,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": null,
+            "index": 0,
+            "key": null,
+            "lastEffect": null,
+            "memoizedProps": Object {
+              "children": <div>
+                <i
+                  className="fa-star fas favorited"
+                />
+                <img
+                  alt="Movie Poster"
+                  className="movie-poster"
+                  src="url"
+                />
+              </div>,
+              "className": "Movie",
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
+            },
+            "memoizedState": null,
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": Object {
+              "children": <div>
+                <i
+                  className="fa-star fas favorited"
+                />
+                <img
+                  alt="Movie Poster"
+                  className="movie-poster"
+                  src="url"
+                />
+              </div>,
+              "className": "Movie",
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
+            },
+            "ref": null,
+            "return": [Circular],
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": <div
+              class="Movie"
+            >
+              <div>
+                <i
+                  class="fa-star fas favorited"
+                />
+                <img
+                  alt="Movie Poster"
+                  class="movie-poster"
+                  src="url"
+                />
+              </div>
+            </div>,
+            "tag": 7,
+            "treeBaseDuration": 0,
+            "type": "div",
+            "updateQueue": null,
+          },
+          "childExpirationTime": 0,
+          "effectTag": 1,
+          "expirationTime": 0,
+          "firstContextDependency": null,
+          "firstEffect": null,
+          "index": 0,
+          "key": null,
+          "lastEffect": null,
+          "memoizedProps": Object {
+            "currentUser": Object {
+              "id": 3,
+              "name": "john",
+            },
+            "date": "10-20-2018",
+            "favorited": true,
+            "handleErrorMessage": [MockFunction],
+            "handleToggleFavorite": [MockFunction],
+            "id": 115,
+            "loggedIn": false,
+            "overview": "overview",
+            "poster": "url",
+            "title": "title",
+            "voteAverage": 4,
+          },
+          "memoizedState": Object {
+            "isHovered": false,
+          },
+          "mode": 0,
+          "nextEffect": null,
+          "pendingProps": Object {
+            "currentUser": Object {
+              "id": 3,
+              "name": "john",
+            },
+            "date": "10-20-2018",
+            "favorited": true,
+            "handleErrorMessage": [MockFunction],
+            "handleToggleFavorite": [MockFunction],
+            "id": 115,
+            "loggedIn": false,
+            "overview": "overview",
+            "poster": "url",
+            "title": "title",
+            "voteAverage": 4,
+          },
+          "ref": null,
+          "return": FiberNode {
+            "_debugID": 57,
+            "_debugIsCurrentlyTiming": false,
+            "_debugOwner": null,
+            "_debugSource": null,
+            "actualDuration": 0,
+            "actualStartTime": -1,
+            "alternate": null,
+            "child": [Circular],
+            "childExpirationTime": 0,
+            "effectTag": 1,
+            "expirationTime": 0,
+            "firstContextDependency": null,
+            "firstEffect": null,
+            "index": 0,
+            "key": null,
+            "lastEffect": null,
+            "memoizedProps": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "memoizedState": Object {
+              "context": null,
+              "mount": true,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "mode": 0,
+            "nextEffect": null,
+            "pendingProps": Object {
+              "Component": [Function],
+              "context": null,
+              "props": Object {
+                "currentUser": Object {
+                  "id": 3,
+                  "name": "john",
+                },
+                "date": "10-20-2018",
+                "favorited": true,
+                "handleErrorMessage": [MockFunction],
+                "handleToggleFavorite": [MockFunction],
+                "id": 115,
+                "loggedIn": false,
+                "overview": "overview",
+                "poster": "url",
+                "title": "title",
+                "voteAverage": 4,
+              },
+            },
+            "ref": null,
+            "return": FiberNode {
+              "_debugID": 55,
+              "_debugIsCurrentlyTiming": false,
+              "_debugOwner": null,
+              "_debugSource": null,
+              "actualDuration": 0,
+              "actualStartTime": -1,
+              "alternate": FiberNode {
+                "_debugID": 55,
+                "_debugIsCurrentlyTiming": false,
+                "_debugOwner": null,
+                "_debugSource": null,
+                "actualDuration": 0,
+                "actualStartTime": -1,
+                "alternate": [Circular],
+                "child": null,
+                "childExpirationTime": 0,
+                "effectTag": 0,
+                "expirationTime": 1,
+                "firstContextDependency": null,
+                "firstEffect": null,
+                "index": 0,
+                "key": null,
+                "lastEffect": null,
+                "memoizedProps": null,
+                "memoizedState": null,
+                "mode": 0,
+                "nextEffect": null,
+                "pendingProps": null,
+                "ref": null,
+                "return": null,
+                "selfBaseDuration": 0,
+                "sibling": null,
+                "stateNode": Object {
+                  "containerInfo": <div>
+                    <div
+                      class="Movie"
+                    >
+                      <div>
+                        <i
+                          class="fa-star fas favorited"
+                        />
+                        <img
+                          alt="Movie Poster"
+                          class="movie-poster"
+                          src="url"
+                        />
+                      </div>
+                    </div>
+                  </div>,
+                  "context": Object {},
+                  "current": [Circular],
+                  "didError": false,
+                  "earliestPendingTime": 0,
+                  "earliestSuspendedTime": 0,
+                  "expirationTime": 0,
+                  "finishedWork": null,
+                  "firstBatch": null,
+                  "hydrate": false,
+                  "interactionThreadID": 13,
+                  "latestPendingTime": 0,
+                  "latestPingedTime": 0,
+                  "latestSuspendedTime": 0,
+                  "memoizedInteractions": Set {},
+                  "nextExpirationTimeToWorkOn": 0,
+                  "nextScheduledRoot": null,
+                  "pendingChildren": null,
+                  "pendingCommitExpirationTime": 0,
+                  "pendingContext": null,
+                  "pendingInteractionMap": Map {},
+                  "timeoutHandle": -1,
+                },
+                "tag": 5,
+                "treeBaseDuration": 0,
+                "type": null,
+                "updateQueue": Object {
+                  "baseState": null,
+                  "firstCapturedEffect": null,
+                  "firstCapturedUpdate": null,
+                  "firstEffect": null,
+                  "firstUpdate": Object {
+                    "callback": null,
+                    "expirationTime": 1,
+                    "next": null,
+                    "nextEffect": null,
+                    "payload": Object {
+                      "element": <WrapperComponent
+                        Component={[Function]}
+                        context={null}
+                        props={
+                          Object {
+                            "currentUser": Object {
+                              "id": 3,
+                              "name": "john",
+                            },
+                            "date": "10-20-2018",
+                            "favorited": true,
+                            "handleErrorMessage": [MockFunction],
+                            "handleToggleFavorite": [MockFunction],
+                            "id": 115,
+                            "loggedIn": false,
+                            "overview": "overview",
+                            "poster": "url",
+                            "title": "title",
+                            "voteAverage": 4,
+                          }
+                        }
+                      />,
+                    },
+                    "tag": 0,
+                  },
+                  "lastCapturedEffect": null,
+                  "lastCapturedUpdate": null,
+                  "lastEffect": null,
+                  "lastUpdate": Object {
+                    "callback": null,
+                    "expirationTime": 1,
+                    "next": null,
+                    "nextEffect": null,
+                    "payload": Object {
+                      "element": <WrapperComponent
+                        Component={[Function]}
+                        context={null}
+                        props={
+                          Object {
+                            "currentUser": Object {
+                              "id": 3,
+                              "name": "john",
+                            },
+                            "date": "10-20-2018",
+                            "favorited": true,
+                            "handleErrorMessage": [MockFunction],
+                            "handleToggleFavorite": [MockFunction],
+                            "id": 115,
+                            "loggedIn": false,
+                            "overview": "overview",
+                            "poster": "url",
+                            "title": "title",
+                            "voteAverage": 4,
+                          }
+                        }
+                      />,
+                    },
+                    "tag": 0,
+                  },
+                },
+              },
+              "child": [Circular],
+              "childExpirationTime": 0,
+              "effectTag": 32,
+              "expirationTime": 0,
+              "firstContextDependency": null,
+              "firstEffect": [Circular],
+              "index": 0,
+              "key": null,
+              "lastEffect": [Circular],
+              "memoizedProps": null,
+              "memoizedState": Object {
+                "element": <WrapperComponent
+                  Component={[Function]}
+                  context={null}
+                  props={
+                    Object {
+                      "currentUser": Object {
+                        "id": 3,
+                        "name": "john",
+                      },
+                      "date": "10-20-2018",
+                      "favorited": true,
+                      "handleErrorMessage": [MockFunction],
+                      "handleToggleFavorite": [MockFunction],
+                      "id": 115,
+                      "loggedIn": false,
+                      "overview": "overview",
+                      "poster": "url",
+                      "title": "title",
+                      "voteAverage": 4,
+                    }
+                  }
+                />,
+              },
+              "mode": 0,
+              "nextEffect": null,
+              "pendingProps": null,
+              "ref": null,
+              "return": null,
+              "selfBaseDuration": 0,
+              "sibling": null,
+              "stateNode": Object {
+                "containerInfo": <div>
+                  <div
+                    class="Movie"
+                  >
+                    <div>
+                      <i
+                        class="fa-star fas favorited"
+                      />
+                      <img
+                        alt="Movie Poster"
+                        class="movie-poster"
+                        src="url"
+                      />
+                    </div>
+                  </div>
+                </div>,
+                "context": Object {},
+                "current": [Circular],
+                "didError": false,
+                "earliestPendingTime": 0,
+                "earliestSuspendedTime": 0,
+                "expirationTime": 0,
+                "finishedWork": null,
+                "firstBatch": null,
+                "hydrate": false,
+                "interactionThreadID": 13,
+                "latestPendingTime": 0,
+                "latestPingedTime": 0,
+                "latestSuspendedTime": 0,
+                "memoizedInteractions": Set {},
+                "nextExpirationTimeToWorkOn": 0,
+                "nextScheduledRoot": null,
+                "pendingChildren": null,
+                "pendingCommitExpirationTime": 0,
+                "pendingContext": null,
+                "pendingInteractionMap": Map {},
+                "timeoutHandle": -1,
+              },
+              "tag": 5,
+              "treeBaseDuration": 0,
+              "type": null,
+              "updateQueue": Object {
+                "baseState": Object {
+                  "element": <WrapperComponent
+                    Component={[Function]}
+                    context={null}
+                    props={
+                      Object {
+                        "currentUser": Object {
+                          "id": 3,
+                          "name": "john",
+                        },
+                        "date": "10-20-2018",
+                        "favorited": true,
+                        "handleErrorMessage": [MockFunction],
+                        "handleToggleFavorite": [MockFunction],
+                        "id": 115,
+                        "loggedIn": false,
+                        "overview": "overview",
+                        "poster": "url",
+                        "title": "title",
+                        "voteAverage": 4,
+                      }
+                    }
+                  />,
+                },
+                "firstCapturedEffect": null,
+                "firstCapturedUpdate": null,
+                "firstEffect": null,
+                "firstUpdate": null,
+                "lastCapturedEffect": null,
+                "lastCapturedUpdate": null,
+                "lastEffect": null,
+                "lastUpdate": null,
+              },
+            },
+            "selfBaseDuration": 0,
+            "sibling": null,
+            "stateNode": WrapperComponent {
+              "_reactInternalFiber": [Circular],
+              "_reactInternalInstance": Object {},
+              "context": Object {},
+              "props": Object {
+                "Component": [Function],
+                "context": null,
+                "props": Object {
+                  "currentUser": Object {
+                    "id": 3,
+                    "name": "john",
+                  },
+                  "date": "10-20-2018",
+                  "favorited": true,
+                  "handleErrorMessage": [MockFunction],
+                  "handleToggleFavorite": [MockFunction],
+                  "id": 115,
+                  "loggedIn": false,
+                  "overview": "overview",
+                  "poster": "url",
+                  "title": "title",
+                  "voteAverage": 4,
+                },
+              },
+              "refs": Object {},
+              "state": Object {
+                "context": null,
+                "mount": true,
+                "props": Object {
+                  "currentUser": Object {
+                    "id": 3,
+                    "name": "john",
+                  },
+                  "date": "10-20-2018",
+                  "favorited": true,
+                  "handleErrorMessage": [MockFunction],
+                  "handleToggleFavorite": [MockFunction],
+                  "id": 115,
+                  "loggedIn": false,
+                  "overview": "overview",
+                  "poster": "url",
+                  "title": "title",
+                  "voteAverage": 4,
+                },
+              },
+              "updater": Object {
+                "enqueueForceUpdate": [Function],
+                "enqueueReplaceState": [Function],
+                "enqueueSetState": [Function],
+                "isMounted": [Function],
+              },
+            },
+            "tag": 2,
+            "treeBaseDuration": 0,
+            "type": [Function],
+            "updateQueue": null,
+          },
+          "selfBaseDuration": 0,
+          "sibling": null,
+          "stateNode": [Circular],
+          "tag": 2,
+          "treeBaseDuration": 0,
+          "type": [Function],
+          "updateQueue": null,
+        },
+        "_reactInternalInstance": Object {},
+        "context": Object {},
+        "handleClickFavorite": [Function],
+        "handleHover": [Function],
+        "props": Object {
+          "currentUser": Object {
+            "id": 3,
+            "name": "john",
+          },
+          "date": "10-20-2018",
+          "favorited": true,
+          "handleErrorMessage": [MockFunction],
+          "handleToggleFavorite": [MockFunction],
+          "id": 115,
+          "loggedIn": false,
+          "overview": "overview",
+          "poster": "url",
+          "title": "title",
+          "voteAverage": 4,
+        },
+        "refs": Object {},
+        "state": Object {
+          "isHovered": false,
+        },
+        "updater": Object {
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+        },
+        "verifyUserIsLoggedIn": [Function],
+      },
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "currentUser": Object {
+          "id": 3,
+          "name": "john",
+        },
+        "date": "10-20-2018",
+        "favorited": true,
+        "handleErrorMessage": [MockFunction],
+        "handleToggleFavorite": [MockFunction],
+        "id": 115,
+        "loggedIn": false,
+        "overview": "overview",
+        "poster": "url",
+        "title": "title",
+        "voteAverage": 4,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="Movie"
+        >
+          <div>
+            <i
+              class="fa-star fas favorited"
+            />
+            <img
+              alt="Movie Poster"
+              class="movie-poster"
+              src="url"
+            />
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div>
+            <i
+              className="fa-star fas favorited"
+            />
+            <img
+              alt="Movie Poster"
+              className="movie-poster"
+              src="url"
+            />
+          </div>,
+          "className": "Movie",
+          "onMouseEnter": [Function],
+          "onMouseLeave": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div>
+              <i
+                class="fa-star fas favorited"
+              />
+              <img
+                alt="Movie Poster"
+                class="movie-poster"
+                src="url"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <i
+                  className="fa-star fas favorited"
+                />,
+                <img
+                  alt="Movie Poster"
+                  className="movie-poster"
+                  src="url"
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <i
+                  class="fa-star fas favorited"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa-star fas favorited",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "i",
+              },
+              Object {
+                "instance": <img
+                  alt="Movie Poster"
+                  class="movie-poster"
+                  src="url"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Movie Poster",
+                  "className": "movie-poster",
+                  "src": "url",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "img",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

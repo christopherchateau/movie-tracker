@@ -19,6 +19,7 @@ input {
   margin: 10px 0;
   padding-left: 15px;
   position: relative;
+  width: 240px;
 }
 
 .submit-btn {
@@ -36,7 +37,7 @@ input {
   position: relative;
   text-align: center;
   text-decoration: none;
-  width: 20%;
+  width: 240px;
 }
 
 .submit-btn:hover {
@@ -78,11 +79,8 @@ input {
   }
 
   .submit-btn {
-    width: 273px;
-  }
-
-  .submit-btn {
     height: 36px;
+    width: 273px;
   }
 
   .login-error-msg {

@@ -8,9 +8,8 @@ import { movieCleaner } from "../../utilities/helper";
 import { connect } from "react-redux";
 import { Route, withRouter } from "react-router-dom";
 import "./App.css";
-//       15,16,18,37 
+
 export class App extends Component {
-  
   componentDidMount = async () => {
     const { handleErrorMessage, handleFetch } = this.props;
     const data = await movieCleaner();
