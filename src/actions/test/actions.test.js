@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import * as actions from "../index.js";
 
 describe("actions", () => {
