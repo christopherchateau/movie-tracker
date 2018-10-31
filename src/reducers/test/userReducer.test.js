@@ -2,7 +2,7 @@ import { userReducer } from "../userReducer.js";
 
 describe("userReducer", () => {
   it("should return the initial state", () => {
-    const expected = "";
+    const expected = {};
     const result = userReducer(undefined, {});
     expect(result).toEqual(expected);
   });
