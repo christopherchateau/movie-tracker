@@ -56,8 +56,8 @@ export class LoginControls extends Component {
   };
 
   validateEmail = () => {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(this.state.email)) {
+    const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    if (regex.test(this.state.email)) {
       return true;
     }
     this.props.handleErrorMessage("Please enter a valid e-mail address");
@@ -142,14 +142,18 @@ export class LoginControls extends Component {
               name="email"
               placeholder="email"
               value={this.state.email}
-              className={pathname === "/signup" ? "signup email" : "login email"}
+              className={
+                pathname === "/signup" ? "signup email" : "login email"
+              }
               onChange={this.handleInputChange}
             />
             {pathname === "/signup" && (
               <input
                 name="username"
                 placeholder="username"
-                className={pathname === "/signup" ? "signup username" : "login username"}
+                className={
+                  pathname === "/signup" ? "signup username" : "login username"
+                }
                 value={this.state.username}
                 onChange={this.handleInputChange}
               />
@@ -157,7 +161,9 @@ export class LoginControls extends Component {
             <input
               name="password"
               placeholder="password"
-              className={pathname === "/signup" ? "signup password" : "login password"}
+              className={
+                pathname === "/signup" ? "signup password" : "login password"
+              }
               value={this.state.password}
               onChange={this.handleInputChange}
             />

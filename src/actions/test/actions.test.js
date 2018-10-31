@@ -14,16 +14,16 @@ describe("actions", () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it('should have a type of DISPLAY_FAVORITES', () => {
+  it("should have a type of DISPLAY_FAVORITES", () => {
     const displayFavorites = false;
     const expectedAction = {
-      type: 'DISPLAY_FAVORITES',
+      type: "DISPLAY_FAVORITES",
       displayFavorites
-    }
+    };
 
     const result = actions.displayFavorites(displayFavorites);
-    expect(result).toEqual(expectedAction)
-  })
+    expect(result).toEqual(expectedAction);
+  });
 
   it("should have a type of TOGGLE_LOGIN", () => {
     const loggedIn = false;
@@ -47,34 +47,34 @@ describe("actions", () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it('should have a type of TOGGLE_FAVORITE', () => {
+  it("should have a type of TOGGLE_FAVORITE", () => {
     const id = 3;
     const expectedAction = {
-      type: 'TOGGLE_FAVORITE',
+      type: "TOGGLE_FAVORITE",
       id
-    }
+    };
 
     const result = actions.toggleFavorite(id);
-    expect(result).toEqual(expectedAction)
-  })
+    expect(result).toEqual(expectedAction);
+  });
 
-  it('should have a type of RESET_FAVORITES', () => {
+  it("should have a type of RESET_FAVORITES", () => {
     const expectedAction = {
-      type: 'RESET_FAVORITES'
-    }
+      type: "RESET_FAVORITES"
+    };
 
     const result = actions.resetFavorites();
-    expect(result).toEqual(expectedAction)
-  })
+    expect(result).toEqual(expectedAction);
+  });
 
-  it('should have a type of SET_ERROR_MESSAGE', () => {
-    const errorMessage = 'Invalid login';
+  it("should have a type of SET_ERROR_MESSAGE", () => {
+    const errorMessage = "Invalid login";
     const expectedAction = {
-      type: 'SET_ERROR_MESSAGE',
+      type: "SET_ERROR_MESSAGE",
       errorMessage
-    }
+    };
 
     const result = actions.setErrorMessage(errorMessage);
-    expect(result).toEqual(expectedAction)
-  })
+    expect(result).toEqual(expectedAction);
+  });
 });

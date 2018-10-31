@@ -28,6 +28,13 @@
   transition: all 0.4s ease-in-out;
 }
 
+.error-msg {
+  bottom: 20px;
+  color: red;
+  position: relative;
+  text-align: center;
+}
+
 @media screen and (max-width: 800px) {
   .navBar {
     align-items: center;
@@ -42,5 +49,11 @@
   .user-name {
     bottom: 10px;
     position: relative;
+  }
+  .error-msg {
+    bottom: 20px;
+    color: red;
+    position: relative;
+    text-align: center;
   }
 }

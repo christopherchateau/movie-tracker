@@ -1,5 +1,3 @@
-import React from "react";
-import * as Fetch from "../fetch";
 import { movieCleaner } from "../helper";
 import * as Mocks from "./mocks";
 

@@ -106,3 +106,16 @@ export default connect(
   mapDispatchToProps
 )(Movie);
 
+Movie.propTypes = {
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  voteAverage: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  favorited: PropTypes.bool.isRequired,
+  currentUser: PropTypes.object.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  handleToggleFavorite: PropTypes.func.isRequired,
+  handleErrorMessage: PropTypes.func.isRequired
+};

@@ -27,7 +27,11 @@ export const MovieContainer = props => {
     });
     return (
       <div className="Movie-Container">
-        {cards.length ? cards : <img className="spinner" alt="loading content" src={spinner} />}
+        {cards.length ? (
+          cards
+        ) : (
+          <img className="spinner" alt="loading content" src={spinner} />
+        )}
       </div>
     );
   }
@@ -45,4 +49,4 @@ MovieContainer.propTypes = {
   movies: PropTypes.array.isRequired,
   showFavorites: PropTypes.bool.isRequired,
   userName: PropTypes.string
-}
+};
