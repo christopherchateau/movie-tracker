@@ -28,7 +28,7 @@ A site for....
 
 ### Tablet/Mobile Screenshots:
 
-<img src="https://github.com/christopherchateau/movie-tracker/blob/master/src/images/coenCollection-Mobile.png" width="600" />
+<img src="https://github.com/christopherchateau/movie-tracker/blob/master/src/images/coenCollection-Mobile.png" width="300" />
 
 <img src="https://github.com/christopherchateau/movie-tracker/blob/master/src/images/coenCollection-Tablet.png" width="400" />
 
