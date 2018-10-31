@@ -29,7 +29,6 @@
   width: 25%;
 }
 
-
 @media screen and (max-width: 800px) {
   .Movie-Container {
     top: 280px;

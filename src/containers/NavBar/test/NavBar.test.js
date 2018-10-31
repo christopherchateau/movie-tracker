@@ -2,7 +2,12 @@ import React from "react";
 import { mapStateToProps, mapDispatchToProps, NavBar } from "../index";
 import { shallow } from "enzyme";
 import { NavLink } from "react-router-dom";
-import { logIn, setErrorMessage, resetFavorites, displayFavorites } from "../../../actions";
+import {
+  logIn,
+  setErrorMessage,
+  resetFavorites,
+  displayFavorites
+} from "../../../actions";
 
 describe("NavBar", () => {
   let wrapper;
@@ -58,11 +63,11 @@ describe("NavBar", () => {
 describe("mapStateToProps", () => {
   it("should return an object with a loggedIn status", () => {
     const mockState = {
-      loggedIn: true,
+      loggedIn: true
     };
 
     const expected = {
-      loggedIn: true,
+      loggedIn: true
     };
 
     const mappedProps = mapStateToProps(mockState);
@@ -70,11 +75,11 @@ describe("mapStateToProps", () => {
   });
   it("should return an object with a currentUser", () => {
     const mockState = {
-      currentUser: {name: 'Taylor', id: 5},
+      currentUser: { name: "Taylor", id: 5 }
     };
 
     const expected = {
-      currentUser: {name: 'Taylor', id: 5},
+      currentUser: { name: "Taylor", id: 5 }
     };
 
     const mappedProps = mapStateToProps(mockState);
@@ -82,11 +87,11 @@ describe("mapStateToProps", () => {
   });
   it("should return an object with an errorMessage", () => {
     const mockState = {
-      errorMessage: 'Error',
+      errorMessage: "Error"
     };
 
     const expected = {
-      errorMessage: 'Error',
+      errorMessage: "Error"
     };
 
     const mappedProps = mapStateToProps(mockState);
@@ -116,16 +121,16 @@ describe("mapDispatchToProps", () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
-    it("should call dispatch with a setErrorMessage action when handleErrorMessage is called", () => {
+  it("should call dispatch with a setErrorMessage action when handleErrorMessage is called", () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = setErrorMessage('error');
+    const actionToDispatch = setErrorMessage("error");
 
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.handleErrorMessage('error');
+    mappedProps.handleErrorMessage("error");
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
-      it("should call dispatch with a resetFavorites action when handleResetFavorites is called", () => {
+  it("should call dispatch with a resetFavorites action when handleResetFavorites is called", () => {
     const mockDispatch = jest.fn();
     const actionToDispatch = resetFavorites();
 
@@ -134,7 +139,7 @@ describe("mapDispatchToProps", () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
-        it("should call dispatch with a displayFavorites action when handleDisplayFavorites is called", () => {
+  it("should call dispatch with a displayFavorites action when handleDisplayFavorites is called", () => {
     const mockDispatch = jest.fn();
     const actionToDispatch = displayFavorites(true);
 

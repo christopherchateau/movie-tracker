@@ -78,11 +78,8 @@ input {
   }
 
   .submit-btn {
-    width: 273px;
-  }
-
-  .submit-btn {
     height: 36px;
+    width: 273px;
   }
 
   .login-error-msg {

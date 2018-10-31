@@ -5,7 +5,7 @@ import { shallow, mount } from "enzyme";
 import {
   Movie,
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
   // handleToggleFavorite,
   // handleErrorMessage
 } from "../index";
@@ -15,10 +15,45 @@ import * as fetch from "../../../utilities/fetch.js";
 jest.mock("../../../utilities/fetch.js");
 
 describe("Movie", () => {
-    let wrapper;
-    let defaultState;
+  let wrapper;
+  let defaultState;
 
-    beforeEach(() => {
+  beforeEach(() => {
+    wrapper = mount(
+      <Movie
+        title={"title"}
+        overview={"overview"}
+        date={"10-20-2018"}
+        poster={"url"}
+        currentUser={{ name: "john", id: 3 }}
+        loggedIn={false}
+        handleToggleFavorite={jest.fn()}
+        handleErrorMessage={jest.fn()}
+        favorited={true}
+        id={115}
+      />
+    );
+
+    // defaultState = {
+    //   isClicked: false,
+    // };
+  });
+
+  it("should exist", () => {
+    expect(wrapper).toBeDefined();
+  });
+
+  it("should render like snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  describe("handleClickFavorite", () => {
+    it("should call handleErrorMessage if user is not logged in", () => {
+      wrapper.instance().handleClickFavorite();
+      expect(wrapper.props().handleErrorMessage).toHaveBeenCalled();
+    });
+
+    it("should call handleToggleFavorite on card click", () => {
       wrapper = mount(
         <Movie
           title={"title"}
@@ -26,138 +61,101 @@ describe("Movie", () => {
           date={"10-20-2018"}
           poster={"url"}
           currentUser={{ name: "john", id: 3 }}
-          loggedIn={false}
+          loggedIn={true}
           handleToggleFavorite={jest.fn()}
-          handleErrorMessage={jest.fn()}        
+          handleErrorMessage={jest.fn()}
           favorited={true}
           id={115}
         />
       );
 
-      // defaultState = {
-      //   isClicked: false,
-      // };
+      wrapper.instance().handleClickFavorite();
+      expect(wrapper.props().handleToggleFavorite).toHaveBeenCalled();
     });
 
-    it("should exist", () => {
-      expect(wrapper).toBeDefined();
+    it("should call removeFavorite if favorited is true", () => {
+      wrapper = mount(
+        <Movie
+          title={"title"}
+          overview={"overview"}
+          date={"10-20-2018"}
+          poster={"url"}
+          currentUser={{ name: "john", id: 3 }}
+          loggedIn={true}
+          handleToggleFavorite={jest.fn()}
+          handleErrorMessage={jest.fn()}
+          favorited={true}
+          id={115}
+        />
+      );
+
+      wrapper.instance().handleClickFavorite();
+      expect(fetch.removeFavorite).toHaveBeenCalled();
     });
 
-    it("should render like snapshot", () => {
-      expect(wrapper).toMatchSnapshot();
+    it("should call fetchAddFavorite if favorited is false", () => {
+      wrapper = mount(
+        <Movie
+          title={"title"}
+          overview={"overview"}
+          date={"10-20-2018"}
+          poster={"url"}
+          currentUser={{ name: "john", id: 3 }}
+          loggedIn={true}
+          handleToggleFavorite={jest.fn()}
+          handleErrorMessage={jest.fn()}
+          favorited={false}
+          id={115}
+        />
+      );
+
+      wrapper.instance().handleClickFavorite();
+      expect(fetch.fetchAddFavorite).toHaveBeenCalled();
+    });
+  });
+
+  describe("handleHover", () => {
+    it("should toggle isHovered when handleHover is called", () => {
+      wrapper.setState({ isHovered: false });
+
+      wrapper.instance().handleHover(true);
+
+      expect(wrapper.state().isHovered).toEqual(true);
     });
 
-    describe('handleClickFavorite', () => {
-
-      it("should call handleErrorMessage if user is not logged in", () => {
-        wrapper.instance().handleClickFavorite();
-        expect(wrapper.props().handleErrorMessage).toHaveBeenCalled();
-      });
-
-      it("should call handleToggleFavorite on card click", () => {
-        wrapper = mount(
-          <Movie
-            title={"title"}
-            overview={"overview"}
-            date={"10-20-2018"}
-            poster={"url"}
-            currentUser={{ name: "john", id: 3 }}
-            loggedIn={true}
-            handleToggleFavorite={jest.fn()}
-            handleErrorMessage={jest.fn()}
-            favorited={true}
-            id={115}
-          />
-        );
-
-        wrapper.instance().handleClickFavorite();
-        expect(wrapper.props().handleToggleFavorite).toHaveBeenCalled();
-      });
-
-      it("should call removeFavorite if favorited is true", () => {
-        wrapper = mount(
-          <Movie
-            title={"title"}
-            overview={"overview"}
-            date={"10-20-2018"}
-            poster={"url"}
-            currentUser={{ name: "john", id: 3 }}
-            loggedIn={true}
-            handleToggleFavorite={jest.fn()}
-            handleErrorMessage={jest.fn()}
-            favorited={true}
-            id={115}
-          />
-        );
-
-        wrapper.instance().handleClickFavorite();
-        expect(fetch.removeFavorite).toHaveBeenCalled();
-      });
-
-      it("should call fetchAddFavorite if favorited is false", () => {
-        wrapper = mount(
-          <Movie
-            title={"title"}
-            overview={"overview"}
-            date={"10-20-2018"}
-            poster={"url"}
-            currentUser={{ name: "john", id: 3 }}
-            loggedIn={true}
-            handleToggleFavorite={jest.fn()}
-            handleErrorMessage={jest.fn()}
-            favorited={false}
-            id={115}
-          />
-        );
-
-        wrapper.instance().handleClickFavorite();
-        expect(fetch.fetchAddFavorite).toHaveBeenCalled();
-      });    
+    it("should call handleHover when mouse leaves picture", () => {
+      wrapper.setState({ isHovered: true });
+      wrapper.find(".Movie").simulate("mouseLeave");
+      expect(wrapper.state().isHovered).toEqual(false);
     });
 
-    describe('handleHover', () => {
-      
-      it('should toggle isHovered when handleHover is called', () => {
-        wrapper.setState({ isHovered: false });
-
-        wrapper.instance().handleHover(true);
-
-        expect(wrapper.state().isHovered).toEqual(true);
-      })
-
-      it('should call handleHover when mouse leaves picture', () => {
-        wrapper.setState({ isHovered: true })
-        wrapper.find('.Movie').simulate('mouseLeave')
-        expect(wrapper.state().isHovered).toEqual(false)
-      })
-
-      it('should call handleHover when mouse enters picture', () => {
-        wrapper.setState({ isHovered: false })
-        wrapper.find('.Movie').simulate('mouseEnter')
-        expect(wrapper.state().isHovered).toEqual(true)
-      })
+    it("should call handleHover when mouse enters picture", () => {
+      wrapper.setState({ isHovered: false });
+      wrapper.find(".Movie").simulate("mouseEnter");
+      expect(wrapper.state().isHovered).toEqual(true);
     });
+  });
 
-    describe('verifyUserIsLoggedIn', () => {
-      it('should return true if loggedIn is true', () => {
-        wrapper = mount(
-          <Movie
-            title={"title"}
-            overview={"overview"}
-            date={"10-20-2018"}
-            poster={"url"}
-            currentUser={{ name: "john", id: 3 }}
-            loggedIn={true}
-            handleToggleFavorite={jest.fn()}
-            handleErrorMessage={jest.fn()}        
-            favorited={true}
-            id={115}
-          />
-        );
+  describe("verifyUserIsLoggedIn", () => {
+    it("should return true if loggedIn is true", () => {
+      wrapper = mount(
+        <Movie
+          title={"title"}
+          overview={"overview"}
+          date={"10-20-2018"}
+          poster={"url"}
+          currentUser={{ name: "john", id: 3 }}
+          loggedIn={true}
+          handleToggleFavorite={jest.fn()}
+          handleErrorMessage={jest.fn()}
+          favorited={true}
+          id={115}
+        />
+      );
 
-        expect(wrapper.instance().verifyUserIsLoggedIn()).toEqual(true)
-      })
+      expect(wrapper.instance().verifyUserIsLoggedIn()).toEqual(true);
     });
+  });
 
   //   it("should toggle isClicked in state when handleCardClick is called", () => {
   //     wrapper.setState({ isClicked: false });
@@ -169,7 +167,6 @@ describe("Movie", () => {
   // });
 
   describe("mapStateToProps", () => {
-
     it("should return an object with currentUser", () => {
       const mockState = {
         currentUser: {
@@ -204,7 +201,6 @@ describe("Movie", () => {
   });
 
   describe("mapDispatchToProps", () => {
-
     it("should call dispatch with toggle favorite action when handleToggleFavorite is called", () => {
       const mockDispatch = jest.fn();
 
@@ -229,28 +225,27 @@ describe("Movie", () => {
   });
 });
 
+// it('should have default state', () => {
+//   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
+// });
 
-  // it('should have default state', () => {
-  //   expect(JSON.stringify(wrapper.state())).toEqual(JSON.stringify(defaultState));
-  // });
+//These two tests aren't passing. Not sure what the reason is....
 
-  //These two tests aren't passing. Not sure what the reason is....
+// it('should call handleCardClick if a Movie is hovered over', () => {
+//   const mockHandleCardClick = jest.fn();
 
-  // it('should call handleCardClick if a Movie is hovered over', () => {
-  //   const mockHandleCardClick = jest.fn();
+//   wrapper.instance().handleCardClick = mockHandleCardClick;
 
-  //   wrapper.instance().handleCardClick = mockHandleCardClick;
+//   wrapper.find('.Movie').simulate('mouseenter');
 
-  //   wrapper.find('.Movie').simulate('mouseenter');
+//   expect(mockHandleCardClick).toHaveBeenCalled();
+// });
 
-  //   expect(mockHandleCardClick).toHaveBeenCalled();
-  // });
+// it('should call handleCardClick if mouse moves off a Movie', () => {
+//   const mockHandleCardClick = jest.fn();
 
-  // it('should call handleCardClick if mouse moves off a Movie', () => {
-  //   const mockHandleCardClick = jest.fn();
+//   wrapper.instance().handleCardClick = mockHandleCardClick;
 
-  //   wrapper.instance().handleCardClick = mockHandleCardClick;
+//   wrapper.find('.Movie').simulate('mouseleave');
 
-  //   wrapper.find('.Movie').simulate('mouseleave');
-
-  //   expect(mockHandleCardClick).toHaveBeenCalled();
+//   expect(mockHandleCardClick).toHaveBeenCalled();
