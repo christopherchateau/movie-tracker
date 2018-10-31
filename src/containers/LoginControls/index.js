@@ -107,15 +107,19 @@ export class LoginControls extends Component {
   };
 
   signupUser = async () => {
-    if (!this.validateInputLength("username", 2)) {
-      return;
-    }
-    const { username, email, password } = this.state;
-    const fetchSignup = await fetch.fetchSignupUser(username, email, password);
-    if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
-      this.props.handleErrorMessage("User account already exists!");
-    } else {
-      this.updateUserDataAfterSignup(username, fetchSignup.id);
+    try {
+      if (!this.validateInputLength("username", 2)) {
+        return;
+      }
+      const { username, email, password } = this.state;
+      const fetchSignup = await fetch.fetchSignupUser(username, email, password);
+      if (fetchSignup.error && fetchSignup.error.includes("already exists")) {
+        this.props.handleErrorMessage("User account already exists!");
+      } else {
+        this.updateUserDataAfterSignup(username, fetchSignup.id);
+      }
+    } catch(error) {
+        this.props.handleErrorMessage("Sign up failed");
     }
   };
 

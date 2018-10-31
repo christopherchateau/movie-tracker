@@ -10,6 +10,7 @@ import {
   setErrorMessage,
   toggleFavorite
 } from "../../../actions";
+import * as Mocks from './mocks'
 
 jest.mock('../../../utilities/fetch.js')
 
@@ -232,17 +233,6 @@ describe("LoginControls", () => {
       />
     );
 
-    const mockUserLoginResponse = {
-      data: {
-        email: "bigLebow@yahoo.com",
-        id: 1,
-        name: "Taylor",
-        password: "password"
-      },
-      message: "Retrieved ONE User",
-      status: "success"
-    };
-
     it('should call fetchLoginUser with the correct params', async () => { 
       let mockEmail = 'bigLo@gmail.com'
       let mockPassword = 'password'
@@ -252,14 +242,14 @@ describe("LoginControls", () => {
         password: mockPassword,
       })
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserLoginResponse))
 
       wrapper.instance().loginUser();
       expect(fetch.fetchLoginUser).toHaveBeenCalledWith( mockEmail, mockPassword)
     })
 
     it('should call updateUserDataAfterLogin', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserLoginResponse))
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserLoginResponse))
 
       wrapper.instance().updateUserDataAfterLogin = jest.fn()
 
@@ -290,22 +280,15 @@ describe("LoginControls", () => {
       />
     );
 
-    let mockUserData = {
-      data: {
-        name: 'Taylor',
-        id: 7
-      }
-    }
-
     it('should call saveUserData with the correct params', async () => {
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
      
-      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(mockUserData.data.name, mockUserData.data.id)
+      expect(wrapper.props().saveUserData).toHaveBeenCalledWith(Mocks.mockUserData.data.name, Mocks.mockUserData.data.id)
     })
 
 
     it('should call handleLogin with the correct params', () => {
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
 
       expect(wrapper.props().handleLogin).toHaveBeenCalledWith(true);
     })
@@ -313,13 +296,14 @@ describe("LoginControls", () => {
     it('should call getUserFavorites with the correct params', () => {
       wrapper.instance().getUserFavorites = jest.fn()
 
-      wrapper.instance().updateUserDataAfterLogin(mockUserData);
+      wrapper.instance().updateUserDataAfterLogin(Mocks.mockUserData);
      
-      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(mockUserData.data.id)
+      expect(wrapper.instance().getUserFavorites).toHaveBeenCalledWith(Mocks.mockUserData.data.id)
     })
   })
   
   describe('getUserFavorites', () => {
+    const mockUserId = 3
     let wrapper = mount(
       <LoginControls
         loggedIn={false}
@@ -334,7 +318,6 @@ describe("LoginControls", () => {
     );
 
     it('should call retrieveUserFavorites with the correct params', () => {
-      const mockUserId = 3
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         ok: true
       }))
@@ -344,104 +327,55 @@ describe("LoginControls", () => {
       expect(fetch.retrieveUserFavorites).toHaveBeenCalledWith(mockUserId)
     })
 
-    it('should call handleFavoriteToggle with the correct params for each favorite', async () => {
-      const mockMovies = [
-        {
-          title: "The Big Lebowski",
-          date: "1998-03-06",
-          poster:
-            "https://image.tmdb.org/t/p/w600_and_h900_bestv2/aHaVjVoXeNanfwUwQ92SG7tosFM.jpg",
-          overview:
-            'Jeffrey "The Dude" Lebowski, a Los Angeles slacker who only wants to bowl and drink white Russians, is mistaken for another Jeffrey Lebowski, a wheelchair-bound millionaire, and finds himself dragged into a strange series of events involving nihilists, adult film producers, ferrets, errant toes, and large sums of money.',
-          voteAverage: 7.9,
-          id: 115,
-          favorited: false
-        }
-      ]
-
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockMovies))
-      
-      await wrapper.instance().getUserFavorites()
-
-      expect(wrapper.props().handleFavoriteToggle).toHaveBeenCalled()
-
-    })
-
     it('should call handleErrorMessage with the correct params', async () => {
       window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'error'}))
 
-      await wrapper.instance().loginUser();
+      await wrapper.instance().getUserFavorites(mockUserId);
       expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("Favorites error");
-
     })
   });
 
-  // describe('signupUser', () => {
+  describe('signupUser', () => {
 
-  //   let wrapper = mount(
-  //     <LoginControls
-  //       loggedIn={false}
-  //       userId={7}
-  //       errorMessage={'error'}
-  //       handleLogin={jest.fn()}
-  //       saveUserData={jest.fn()}
-  //       location={{ pathname: "" }}
-  //       handleErrorMessage={jest.fn()}
-  //       handleFavoriteToggle={jest.fn()}
-  //     />
-  //   );
+    let wrapper = mount(<LoginControls
+      loggedIn={false}
+      userId={7}
+      errorMessage={'error'}
+      handleLogin={jest.fn()}
+      saveUserData={jest.fn()}
+      location={{ pathname: "" }}
+      handleErrorMessage={jest.fn()}
+      handleFavoriteToggle={jest.fn()}
+    />
+  );
 
-  //   let mockUserSignUpResponse = {
-  //     status: "success",
-  //     data: {},
-  //     message: "New user created",
-  //     id: 9
-  //   }
+    it('should return if a username is 2 or less letters in length', () => {
+      wrapper.setState({userName: 'Jo'})
+      fetch.fetchSignupUser = jest.fn()
 
-  //   it('should return if a username is 2 or less letters in length', () => {
-  //     wrapper.setState({userName: 'Jo'})
+      wrapper.instance().signupUser();
 
-  //     wrapper.instance().signupUser();
+      expect(fetch.fetchSignupUser).not.toHaveBeenCalled()
+    })
 
-  //     expect(fetch.fetchSignupUser).not.toHaveBeenCalled()
-  //   })
+    it('should call fetchSignupUser with the correct params', async () => { 
+      let mockEmail = 'bigLo@gmail.com'
+      let mockPassword = 'password'
+      let mockUsername = 'Taylor'
 
-  //   it('should call fetchSignupUser with the correct params', async () => { 
-  //     let mockEmail = 'bigLo@gmail.com'
-  //     let mockPassword = 'password'
-  //     let mockUsername = 'Taylor'
+      wrapper.setState({
+        email: mockEmail,
+        password: mockPassword,
+        username: mockUsername
+      })
 
-  //     wrapper.setState({
-  //       email: mockEmail,
-  //       password: mockPassword,
-  //       username: mockUsername
-  //     })
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(Mocks.mockUserSignUpResponse))
 
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
+      wrapper.instance().signupUser();
 
-  //     wrapper.instance().signupUser();
-
-  //     expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
-  //   })
-
-  //   it('should call handleErrorMessage if there is an error', async () => {
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.reject({error: 'already exists'}))
-
-  //     await wrapper.instance().signupUser();
-
-  //     expect(wrapper.props().handleErrorMessage).toHaveBeenCalledWith("User account already exists!");
-
-  //   })
-
-  //   it('should call updateUserDataAfterSignup if there is not an error', async () => {
-  //     window.fetch = jest.fn().mockImplementation(() => Promise.resolve(mockUserSignUpResponse))
-
-  //     wrapper.instance().updateUserDataAfterSignup = jest.fn()
-
-  //     await wrapper.instance().signupUser();
-  //     expect(wrapper.instance().updateUserDataAfterSignup).toHaveBeenCalled();
-  //   })
-  // })
+      expect(fetch.fetchSignupUser).toHaveBeenCalledWith(mockUsername, mockEmail, mockPassword)
+    })
+  })
 
   describe('updateUserDataAfterSignup', () => {
     let wrapper = mount(
