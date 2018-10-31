@@ -448,7 +448,7 @@ ReactWrapper {
           "_debugOwner": [Circular],
           "_debugSource": Object {
             "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-            "lineNumber": 83,
+            "lineNumber": 78,
           },
           "actualDuration": 0,
           "actualStartTime": -1,
@@ -459,7 +459,7 @@ ReactWrapper {
             "_debugOwner": [Circular],
             "_debugSource": Object {
               "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-              "lineNumber": 59,
+              "lineNumber": 57,
             },
             "actualDuration": 0,
             "actualStartTime": -1,
@@ -470,7 +470,7 @@ ReactWrapper {
               "_debugOwner": [Circular],
               "_debugSource": Object {
                 "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-                "lineNumber": 60,
+                "lineNumber": 58,
               },
               "actualDuration": 0,
               "actualStartTime": -1,
@@ -502,7 +502,7 @@ ReactWrapper {
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
                   "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-                  "lineNumber": 61,
+                  "lineNumber": 59,
                 },
                 "actualDuration": 0,
                 "actualStartTime": -1,
@@ -1701,7 +1701,7 @@ ReactWrapper {
             "_debugOwner": [Circular],
             "_debugSource": Object {
               "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-              "lineNumber": 83,
+              "lineNumber": 78,
             },
             "actualDuration": 0,
             "actualStartTime": -1,
@@ -1712,7 +1712,7 @@ ReactWrapper {
               "_debugOwner": [Circular],
               "_debugSource": Object {
                 "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-                "lineNumber": 59,
+                "lineNumber": 57,
               },
               "actualDuration": 0,
               "actualStartTime": -1,
@@ -1723,7 +1723,7 @@ ReactWrapper {
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
                   "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-                  "lineNumber": 60,
+                  "lineNumber": 58,
                 },
                 "actualDuration": 0,
                 "actualStartTime": -1,
@@ -1755,7 +1755,7 @@ ReactWrapper {
                   "_debugOwner": [Circular],
                   "_debugSource": Object {
                     "fileName": "/Users/christopherchateau/Desktop/turing/3/projects/movie-tracker/front-end/src/containers/Movie/index.js",
-                    "lineNumber": 61,
+                    "lineNumber": 59,
                   },
                   "actualDuration": 0,
                   "actualStartTime": -1,

@@ -8,6 +8,7 @@ import "./MovieContainer.css";
 
 export const MovieContainer = props => {
   let moviesToDisplay = [...props.movies];
+
   if (props.showFavorites) {
     moviesToDisplay = moviesToDisplay.filter(movie => movie.favorited);
   }

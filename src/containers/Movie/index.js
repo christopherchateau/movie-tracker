@@ -18,7 +18,8 @@ export class Movie extends Component {
       favorited,
       id,
       handleToggleFavorite,
-      handleErrorMessage
+      handleErrorMessage,
+      currentUser
     } = this.props;
     if (!this.verifyUserIsLoggedIn()) {
       handleErrorMessage("Please log in or sign up to select favorites");
@@ -31,7 +32,7 @@ export class Movie extends Component {
         fetch.fetchAddFavorite(this.props);
       } catch (error) {}
     } else {
-      fetch.removeFavorite(this.props.currentUser.id, id);
+      fetch.removeFavorite(currentUser.id, id);
     }
   };
 
@@ -47,12 +48,9 @@ export class Movie extends Component {
   render() {
     let { title, overview, date, poster, favorited } = this.props;
     let cardContents;
-
-    let year = "/" + date.split("-")[0];
-    date = date
-      .split("-")
-      .slice(1)
-      .join("/");
+    let day = parseInt(date.split("-")[2]);
+    let month = parseInt(date.split("-")[1]);
+    let year = date.split("-")[0];
 
     if (!this.state.isHovered) {
       cardContents = (
@@ -70,10 +68,7 @@ export class Movie extends Component {
               onClick={this.handleClickFavorite}
             />
             <h1 className="movie-title">{title}</h1>
-            <p className="movie-date">
-              {date}
-              {year}
-            </p>
+            <p className="movie-date">{`${month}/${day}/${year}`}</p>
             <p className="movie-overview">{overview}</p>
           </article>
         </div>
